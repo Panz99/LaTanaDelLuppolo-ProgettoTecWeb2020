@@ -1,0 +1,13 @@
+____
+	\- index	(info azienda)
+	|- home		(riassunto/info fondamentali birre/utenti/azienda)
+	|- categories	(lista/categorie prodotti, visualizzare categoria selezionata in stessa pagina/pagina diversa (?) )
+	|- results (carica risultati ricerca effettuata in pagina precedente)
+	|- account	(info utente pubbliche/private (?) )
+	|		\- settings (impostazioni account/dati ordinazione)
+	|		|- orders	(lista e impostazioni ordini)
+	|
+	|- stats (paginetta con info aggiuntive tipo birre più vendute (?) )
+	
+			
+		
