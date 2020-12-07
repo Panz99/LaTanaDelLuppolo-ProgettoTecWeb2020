@@ -19,7 +19,8 @@ DROP TABLE IF EXISTS birre;
 CREATE TABLE IF NOT EXISTS birre (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(64) NOT NULL,
-  tipo set('Pils','Bock','Weizen','Saison','Blanche','Tripel','Lambic','Bitter','Barley_Wine','Stout','American_IPA','American_Pale_Ale','Imperial_Stout') NOT NULL,
+  img_path varchar(255) DEFAULT 'img/beer_img.jpg',
+  tipo set('Pils','Bock','Weizen','Saison','Blanche','Tripel','Lambic','Bitter','Golden_Ale','Stout','American_IPA','American_Pale_Ale','Fruit_Beer') NOT NULL,
   grado float UNSIGNED NOT NULL,
   descrizione text DEFAULT NULL,
   costo float NOT NULL,
@@ -81,11 +82,11 @@ INSERT INTO utenti (id, username, password, nome, cognome, data_nascita) VALUES
 (1, 'admin', 'admin', NULL, NULL, NULL),
 (2, 'giacomo', 'sassaro', 'Giacomo', 'Sassaro', '1999-05-17');
 
-INSERT INTO birre (id, nome, tipo, grado, descrizione, costo) VALUES
-(1, 'Nastro Azzurro', 'Pils', 5.1, 'La Nastro Azzurro è una birra premium pilsner italiana prodotta a partire dagli anni sessanta dal birrificio Peroni di Roma', 3),
-(2, 'Heineken', 'Pils', 4.1, 'La birra Heineken è una birra molto bevuta e venduta in Italia e in tutto il mondo.Siamo di fronte ad una lager assolutamente monodimensionale nel suo proporsi: il luppolo ed il malto sono piuttosto deboli ma fortunatamente l\'alcol non è fastidioso e tende a venir fuori solo sulla distanza. In bocca la punta d\'amaro può non piacere (basta abbassarne la temperatura di servizio) ma è sicuramente il suo, unico, tratto distintivo.', 3.5),
-(3, 'Birra Moretti', 'Pils', 3.1, 'Birra Moretti è il nome di una birra italiana. L\'azienda produttrice fu fondata nel 1859 a Udine da Luigi Moretti; nel 1996 è stata venduta alla società olandese Heineken che ne detiene il marchio. La Birra Moretti è una delle birre più vendute in Italia ed è discretamente famosa anche all\'estero.', 2),
-(4, 'Guinness', 'Stout', 4.2, 'La Guinness è una birra di tipo stout prodotta dalla Arthur Guinness Son & Co., una fabbrica di birra irlandese fondata a Dublino nel 1759 da Arthur Guinness nella celebre St. James\'s Gate Brewery', 5.5);
+INSERT INTO birre (id, nome, img_path, tipo, grado, descrizione, costo) VALUES
+(1, 'Open Baladin Gold', 'img/open_baladin_gold.png','American_Pale_Ale', 7.5, 'Una birra dal carattere forte e accattivante. Open Gold è anche un grande progetto di cultura e condivisione birraria essendo la prima “open source” d’Italia, avendone pubblicato la ricetta online per gli homebrewer. Di colore oro carico, si propone con una schiuma cremosa e compatta. Al naso si ritrova l’agrumato dei luppoli americani. In bocca sono evidenti gli spunti agrumati di pompelmo che ben si accompagna al piacevole aroma amarognolo del luppolo.', 3.8),
+(2, 'Nazionale', 'img/nazionale.png', 'Golden_Ale', 6.5, 'La prima birra 100% italiana, ottenuta da materie prime nazionali.\nBirra volutamente semplice: acqua, malto d’orzo, luppolo, lievito e due spezie italiane (bergamotto e coriandolo), che si incontrano con armonia e originalità.\nUna birra che suggerirà abbinamenti più o meno arditi ma che rappresenta “in primis” una tappa fondamentale nella produzione italiana della birra artigianale.', 4.1),
+(3, 'Suzy Dry', 'img/suzy_dry.png','Fruit_Beer', 6.5, 'Birra alla prugna. Al naso ha note delicate e fresche di uva fragola e fiori bianchi. In bocca si sovrappongono aromi leggermente vinosi e morbidi sentori di prugna, sostenuti da una gradevole quanto blanda acidità che rende la birra beverina, rendendo la gradazione alcolica difficilmente riconoscibile. Il finale chiude sulla freschezza delle note pepate che ben si armonizzano con la delicatezza dei cereali utilizzati per produrla.', 13.9),
+(4, 'Isaac', 'img/isaac.png', 'Blanche', 5, 'Dal bicchiere ti invitano la sua schiuma pannosa, il colore volutamente torbido e leggero di albicocca e un profumo di lievito ed agrumi che vanno a perdersi in armonie speziate di coriandolo e arance sbucciate.\nÈ ideale per un aperitivo e si accompagna a cibi freschi, ad antipasti leggeri di verdure e molto bene anche con il pesce.\nFresca al palato ha corpo leggero ed è molto beverina.', 4.1);
 
 INSERT INTO ordini (id, utente, data, totale) VALUES
 (1, 2, '2020-12-01', 15),

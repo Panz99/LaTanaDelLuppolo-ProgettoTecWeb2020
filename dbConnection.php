@@ -14,7 +14,7 @@ class DBAccess
             throw new Exception("Err: Connessione al database fallita");
     }
     public function getListaBirre() {
-        $querySelect = "SELECT * FROM birre ORDER BY ID";
+        $querySelect = "SELECT * FROM birre";
         $queryResult = mysqli_query($this->connection, $querySelect);
         if(mysqli_num_rows($queryResult)==0)
             throw new Exception("Err: Risultato nullo");
@@ -22,7 +22,9 @@ class DBAccess
         $listaBirre = array();
         while($riga = mysqli_fetch_assoc($queryResult)){
             $birra = array(
+                "id"=>$riga['id'],
                 "nome" => $riga['nome'],
+                "img_path" => $riga['img_path'],
                 "tipo" => $riga['tipo'],
                 "grado" => $riga['grado'],
                 "descrizione" => $riga['descrizione'],
