@@ -13,6 +13,9 @@ class DBAccess
         if(mysqli_connect_errno($this->connection))
             throw new Exception("Err: Connessione al database fallita");
     }
+    public function closeDBConnection(){
+        mysqli_close($this->connection);
+    }
     public function getListaBirre() {
         $querySelect = "SELECT * FROM birre";
         $queryResult = mysqli_query($this->connection, $querySelect);
@@ -33,6 +36,12 @@ class DBAccess
             array_push($listaBirre, $birra);
         }
         return $listaBirre;
+    }
+    public function getNumBirre(){
+        $querySelect = "SELECT COUNT(*) FROM birre";
+        $queryResult = mysqli_query($this->connection, $querySelect);
+        $response = mysqli_fetch_row($queryResult);
+        return $response[0];
     }
 }
 ?>
