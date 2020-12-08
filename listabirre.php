@@ -16,13 +16,14 @@ try {
     //foreach ($listaBirre as $birra) {
     for($i=$start; $i<$end && isset($listaBirre[$i]); $i++){
         $birra=$listaBirre[$i];
-        $htmlListaBirre .= '<div class="prodotto" onclick="window.location=\'dettagli.php?id='.$birra['id'].'\';"><h2>' . $birra['nome'] . '</h2>';     
+        $htmlListaBirre .= '<a class="link_prodotto" href="dettagli.php?id='.$birra['id'].'">';
+        $htmlListaBirre .= '<div class="prodotto"><h2>' . $birra['nome'] . '</h2>';     
         $htmlListaBirre .= '<img class="img_prodotto" src="'.$birra['img_path'].'"/>';
-        $htmlListaBirre .= '<p class="dettagli"><span>' . $birra['tipo'] . ' | </span>'; 
+        $htmlListaBirre .= '<p class="dettagli"><span>' . str_replace('_', ' ', $birra['tipo']) . ' | </span>'; 
         $htmlListaBirre .= '<span>Costo: ' . $birra['costo'] . ' | ' . '</span>';   
         $htmlListaBirre .= '<span>Grado: ' . $birra['grado'] . '</span></p></div>';
     }
-    $htmlListaBirre .= '</div>';
+    $htmlListaBirre .= '</div></a>';
     echo $htmlListaBirre;
     //$paginaHTML = file_get_contents('index.html');
     //echo str_replace("<listabirre/>", $htmlListaBirre, $paginaHTML);
