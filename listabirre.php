@@ -18,10 +18,10 @@ try {
         $birra=$listaBirre[$i];
         $htmlListaBirre .= '<a class="link_prodotto" href="dettagli.php?id='.$birra['id'].'">';
         $htmlListaBirre .= '<div class="prodotto"><h2>' . $birra['nome'] . '</h2>';     
-        $htmlListaBirre .= '<img class="img_prodotto" src="'.$birra['img_path'].'"/>';
-        $htmlListaBirre .= '<p class="dettagli"><span>' . str_replace('_', ' ', $birra['tipo']) . ' | </span>'; 
-        $htmlListaBirre .= '<span>Costo: ' . $birra['costo'] . ' | ' . '</span>';   
-        $htmlListaBirre .= '<span>Grado: ' . $birra['grado'] . '</span></p></div>';
+        $htmlListaBirre .= '<div class="contenuto_prodotto"><img class="img_prodotto" src="'.$birra['img_path'].'"/>';
+        $htmlListaBirre .= '<dl class="dettagli_prodotto"><dt>' . str_replace('_', ' ', $birra['tipo']) . ' </dt>'; 
+        $htmlListaBirre .= '<dt>Costo:</dt><dd> ' . $birra['costo'] . '€' . '</dd>';   
+        $htmlListaBirre .= '<dt>Grado:</dt><dd> ' . $birra['grado'] . '°</dd></dl></div></div>';
     }
     $htmlListaBirre .= '</div></a>';
     echo $htmlListaBirre;
