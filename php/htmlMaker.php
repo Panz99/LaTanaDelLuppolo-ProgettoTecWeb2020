@@ -1,6 +1,12 @@
 <?php
 class htmlMaker{
 
+    public static function makeHead($title = "La tana del Luppolo"){
+        $html = file_get_contents('../html/components/head.html');
+        $html = str_replace("<title/>", "<title>".$title."</title>", $html);
+        return $html;
+
+    }
     public static function listBeers($beers){
         $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>";
         if($beers){
