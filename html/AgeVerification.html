@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>La Tana del Luppolo</title>
+        <meta name="description" content="Sito realizzato come progetto di Tecnologie Web per dimostrare competenze acquisite " /> <!-- SEO -->
+            <meta name="keywords" content="tana del luppolo, birra"/>
+            <meta name="title" content="La Tana del Luppolo" />
+            <meta name="author" content="Dream Team" />
+            <meta name="language" content="italian it" />
+            <meta property="og:restrictions:content" content="alcohol" />
+            <link rel="icon" href="img/icon.png">
+            <link rel="stylesheet" href="style/style_main.css" type="text/css" />
+            <link rel="stylesheet" type="text/css" href="style/style_mobile.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)" />
+    </head>
+    <header>
+        <div id="container_header">
+            <div id="container_logo">
+                <img id="img_logo" src="img/logo.png" alt="logo">
+                <h1 id="text_logo">La tana del Luppolo</h1>  
+            </div>
+        </div>
+    </header>
+    <body id="AgeValbody">
+        <div id="mainAV">
+            <h2 id = "AVh2">Inserisci la tua data di nascita</h2>
+
+            <p id = "AVp">Le tue informazoni non saranno condivise o salvate</h3>
+            <form id="firstForm" action="ageverification.php" method="post">
+                <div class="data">
+                	<div class="msg"></div>
+                	<div class="DataLabels">
+                		<label for="day" class="form-label">Giorno</label>
+                		<label for="month" class="form-label">Mese</label>
+                    	<label for="year" class="form-label">Anno</label>
+               		</div>
+                	<div class="DataInput">
+                		<input id="day" name="day" type="text" maxlength="2" pattern=".{2,}" placeholder="DD" required/>
+                     		<input id="month" name="month" type="text" maxlength="2" pattern=".{2,}" placeholder="MM" required/>
+                     		<input id="year" name="year" type="text" maxlength="4" pattern=".{4,}" placeholder="YYYY" required/>
+                	</div>
+
+				</div>
+                     <input class="btn" type="submit" value="Invia" />
+                 
+             </form>
+         </div>
+         <script src="main.js"></script>
+</body>
+</html>

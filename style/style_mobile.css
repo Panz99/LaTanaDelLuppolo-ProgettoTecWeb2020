@@ -1,0 +1,9 @@
+header nav ul{
+    flex-direction: column;
+}
+.link_prodotto{
+    margin: 0;
+}
+.prodotto{
+    width:400px;
+}

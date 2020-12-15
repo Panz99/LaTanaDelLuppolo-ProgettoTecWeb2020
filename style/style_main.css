@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+/*:root {
+    --primary-color: #1c1c1c;
+
+}*/
+
+/*CSS RELATIVO AI TAG*/
+body{
+    min-height: 100vh;
+    margin: 0em auto;
+    font-family: "Lato", cursive, sans-serif;
+    background-color: #aaa;
+    display: flex;
+    flex-direction: column;
+}
+
+
+nav{
+    text-align: center;
+    background-color: #222;
+    margin-bottom: 0.8em;
+}
+nav li{
+    width: 100%;
+}
+li:hover:not(.active) a{
+    background-color: #fff;
+    cursor: pointer;
+    color: #222
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 0 auto;
+    margin: auto;
+    width: 70%;
+}
+footer{
+    margin-top: 3em;
+    width:100%;
+    padding: 1em 0em;
+    flex-shrink: 0;
+
+    background-color: #222;
+    color: #fff;
+    font-size: 0.7em;
+    font-style: italic;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button, input[type=submit] {
+    margin-top: 1em;
+}
+
+form{
+    margin: 1em;
+}
+
+input[type=text]{
+    margin-top: 0.08em;
+    margin-bottom: 0.5em;
+}
+
+
+/*-------------------------------------------
+-----------CSS RELATIVO ALLE CLASSI----------
+---------------------------------------------*/
+.active{
+    cursor: default !important;
+    color:#4CAF50 !important; 
+}
+
+.link{
+    color:#fff;
+    text-decoration: none;
+    height: 100%;
+    display: inline-block;
+    width: 100%;
+}
+.link:visited{
+    color: #ff0;
+}
+.prodotto{
+    height: 300px;
+    width: 250px;
+    display:flex;
+    flex: 1;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #fff;
+    overflow: hidden;
+    
+    border: 2px solid #aaa;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+.prodotto:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    background-color: #d2fad4;
+
+}
+.link_prodotto{
+    text-decoration: none;
+    margin: 3em 1em 0em 1em;
+    color: #000;
+}
+.nome_prodotto{
+    width: 100%;
+    text-align: center;
+}
+.img_prodotto{
+    max-height: 60%;
+    
+}
+.contenuto_prodotto{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+}
+.dettagli_prodotto{
+    font-style: normal;
+    font-weight: bold;
+}
+.tipo_prodotto{
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.page{
+    width: 100%;
+}
+.page-padding{
+    padding: 0.5em 1em;
+    width: auto;
+    height: auto;
+}
+
+.greenBtn{
+    background-color: #2E8B57;
+    border: 0;
+    border-radius: 10px;
+    height: 2em;
+    width: 7.5em;
+    font-size: medium;
+}
+
+.page:hover{
+    background-color: #fff;
+    color: #222;
+    cursor: pointer;
+}
+.page.active:hover{
+    cursor: default !important;
+    color:#4CAF50 !important;
+    background-color: #222 !important; 
+}
+
+
+/*-------------------------------------------
+------------CSS RELATIVO AGLI ID-------------
+---------------------------------------------*/
+/*Header*/
+#container_header{
+    padding: 0em 3em;
+    display:flex;
+    justify-content: space-between; /*lascia spazi tra i child*/
+    align-items: center;    /*Allinea verticalmente*/
+    background-color: #222;
+}
+#container_logo{
+    display: flex;
+    text-decoration: none;
+}
+#text_logo{
+    font-size: 2.2em;
+    color: #fff;
+}
+#img_logo{
+    float: left;
+    width: 4em;
+}
+#login{
+    text-decoration: none;
+    padding:9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s, ease 0s;
+}
+#login:hover{
+    background-color: rgba(0, 136, 169, 0.8);
+}
+/*Nav*/
+#list_link{
+    width: 100%;
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0.5em 0em;
+}
+
+/*Main*/
+#breadcrumbs{
+    width: 70%;
+    height: 0.4em;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 1em 1em 0.5em 1em;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.8em 0.8em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+}
+#content{
+    margin-bottom: 2em;
+}
+/*Content prodotti.html*/
+#container_beers{
+    height:auto;
+    display: flex;
+    flex-flow: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+/*Content contatti.html*/
+#cardscontatti{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-top: 2em;
+    padding:5px;
+}
+#contacts{
+    width: 80%;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: left;
+    float: left;
+    width: 350px;
+    height: 240px;
+    margin:2em;
+}
+
+#imgboiler{
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 380px;
+    height: 270px;
+    margin:2em;
+}
+
+#imgdettagli{
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 380px;
+    height: 270px;
+}
+
+#imgside{
+    float: right;
+}
+
+/* dettagli.html */
+#divimgbirra{
+}
+
+#detailscontainer{
+    margin-top: 1.5em;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+/* Content login.html  */
+#registrationbutton{
+    margin-top: 2em;
+    text-align: center;
+}
+
+
+/*Lista pagine prodotti.html*/
+#pages{
+    text-align: center;
+}
+#list_pages{
+    padding: 0.5em 0.5em;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-flex;
+    list-style-type: none;
+    background-color: #222;
+}
+#torna_su{
+    background-color: #222;
+    text-align: center;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 7%;
+}
+/*------------------------------------------------------------------------------------------*/
+/*style del AgeValiditation*/
+#AgeValbody{
+    background-color: #222;
+}
+ #AVp {
+        font-size: 25px;
+        font-family: Helvetica Narrow, sans-serif;
+        color: #C0C0C0;
+        width: 100%;
+        margin:0 auto;
+        padding-bottom: 20px;
+    }
+
+#AVh2 {
+    font-size: 48px;
+    font-family: FS Albert Extra Bold, sans-serif;
+    color:white;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+.btn {
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+    padding:9px 25px;
+    background-color: #2E8B57;
+   border-color: #2E8B57;
+    border-radius: 50px;
+    transition: all 0.3s, ease 0s;
+    margin-top: 25px;
+}
+
+.btn:hover {
+    transition: 0.2s ease-in-out;
+    border-color: #B0C4DE;
+    background-color: #DCDCDC;
+    border-color: #708090;
+    color: #333333;
+}
+
+.btn:focus {
+    outline: 0;
+}
+.btn {
+    width: 240px;
+    padding: 7px 0;
+    font-size: 24px;
+    line-height: 1.4;
+    text-transform: none;
+}
+#day:hover, #month:hover, #year:hover{
+    transition: 0.2s ease-in-out;
+    background-color: #DCDCDC;
+    border-color: #708090;
+    color: #333333;
+ }
+#day, #month {
+    width: 110px;
+    margin: 6px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    padding: 10px 5px;
+    background-color: #FFFAFA;
+
+}
+
+
+#year {
+    width: 120px;
+    margin: 6px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    padding: 10px 5px;
+    background-color: #FFFAFA;
+}
+
+
+#mainAV{
+    text-align:center;
+    border-top: 120px solid transparent;
+    margin-bottom: 140px;
+
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.DataInput, .DataLabels{
+    display: flex;
+    flex-direction: row;
+    align-self: auto;
+}
+.DataLabels{
+    margin-bottom: 2px;
+}
+
+.form-label {
+    text-align: center;
+    font-family: Courier, monospace;
+    height: 100%;
+    font-size: 20px;
+        color: #C0C0C0;
+        width: 100%;  
+    margin-right: 80px;
+    }
+
+/* ------------------------------------------------------------------------------------------------------*/
+.material-icons {
+    font-size: 2em ;  /* Preferred icon size */
+    padding: 0.4em;
+    color: #fff;
+}
+.material-icons:hover{
+    background-color: #fff;
+    color: #000;
+    border-radius: 100%;
+    cursor:pointer;
+}
+#searchbar{
+    background-color: #222;
+    padding: 0.3em 2em;
+}
+#searchbar input{
+    width: 100%;
+    padding:0.8em;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
