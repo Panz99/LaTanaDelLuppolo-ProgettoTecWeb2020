@@ -13,6 +13,9 @@
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/contatti.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Contatti - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
+    $paginaHTML = str_replace('<a class="link" href="<root/>php/contatti.php">', '<a class="active">', $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
     
