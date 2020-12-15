@@ -13,6 +13,10 @@
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/home.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Locker - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace('<a class="link" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
+    $paginaHTML = str_replace("<footer/>", htmlMaker::make_footer(),$paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
+
     echo $paginaHTML;
 ?>

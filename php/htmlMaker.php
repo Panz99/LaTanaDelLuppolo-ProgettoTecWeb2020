@@ -50,6 +50,9 @@ class htmlMaker{
         return file_get_contents('../html/components/header.html');
         
     }
+    public static function make_footer(){
+        return file_get_contents('../html/components/footer.html');;
+    }
 }
 
 ?>
