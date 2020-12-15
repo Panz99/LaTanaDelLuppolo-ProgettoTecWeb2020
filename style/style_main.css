@@ -71,7 +71,9 @@ input[type=text]{
 ---------------------------------------------*/
 .active{
     cursor: default !important;
-    color:#4CAF50 !important; 
+    color:#4CAF50 !important;
+    pointer-event: none;
+    text-decoration: none; 
 }
 
 .link{

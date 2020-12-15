@@ -46,20 +46,9 @@ class htmlMaker{
         return $html;
     }
 
-    public static function makeHeader($var){
-        $html = file_get_contents('../html/components/header.html');
-        switch($var){
-            case "home":
-                $html=str_replace('<a class="link" href="<root/>php/home.php">','<a class="active" href="<root/>php/home.php">',$html);
-                break;
-            case "prodotti":
-                $html=str_replace('<a class="link" href="<root/>php/prodotti.php">','<a class="active" href="<root/>php/prodotti.php">',$html);
-                break;
-            case "contatti":
-                $html=str_replace('<a class="link" href="<root/>php/contatti.php">','<a class="active" href="<root/>php/contatti.php">',$html);
-                break;
-        }
-        return $html; 
+    public static function makeHeader(){
+        return file_get_contents('../html/components/header.html');
+        
     }
 }
 
