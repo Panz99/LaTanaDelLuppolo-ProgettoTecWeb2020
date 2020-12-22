@@ -28,12 +28,13 @@
         $listaBirre = DBAccess::query($querySelect);
     } catch (Exception $e) {
         //Andrebbe lanciata una pagina con gli errori
-        echo 'Caught exception: ', $e->getMessage(), "\n";
+        header('Location: notfound.php');
     }
 
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/prodotti.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Prodotti - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<keywords/>", "", $paginaHTML); 
     $paginaHTML = str_replace("<pages/>", htmlMaker::listPages($result[0], $page), $paginaHTML);
     $paginaHTML = str_replace("<listBeers/>", htmlMaker::listBeers($listaBirre), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);

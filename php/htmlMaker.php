@@ -7,6 +7,7 @@ class htmlMaker{
         return $html;
 
     }
+
     public static function listBeers($beers){
         $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>";
         if($beers){
@@ -28,6 +29,76 @@ class htmlMaker{
         return $html;
     }
 
+    public static function beerInfo($beer){
+
+        $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>"; 
+
+        if($beer){
+            $html ='<div id="detailscontainer">
+                        <div id="divimgbirra">
+                            <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '">
+                        </div>
+
+                        <div id="divdettagli">
+                            <div id="descrizionebirra">
+                                <h1><strong>'. $beer["nome"] .'</strong></h1>
+                                
+                                <dl>
+                                    <dt><b>Tipo</b></dt>
+                                    <dd>'. str_replace('_', ' ',  $beer['tipo']) . '</dd>
+                                    
+                                    <dt><b>Gradi</b></dt>
+                                    <dd>'. $beer["grado"] . '°</dd>
+
+                                    <dt><b>Costo</b></dt>
+                                    <dd>'. $beer["costo"] . '€</dd>
+                                </dl>
+
+                                <p>'. $beer["descrizione"] . '</p>
+                            </div>
+
+                            <div id="recensionisection">
+                                <h1>Recensioni</h1>
+                                <div id="recensionecreate">
+                                    <div class="recensioneuserpic">
+                                        <div class="material-icons">account_circle</div>
+                                    </div>
+                                    <div id="recensionetext">
+                                        <span class="recensioneusername">Tu</span><br>
+                                        <textarea id="recensionetextarea" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea><br>
+                                        <input type="submit" value="Invia recensione"> 
+                                    </div>
+                                </div>
+                                <reviews/>
+                            </div>
+                        </div>
+                    </div>';
+        }
+
+        return $html;
+    }
+
+    public static function beerReview($reviews){
+        $html ="";
+
+        foreach($reviews as $review)
+        {
+            $html = '
+                    <div class="recensioneitem">
+                        <div class="recensioneuserpic">
+                            <div class="material-icons">account_circle</div>
+                        </div>
+                        <div id="recensionetext">
+                            <span class="recensioneusername">'.$review["username"].'</span> ha commentato<br>
+                            <div class="recensionecontent">'.$review["descrizione"].'</div>
+                            Voto: <em>'.$review["voto"].'/10</em>
+                        </div>
+                    </div>';
+        }
+
+        return $html;
+    }
+
     public static function listPages($nBeers, $page){
         $html="";
         if($nBeers!=0){
@@ -43,6 +114,19 @@ class htmlMaker{
                 $html .= '<li class="page"><a href="prodotti.php?page='.($page+1).'" class="link page-padding">Successiva</a></li>';
             $html.='</ul>';
         }
+        return $html;
+    }
+
+    public static function makeNotfound(){
+
+        $back = $_SERVER['HTTP_REFERER'] ?? "javascript:history.go(-1)";
+        
+        $html = '
+        <div id="diverror">
+            <h2>Impossibile accedere al contenuto richiesto. </h2><br>
+            <a href="'. $back .'">Torna indietro</a>
+        </div>';
+
         return $html;
     }
 
