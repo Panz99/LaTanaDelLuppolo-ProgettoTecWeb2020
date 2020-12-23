@@ -123,7 +123,19 @@ class htmlMaker{
         
         $html = '
         <div id="diverror">
-            <h2>Impossibile accedere al contenuto richiesto. </h2><br>
+            <h2>Contenuto non trovato. </h2><br>
+            <a href="'. $back .'">Torna indietro</a>
+        </div>';
+
+        return $html;
+    }
+
+    public static function makeAccessdenied(){
+        $back = $_SERVER['HTTP_REFERER'] ?? "javascript:history.go(-1)";
+        
+        $html = '
+        <div id="diverror">
+            <h2>Non hai il permesso di visualizzare questo contenuto. </h2><br>
             <a href="'. $back .'">Torna indietro</a>
         </div>';
 
