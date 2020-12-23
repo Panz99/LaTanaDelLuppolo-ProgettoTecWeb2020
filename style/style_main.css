@@ -411,7 +411,8 @@ input[type=text]{
 }
 .dataInput{
     display: flex;
-    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
     align-self: auto;
 }
 .form-label {

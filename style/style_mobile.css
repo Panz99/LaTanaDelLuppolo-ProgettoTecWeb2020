@@ -5,5 +5,12 @@ header nav ul{
     margin: 0;
 }
 .prodotto{
-    width:400px;
+    width:100%;
+    max-width: 400px;
+}
+#AVh2{
+    font-size: 1.5em;
+}
+#AVp, .form-label{
+    font-size: 1em;
 }

@@ -50,8 +50,8 @@
     
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Locker - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", "", $paginaHTML); 
-    $paginaHTML = str_replace("<nav>", "<nav hidden>",
-                str_replace('<div id="container_icons">', '<div id="container_icons" hidden>',
+    $paginaHTML = str_replace("<nav>", "<nav hidden='hidden'>",
+                str_replace('<div id="container_icons">', '<div id="container_icons" hidden="hidden">',
                 str_replace("<header/>", htmlMaker::makeHeader(),$paginaHTML)));
     if($Errore){$paginaHTML = str_replace("<p class='msgError'>", "<p class='msgError'>".$Errore, $paginaHTML);}
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
