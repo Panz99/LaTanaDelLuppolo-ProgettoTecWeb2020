@@ -367,112 +367,60 @@ input[type=text]{
     background-color: #222;
 }
  #AVp {
-        font-size: 25px;
-        font-family: Helvetica Narrow, sans-serif;
-        color: #C0C0C0;
-        width: 100%;
-        margin:0 auto;
-        padding-bottom: 20px;
-    }
-
+    font-size: 1.5em;
+    color: #C0C0C0;
+    margin:0 auto;
+    padding-bottom: 1em;
+}
 #AVh2 {
-    font-size: 48px;
-    font-family: FS Albert Extra Bold, sans-serif;
+    font-size: 3em;
+    margin-bottom:0;
     color:white;
-    padding-bottom: 20px;
-    margin: 0 auto;
 }
 .btn {
-    transition: 0.2s ease-in-out;
-    text-decoration: none;
-    padding:9px 25px;
     background-color: #2E8B57;
-   border-color: #2E8B57;
-    border-radius: 50px;
-    transition: all 0.3s, ease 0s;
-    margin-top: 25px;
+    border-radius: 2em;
+    width: 10em;
+    font-size: 1.5em;
+    line-height: 1.4em;
 }
 
 .btn:hover {
-    transition: 0.2s ease-in-out;
-    border-color: #B0C4DE;
     background-color: #DCDCDC;
     border-color: #708090;
     color: #333333;
 }
 
-.btn:focus {
-    outline: 0;
-}
-.btn {
-    width: 240px;
-    padding: 7px 0;
-    font-size: 24px;
-    line-height: 1.4;
-    text-transform: none;
-}
-#day:hover, #month:hover, #year:hover{
-    transition: 0.2s ease-in-out;
+.inputAge:hover{
     background-color: #DCDCDC;
     border-color: #708090;
     color: #333333;
  }
-#day, #month {
+.inputAge{
     width: 110px;
     margin: 6px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-    padding: 10px 5px;
-    background-color: #FFFAFA;
-
-}
-
-
-#year {
-    width: 120px;
-    margin: 6px;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+    border-radius: 8px;
     padding: 10px 5px;
     background-color: #FFFAFA;
 }
-
-
-#mainAV{
-    text-align:center;
-    border-top: 120px solid transparent;
-    margin-bottom: 140px;
-
+#firstForm{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 .data{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    flex-flow: column wrap;
-    justify-content: center;
     align-items: center;
 }
-.DataInput, .DataLabels{
+.dataInput{
     display: flex;
     flex-direction: row;
     align-self: auto;
 }
-.DataLabels{
-    margin-bottom: 2px;
-}
-
 .form-label {
-    text-align: center;
-    font-family: Courier, monospace;
-    height: 100%;
     font-size: 20px;
-        color: #C0C0C0;
-        width: 100%;  
-    margin-right: 80px;
+    color: #C0C0C0;
     }
 
 /* ------------------------------------------------------------------------------------------------------*/

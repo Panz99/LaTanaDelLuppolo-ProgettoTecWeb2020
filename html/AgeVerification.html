@@ -3,29 +3,28 @@
     <head/>
     <header/>
     <body id="AgeValbody">
-        <div id="mainAV">
+        <main>
             <h2 id = "AVh2">Inserisci la tua data di nascita</h2>
-
-            <p id = "AVp">Le tue informazoni non saranno condivise o salvate</h3>
-            <form id="firstForm" action="ageverification.php" method="post">
-                <div class="data">
-                	<div class="msg"></div>
-                	<div class="DataLabels">
-                		<label for="day" class="form-label">Giorno</label>
-                		<label for="month" class="form-label">Mese</label>
-                    	<label for="year" class="form-label">Anno</label>
-               		</div>
-                	<div class="DataInput">
-                		<input id="day" name="day" type="text" maxlength="2" pattern=".{2,}" placeholder="DD" required/>
-                     		<input id="month" name="month" type="text" maxlength="2" pattern=".{2,}" placeholder="MM" required/>
-                     		<input id="year" name="year" type="text" maxlength="4" pattern=".{4,}" placeholder="YYYY" required/>
-                	</div>
-
-				</div>
-                     <input class="btn" type="submit" value="Invia" />
-                 
+            <p id = "AVp">Le tue informazioni non saranno condivise o salvate</h3>
+            <form id="firstForm" action="ageverification.php" method="POST">
+                <div class="dataInput">
+                    <div class="data">
+                    <label for="day" class="form-label">Giorno</label>
+                    <input class="inputAge" id="day" name="day" type="text" maxlength="2" pattern=".{2,}" placeholder="DD" required/>
+                    </div>
+                    <div class="data">
+                	<label for="month" class="form-label">Mese</label>
+                    <input class="inputAge" id="month" name="month" type="text" maxlength="2" pattern=".{2,}" placeholder="MM" required/>
+                    </div>
+                    <div class="data">
+                	<label for="year" class="form-label">Anno</label>
+                    <input class="inputAge" id="year" name="year" type="text" maxlength="4" pattern=".{4,}" placeholder="YYYY" required/>
+                    </div>
+                </div>
+                <div class="msg"></div>
+                <input class="btn" type="submit" value="Invia" /> 
              </form>
-         </div>
-         <footer/>
+        </main>
+        <footer/>
     </body>
 </html>

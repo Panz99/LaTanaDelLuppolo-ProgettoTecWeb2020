@@ -1,8 +1,26 @@
 <?php
     require_once 'htmlMaker.php';
     session_start();
-    if(isset($_POST['year']) && $_POST['year'] == 2010)
-        $_SESSION['adult'] = true;
+    if(isset($_POST['year']) && isset($_POST['month']) && isset($_POST['day'])){
+        $YearI = $_POST['year'];
+        $MonthI = $_POST['month'];
+        $DayI = $_POST['day'];
+        $YearToday = date('Y');
+        $MonthToday = date('m');
+        $DayToday = date('d');
+        if(($YearToday-$YearI) > 18){
+            $_SESSION['adult']=true;
+        }else if(($YearToday-$YearI) == 18){
+            if($MonthI < $MonthToday){
+                $_SESSION['adult']=true;
+            }else if($MonthI == $MonthToday){
+                if($DayI <= $DayToday){
+                    $_SESSION['adult']=true;
+                }
+            }
+        }
+    }
+
     if(isset($_SESSION['adult']) && $_SESSION['adult'])
         header('Location: home.php');
         
