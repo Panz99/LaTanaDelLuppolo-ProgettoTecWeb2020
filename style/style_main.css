@@ -363,32 +363,28 @@ input[type=text]{
 }
 /*------------------------------------------------------------------------------------------*/
 /*style del AgeValiditation*/
-#AgeValbody{
-    background-color: #222;
-}
  #AVp {
     font-size: 1.5em;
-    color: #C0C0C0;
     margin:0 auto;
     padding-bottom: 1em;
 }
 #AVh2 {
     font-size: 3em;
     margin-bottom:0;
-    color:white;
 }
 .btn {
-    background-color: #2E8B57;
-    border-radius: 2em;
-    width: 10em;
+    border-style:solid;
+    background-color: #222;
+    border-color: #fff;
+    color: #fff;
     font-size: 1.5em;
-    line-height: 1.4em;
+    padding: 0.5em 1.5em;
 }
 
 .btn:hover {
-    background-color: #DCDCDC;
-    border-color: #708090;
-    color: #333333;
+    background-color: #fff;
+    border-color: #222;
+    color: #222;
 }
 
 .inputAge:hover{
@@ -397,10 +393,10 @@ input[type=text]{
     color: #333333;
  }
 .inputAge{
-    width: 110px;
-    margin: 6px;
-    border-radius: 8px;
-    padding: 10px 5px;
+
+    width: 8em;
+    margin: 1em;
+    padding: 1em 0.5em;
     background-color: #FFFAFA;
 }
 #firstForm{
@@ -419,9 +415,13 @@ input[type=text]{
     align-self: auto;
 }
 .form-label {
-    font-size: 20px;
-    color: #C0C0C0;
-    }
+    font-size: 1.5em;
+}
+.msgError{
+    color: #840000;
+    font-size: 1.1em;
+    font-weight: bold;
+}
 
 /* ------------------------------------------------------------------------------------------------------*/
 .material-icons {

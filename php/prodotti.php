@@ -29,9 +29,7 @@
         if(!$listaBirre)
             throw new Exception("Nessun prodotto trovato");
     } catch (Exception $e) {
-        //Andrebbe lanciata una pagina con gli errori
-        echo $e;
-        //header('Location: notfound.php');
+        header('Location: notfound.php');
     }
 
     //Costruisco pagina

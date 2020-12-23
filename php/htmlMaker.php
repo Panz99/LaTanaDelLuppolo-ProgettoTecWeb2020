@@ -15,16 +15,14 @@ class htmlMaker{
             foreach($beers as $birra){
                 $html .= '<a class="link_prodotto" href="dettagli.php?id='.$birra['id'].'">';
                 $html .= '<div class="prodotto">';
-                $html .= '<h2 class="nome_prodotto">' . $birra['nome'] .'</h2>';     
-                //$html .= '<div class="contenuto_prodotto">';
-                $html .= '<img class="img_prodotto" src="<root/>'.$birra['img_path'].'"/>';
+                $html .= '<h2 class="nome_prodotto">' . $birra['nome'] .'</h2>'; 
+                $html .= '<img class="img_prodotto" alt="bottiglia di birra" src="<root/>'.$birra['img_path'].'"/>';
                 $html .= '<dl class="dettagli_prodotto">'; 
                 $html .= '<dt>Costo:</dt><dd> ' . $birra['costo'] . '€' . '</dd>';   
                 $html .= '<dt>Grado:</dt><dd> ' . $birra['grado'] . '°</dd></dl>';
-                $html .= '<p class="tipo_prodotto">Stile: ' . str_replace('_', ' ',  $birra['tipo']) . ' </p></div>';
-                //$html .= '</div>';
+                $html .= '<p class="tipo_prodotto">Stile: ' . str_replace('_', ' ',  $birra['tipo']) . ' </p></div></a>';
             }
-            $html .= '</a></div>';
+            $html .= '</div>';
         }
         return $html;
     }
