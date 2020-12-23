@@ -22,15 +22,16 @@
     }
 
     try {
-        $querySelect = ($term) ? "SELECT COUNT(*) FROM birre WHERE nome like '$term'" : "SELECT COUNT(*) FROM birre";
+        $querySelect = ($term) ? "SELECT COUNT(*) FROM birre WHERE lower(nome) LIKE '%".strtolower($term)."%' OR lower(tipo) LIKE '%".strtolower($term)."%'" : "SELECT COUNT(*) FROM birre";
         $result = DBAccess::query($querySelect, true);
-        $querySelect = ($term) ? "SELECT * FROM birre WHERE nome like '$term' LIMIT $start, 8" : "SELECT * FROM birre LIMIT $start, 8";
+        $querySelect = ($term) ? "SELECT * FROM birre WHERE lower(nome) LIKE '%".strtolower($term)."%' OR lower(tipo) LIKE '%".strtolower($term)."%' LIMIT $start, 8" : "SELECT * FROM birre LIMIT $start, 8";
         $listaBirre = DBAccess::query($querySelect);
         if(!$listaBirre)
             throw new Exception("Nessun prodotto trovato");
     } catch (Exception $e) {
         //Andrebbe lanciata una pagina con gli errori
-        header('Location: notfound.php');
+        echo $e;
+        //header('Location: notfound.php');
     }
 
     //Costruisco pagina
