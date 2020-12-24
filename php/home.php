@@ -15,7 +15,8 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Home - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", homepage", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
-    $paginaHTML = str_replace('<a class="link" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
+    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
+    $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
 

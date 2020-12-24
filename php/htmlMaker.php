@@ -11,18 +11,16 @@ class htmlMaker{
     public static function listBeers($beers){
         $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>";
         if($beers){
-            $html = '<div id="container_beers">';
+            $html = '';
             foreach($beers as $birra){
-                $html .= '<a class="link_prodotto" href="dettagli.php?id='.$birra['id'].'">';
                 $html .= '<div class="prodotto">';
-                $html .= '<h2 class="nome_prodotto">' . $birra['nome'] .'</h2>'; 
+                $html .= '<a class="link nome_prodotto" href="dettagli.php?id='.$birra['id'].'"><h2>' . $birra['nome'] .'</h2></a>'; 
                 $html .= '<img class="img_prodotto" alt="bottiglia di birra" src="<root/>'.$birra['img_path'].'"/>';
                 $html .= '<dl class="dettagli_prodotto">'; 
                 $html .= '<dt>Costo:</dt><dd> ' . $birra['costo'] . '€' . '</dd>';   
                 $html .= '<dt>Grado:</dt><dd> ' . $birra['grado'] . '°</dd></dl>';
-                $html .= '<p class="tipo_prodotto">Stile: ' . str_replace('_', ' ',  $birra['tipo']) . ' </p></div></a>';
+                $html .= '<p class="tipo_prodotto">Stile: ' . str_replace('_', ' ',  $birra['tipo']) . ' </p></div>';
             }
-            $html .= '</div>';
         }
         return $html;
     }
@@ -104,12 +102,12 @@ class htmlMaker{
             //Creo la parte di pagina HTML con elenco delle birre
             $html = '<ul id="list_pages">';
             if($page>1)
-                $html .= '<li class="page"><a href="prodotti.php?page='.($page-1).'" class="link page-padding">Precedente</a></li>';
+                $html .= '<li><a href="prodotti.php?page='.($page-1).'" class="link page-padding fillParent">Precedente</a></li>';
             for($i=1; $i<=$n_pagine; $i++){
-                $html .= '<li class="page"><a href="prodotti.php?page='.$i.'" class="link page-padding">'.$i.'</a></li>';
+                $html .= '<li><a href="prodotti.php?page='.$i.'" class="link page-padding fillParent">'.$i.'</a></li>';
             }
             if($page<$n_pagine)
-                $html .= '<li class="page"><a href="prodotti.php?page='.($page+1).'" class="link page-padding">Successiva</a></li>';
+                $html .= '<li><a href="prodotti.php?page='.($page+1).'" class="link page-padding fillParent">Successiva</a></li>';
             $html.='</ul>';
         }
         return $html;
@@ -146,6 +144,11 @@ class htmlMaker{
     }
     public static function makeFooter(){
         return file_get_contents('../html/components/footer.html');;
+    }
+    public static function makeTornaSu(){
+        return  '<div class="containerTornaSu">
+                    <a class="link tornaSu" href="#">Torna su</a>
+                </div>';
     }
 }
 

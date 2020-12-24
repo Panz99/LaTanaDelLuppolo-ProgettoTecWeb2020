@@ -72,44 +72,38 @@ input[type=text]{
 .active{
     cursor: default !important;
     color:#4CAF50 !important;
-    pointer-event: none;
     text-decoration: none; 
 }
 
 .link{
     color:#fff;
-    text-decoration: none;
+    background-color: #222;
+}
+.link:visited{
+    color: #ff0;
+    background-color: #222;
+}
+.link:hover{
+    color: #222;
+    background-color: #fff;
+}
+.fillParent{
     height: 100%;
     display: inline-block;
     width: 100%;
 }
-.link:visited{
-    color: #ff0;
-}
+
 .prodotto{
     height: 300px;
     width: 250px;
     display:flex;
-    flex: 1;
+    margin: 3em 1em 0em 1em;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: #fff;
-    overflow: hidden;
-    
-    border: 2px solid #aaa;
-    border-radius: 10px; 
-    cursor: pointer;
+    color: #fff;
+    background-color: #222;
 }
-.prodotto:hover{
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    background-color: #d2fad4;
 
-}
-.link_prodotto{
-    text-decoration: none;
-    margin: 3em 1em 0em 1em;
-    color: #000;
-}
 .nome_prodotto{
     width: 100%;
     text-align: center;
@@ -136,9 +130,6 @@ input[type=text]{
     text-align: center;
 }
 
-.page{
-    width: 100%;
-}
 .page-padding{
     padding: 0.5em 1em;
     width: auto;
@@ -251,7 +242,7 @@ input[type=text]{
 }
 /*Content prodotti.html*/
 #container_beers{
-    height:auto;
+    margin-bottom: 2em;
     display: flex;
     flex-flow: wrap;
     align-content: flex-start;
@@ -339,27 +330,21 @@ input[type=text]{
 
 
 /*Lista pagine prodotti.html*/
-#pages{
-    text-align: center;
-}
 #list_pages{
     padding: 0.5em 0.5em;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.3em;
     display: inline-flex;
     list-style-type: none;
     background-color: #222;
 }
-#torna_su{
-    background-color: #222;
+.containerTornaSu{
     text-align: center;
-    border-radius: 10%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     margin: auto;
-    width: 7%;
+}
+.tornaSu{
+    font-weight: bold;
+    padding: 0.5em 0.5em;
 }
 /*------------------------------------------------------------------------------------------*/
 /*style del AgeValiditation*/
@@ -381,7 +366,7 @@ input[type=text]{
     padding: 0.5em 1.5em;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
     background-color: #fff;
     border-color: #222;
     color: #222;
@@ -392,8 +377,7 @@ input[type=text]{
     border-color: #708090;
     color: #333333;
  }
-.inputAge{
-
+.inputAge{                                  
     width: 8em;
     margin: 1em;
     padding: 1em 0.5em;
@@ -422,6 +406,8 @@ input[type=text]{
     color: #840000;
     font-size: 1.1em;
     font-weight: bold;
+    padding-left: 0;       
+    margin-left: 0;
 }
 
 /* ------------------------------------------------------------------------------------------------------*/

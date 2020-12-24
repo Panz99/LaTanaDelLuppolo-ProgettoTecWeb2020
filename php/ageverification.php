@@ -5,13 +5,13 @@
     function validateDate($year, $month, $day){
         $error="";
         if($year<1900 || $year>date('Y'))
-            $error.="<span>L'anno deve essere un intero compreso tra 1900 e ".date('Y')."</span><br/>";
+            $error.="<li>L'anno deve essere un intero compreso tra 1900 e ".date('Y')."</li>";
         if($month<1 || $month>12)
-            $error.="<span>Il mese deve essere un intero compreso tra 1 e 12</span><br/>";
+            $error.="<li>Il mese deve essere un intero compreso tra 1 e 12</li>";
         if($day<1 || $day >31)
-            $error.="<span>Il giorno deve essere un intero tra 1 e 31</span><br/>";
+            $error.="<li>Il giorno deve essere un intero tra 1 e 31</li>";
         if(!checkdate($month, $day, $year))
-            $error.="<span>La data non è valida</span><br/>";
+            $error.="<li>La data non è valida</li>";
         return $error;
     };
     
@@ -39,7 +39,9 @@
             $paginaHTML = str_replace('id="day"', 'id="day" value="'.$DayI.'"', $paginaHTML);
             $paginaHTML = str_replace('id="month"', 'id="month" value="'.$MonthI.'"', $paginaHTML);
             $paginaHTML = str_replace('id="year"', 'id="year" value="'.$YearI.'"', $paginaHTML);
-            $Errore="Devi essere maggiorenne per accedere al sito";
+            $Errore="<p class='msgError'>Devi essere maggiorenne per accedere al sito</p>";
+        }else{
+            $Errore = "<ul class='msgError'>".$Errore."</ul>";
         }
         
     }
@@ -53,7 +55,7 @@
     $paginaHTML = str_replace("<nav>", "<nav hidden='hidden'>",
                 str_replace('<div id="container_icons">', '<div id="container_icons" hidden="hidden">',
                 str_replace("<header/>", htmlMaker::makeHeader(),$paginaHTML)));
-    if($Errore){$paginaHTML = str_replace("<p class='msgError'>", "<p class='msgError'>".$Errore, $paginaHTML);}
+    $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
