@@ -1,13 +1,19 @@
 <?php
     require_once 'htmlMaker.php';
     session_start();
+    $paginaHTML = file_get_contents('../html/login.html');
     //controllo se minorenne
-    if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
+    if(!isset($_SESSION['adult']) || !$_SESSION['adult']){
         header('Location: ageverification.php');
-
+    }
+    //quando si è sbagliato di inserire le credenziali giusti
+    if(isset($_SESSION['id']) && !isset($_SESSION['login'])) {
+        unset($_SESSION['id']);
+        $paginaHTML=str_replace("<p id='loginerror'>","<p id='loginerror'>Le credenziali inserite non sono corrette</p>",$paginaHTML);
+    }
     //controllo se loggato
-    if(isset($_SESSION['id'])){
-        echo file_get_content('..html/dettagliaccount.html');
+    if(isset($_SESSION['login']) && $_SESSION['login']){
+        header('Location: dettagliprofilo.php');
     }
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/login.html');
