@@ -19,7 +19,7 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword'])) {
     }
 }
 if(isset($_SESSION['id'])){
-    header("Location:dettagliprofilo.php");
+    header("Location:dettagliaccount.php");
 }
 else{
     if (isset($username)) {

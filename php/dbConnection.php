@@ -46,5 +46,15 @@ class DBAccess
         }
         return $list;
     }
+    /*new*/
+/*escaping inputs means working queries*/
+public static function escape_input($input){
+    $connection = self::openDBConnection();
+    for($i=0; $i<count($input);$i++){
+        $input[$i] = htmlspecialchars($input[$i]);
+        $input[$i] = $connection->escape_string($input[$i]);
+    }
+    $connection->close();
+}
 }
 ?>
