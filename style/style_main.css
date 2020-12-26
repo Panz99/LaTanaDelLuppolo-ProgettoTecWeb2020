@@ -465,7 +465,7 @@ form{
 }
 .column2{
     font-size:20px;
-    
+    padding:5px 0;
 }
 .modifica-btn{
     margin:20px 80px;
@@ -524,18 +524,18 @@ font-size:2em;
     border-color: #708090;
     color: #333333;
 }
-.container_elimina{
+#container_elimina{
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     
 }
-.container_elimina>label{
+#container_elimina>label{
     margin-left: 50px;
     font-size: 20px;
     color:#8a1818;
 }
-.container_elimina > input{
+#container_elimina > input{
     padding: 10px 120px;
     margin-left: 50px;
     border: darkgray 2px solid;

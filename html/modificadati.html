@@ -8,7 +8,7 @@
             <span>Ti trovi qui:</span>
         </div>
         <main>
-            <div class="contanier_profile">
+            <div class="container_profile">
                 <div class="nomeutente">
     
                 </div>
@@ -17,7 +17,7 @@
                         <h2>Modifica i dati</h2>
                         <p>Se non si vuole modificare un certo dato, basta lasciare in vuoto</p>
                     </div>
-                    <form class="form-modifica-dati">
+                    <form id="form-modifica-dati" action="<root/>php/modificadati.php" method="post">
                         <div class="row">
                             <label class="column1" xml:lang="en-EN">Username</label>
                             <input class="column2" name="new-username" type="text" placeholder="Nuovo Username" >
@@ -42,10 +42,10 @@
                             <h3>Per confermare le modifiche inserire la propria <en-En>password</en-En> attuale</h3>
                             <label for="txtPassword" xml:lang="en-EN">Password</label><br>
                             <input type="text" name="txtPassword" placeholder="Inserisci password">
-                            <input class="modifica-btn" type="button" value="Invia">
+                            <input class="modifica-btn" type="submit" value="Invia">
                         </div>
                     </form>
-                    <a class="annulla" href="account.html">Annulla le modifiche</a>
+                    <a class="annulla" href="<root/>php/login.php">Annulla le modifiche</a>
                 </div>
             </div>
         </main>

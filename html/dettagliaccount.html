@@ -38,11 +38,12 @@
                     <div class="eliminaprofilo">
                         <h3>Eliminazione del Profilo</h3>
                         <p><em>Una volta eliminato, il suo profilo non può essere più ricoverato.</em> <br/> Se ancora vuole eliminarlo inserire la propria password e cliccare sul bottone Elimina</p>
-                        <div class="container_elimina">
+                        <form id="container_elimina" action="dettagliaccount.php" method="post">
                             <label for="txtPassword" xml:lang="en-EN">Password</label>
                             <input type="text" name="txtPassword" placeholder="Inserisci password" required>
-                        </div>
-                        <input class="elimina-btn" type="button" value="Elimina">
+                        
+                           <input class="btn" type="submit" value="Elimina">
+                        </form>
                     </div>
                 </dl>    
             </div>
