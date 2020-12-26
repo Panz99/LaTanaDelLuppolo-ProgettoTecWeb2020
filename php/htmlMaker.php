@@ -1,12 +1,30 @@
 <?php
 class htmlMaker{
 
+    /* Elementi html pagine */
+
     public static function makeHead($title = "La tana del Luppolo"){
         $html = file_get_contents('../html/components/head.html');
         $html = str_replace("<title/>", "<title>".$title."</title>", $html);
         return $html;
 
     }
+    public static function makeHeader(){
+        return file_get_contents('../html/components/header.html');
+        
+    }
+    public static function makeFooter(){
+        return file_get_contents('../html/components/footer.html');;
+    }
+    public static function makeTornaSu(){
+        return  '<div class="containerTornaSu">
+                    <a class="link tornaSu" href="#">Torna su</a>
+                </div>';
+    }
+
+
+
+    /* Costruzione pagine */
 
     public static function listBeers($beers){
         $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>";
@@ -79,11 +97,18 @@ class htmlMaker{
 
         foreach($reviews as $review)
         {
-            $html = '
+            $html .= '
                     <div class="recensioneitem">
-                        <div class="recensioneuserpic">
-                            <div class="material-icons">account_circle</div>
-                        </div>
+                        <div class="recensionetools">
+                            <div class="material-icons">account_circle</div>';
+
+            // Aggiunge strumenti di amministrazione se utente è admin
+            $html.= isset($_SESSION['admin']) ? '   <br>
+                                                    <a href=""><div class="material-icons">delete_forever</div></a><br>
+                                                    <a href=""><div class="material-icons">rate_review</div></a>' 
+                                            : '';   
+
+            $html.= '</div>
                         <div id="recensionetext">
                             <span class="recensioneusername">'.$review["username"].'</span> ha commentato<br>
                             <div class="recensionecontent">'.$review["descrizione"].'</div>
@@ -113,15 +138,18 @@ class htmlMaker{
         return $html;
     }
 
+
+    /* Pagine avvisi ed errori */
+
     public static function makeNotfound(){
 
         $back = $_SERVER['HTTP_REFERER'] ?? "javascript:history.go(-1)";
         
-        $html = '
-        <div id="diverror">
+        $html = "
+        <div id=\"diverror\">
             <h2>Contenuto non trovato. </h2><br>
-            <a href="'. $back .'">Torna indietro</a>
-        </div>';
+            <a href=\"{$back}\">Torna indietro</a>
+        </div>";
 
         return $html;
     }
@@ -138,18 +166,7 @@ class htmlMaker{
         return $html;
     }
 
-    public static function makeHeader(){
-        return file_get_contents('../html/components/header.html');
-        
-    }
-    public static function makeFooter(){
-        return file_get_contents('../html/components/footer.html');;
-    }
-    public static function makeTornaSu(){
-        return  '<div class="containerTornaSu">
-                    <a class="link tornaSu" href="#">Torna su</a>
-                </div>';
-    }
+
 }
 
 ?>

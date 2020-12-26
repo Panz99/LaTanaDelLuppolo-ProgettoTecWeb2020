@@ -14,7 +14,8 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword'])) {
         $_SESSION['login']=true;
         $_SESSION['nome'] = $row['nome'];
         $_SESSION['cogn'] = $row['cognome'];
-		$_SESSION['bdate'] = $row['data_nascita'];
+        $_SESSION['bdate'] = $row['data_nascita'];
+        $_SESSION['admin'] = $row['admin_flag'] ?? NULL;
         
     }
 }
