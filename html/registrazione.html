@@ -7,27 +7,32 @@
             <span>Ti trovi qui:</span>
         </div>
         <main>
-            <form id="formRegister" action="<root/>php/registrazione.php" method="post" id="loginform">
+            <form id="formRegister" action="<root/>php/registrazione.php" onSubmit="return checkRegistrazione();" method="post" id="loginform">
                 <div class="dataRow">
-                    <label for="txtName" class="form-label">Nome *</label>
-                    <input class="inputAge" type="text" name="txtName" placeholder="Inserisci nome" required="required"/>
+                    <label for="name" class="form-label">Nome *</label>
+                    <input class="inputAge" id="txtName" type="text" name="name" placeholder="Inserisci nome" required="required"/>
                 </div>
+                <span id="nameError"class="inputError"></span>
                 <div class="dataRow">
-                    <label for="txtSurname" class="form-label">Cognome *</label>
-                    <input class="inputAge" type="text" name="txtSurname" placeholder="Inserisci cognome" required="required"/>
+                    <label for="surname" class="form-label">Cognome *</label>
+                    <input class="inputAge" id="txtSurname" type="text" name="surname" placeholder="Inserisci cognome" required="required"/>
                 </div>
+                <span id="surnameError"class="inputError"></span>
                 <div class="dataRow">
-                    <label for="txtUsername" xml:lang="en-EN" lang="en" class="form-label" >Username *</label>
-                    <input class="inputAge" type="text" name="txtUsername" placeholder="Inserisci username" required="required"/>
+                    <label for="username" xml:lang="en-EN" lang="en" class="form-label" >Username *</label>
+                    <input class="inputAge" id="txtUsername" type="text" name="username" placeholder="Inserisci username" required="required"/>
                 </div>
+                <span id="usernameError"class="inputError"></span>
                 <div class="dataRow">
-                    <label for="txtEmail" xml:lang="en-EN" lang="en" class="form-label">E-mail *</label>
-                    <input class="inputAge" type="text" name="txtEmail" placeholder="Inserisci username" required="required"/>
+                    <label for="email" xml:lang="en-EN" lang="en" class="form-label">E-mail *</label>
+                    <input class="inputAge" id="txtEmail" type="text" name="email" placeholder="Inserisci e-mail" required="required"/>
                 </div>
+                <span id="emailError"class="inputError"></span>
                 <div class="dataRow">
-                    <label for="txtPassword" xml:lang="en-EN" lang="en" class="form-label">Password *</label>
-                    <input class="inputAge" type="text" name="txtPassword" placeholder="Inserisci password" required="required"/>
+                    <label for="password" xml:lang="en-EN" lang="en" class="form-label">Password *</label>
+                    <input class="inputAge" id="txtPassword" type="text" name="password" placeholder="Inserisci password" required="required"/>
                 </div>
+                <span id="passwordError"class="inputError"></span>
                 <p>I campi contrassegnati da (*) sono obbligatori</p>
                 <error/>
                 <input class="btn" type="submit" value="Registrati"/>

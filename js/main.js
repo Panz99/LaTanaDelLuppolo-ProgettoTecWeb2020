@@ -9,3 +9,69 @@ function getSearchbar(){
     }
      
 };
+function validateName(name){
+    var re = /^[A-Z ,.'-]{3,30}$/i;
+    var span = document.getElementById("nameError");
+    if(name=="" || !re.test(name)){ 
+        span.innerHTML="Nome non valido o assente, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
+        return false;
+    }else{
+        span.innerHTML="";
+        return true;
+    }
+}
+
+function validateSurname(surname){
+    var re = /^[A-Z ,.'-]{3,30}$/i;
+    var span = document.getElementById("surnameError");
+    if(surname=="" || !re.test(surname)){ 
+        span.innerHTML="Cognome non valido o assente, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
+        return false;
+    }else{
+        span.innerHTML="";
+        return true;
+    }
+}
+function validateUsername(username){
+    var re = /^[\w_]{6,30}$/i;
+    var span = document.getElementById("usernameError");
+    if(username=="" || !re.test(username)){ 
+        span.innerHTML="Username non valido o assente, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 3 caratteri";
+        return false;
+    }else{
+        span.innerHTML="";
+        return true;
+    }
+}
+function validatePassword(password){
+    var span = document.getElementById("passwordError");
+    if(password==""){
+        span.innerHTML="Password assente";
+        return false;
+    }else{
+        span.innerHTML="";
+        return true;
+    }
+}
+function validateEmail(email){
+    var re = /^[a-zA-Z0-9]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    var span = document.getElementById("emailError");
+    if(email=="" || !re.test(email)){ 
+        span.innerHTML="Email non valida o assente, formato accettato: email@dominio.suffisso";
+        return false;
+    }else{
+        span.innerHTML="";
+        return true;
+    }
+    
+}
+function checkRegistrazione(){
+    var name = document.getElementById("txtName").value.trim();
+    var surname = document.getElementById("txtSurname").value.trim();
+    var username = document.getElementById("txtUsername").value.trim();
+    var email = document.getElementById("txtEmail").value.trim();
+    var password = document.getElementById("txtPassword").value.trim();
+    if(validateName(name) & validateSurname(surname) & validateUsername(username) & validateEmail(email) & validatePassword(password))
+        return true;
+    return false;
+}

@@ -42,7 +42,7 @@
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/prodotti.php?page=1">', '<a class="active">', $paginaHTML);
-    $paginaHTML = str_replace('<a href="prodotti.php?page='.$page.'" class="link page-padding">', '<a class="link page-padding active">', $paginaHTML);
+    $paginaHTML = str_replace('<a href="prodotti.php?page='.$page.'" class="link page-padding fillParent">', '<a class="link page-padding active fillParent">', $paginaHTML);
 
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
