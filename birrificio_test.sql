@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS utenti (
   admin_flag boolean NOT NULL DEFAULT FALSE,
   nome varchar(64) DEFAULT NULL,
   cognome varchar(64) DEFAULT NULL,
-  data_nascita date DEFAULT NULL,
+  email varchar(64) DEFAULT NULL,
   PRIMARY KEY (Id)
 ) ENGINE=InnoDB;
 
@@ -79,9 +79,9 @@ CREATE TABLE IF NOT EXISTS recensioni (
 
 
 -- INSERT DATA
-INSERT INTO utenti (id, username, password, admin_flag, nome, cognome, data_nascita) VALUES
+INSERT INTO utenti (id, username, password, admin_flag, nome, cognome, email) VALUES
 (1, 'admin', 'admin', TRUE, NULL, NULL, NULL),
-(2, 'giacomo', 'sassaro', FALSE, 'Giacomo', 'Sassaro', '1999-05-17');
+(2, 'giacomo', 'sassaro', FALSE, 'Giacomo', 'Sassaro', 'giacomo.sassaro@studenti.unipd.it');
 
 INSERT INTO birre (id, nome, img_path, tipo, grado, descrizione, costo) VALUES
 (1, 'Open Baladin Gold', 'img/open_baladin_gold.png','American_Pale_Ale', 7.5, 'Una birra dal carattere forte e accattivante. Open Gold è anche un grande progetto di cultura e condivisione birraria essendo la prima “open source” d’Italia, avendone pubblicato la ricetta online per gli homebrewer. Di colore oro carico, si propone con una schiuma cremosa e compatta. Al naso si ritrova l’agrumato dei luppoli americani. In bocca sono evidenti gli spunti agrumati di pompelmo che ben si accompagna al piacevole aroma amarognolo del luppolo.', 3.8),

@@ -13,7 +13,7 @@ function validateName(name){
     var re = /^[A-Z ,.'-]{3,30}$/i;
     var span = document.getElementById("nameError");
     if(name=="" || !re.test(name)){ 
-        span.innerHTML="Nome non valido o assente, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
+        span.innerHTML="Nome non valido, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
         return false;
     }else{
         span.innerHTML="";
@@ -25,7 +25,7 @@ function validateSurname(surname){
     var re = /^[A-Z ,.'-]{3,30}$/i;
     var span = document.getElementById("surnameError");
     if(surname=="" || !re.test(surname)){ 
-        span.innerHTML="Cognome non valido o assente, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
+        span.innerHTML="Cognome non valido, non sono ammessi numeri e la lunghezza minima è di 3 caratteri";
         return false;
     }else{
         span.innerHTML="";
@@ -33,10 +33,10 @@ function validateSurname(surname){
     }
 }
 function validateUsername(username){
-    var re = /^[\w_]{6,30}$/i;
+    var re = /^[\w_]{4,30}$/i;
     var span = document.getElementById("usernameError");
     if(username=="" || !re.test(username)){ 
-        span.innerHTML="Username non valido o assente, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 6 caratteri";
+        span.innerHTML="Username non valido, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 4 caratteri";
         return false;
     }else{
         span.innerHTML="";
@@ -54,10 +54,10 @@ function validatePassword(password){
     }
 }
 function validateEmail(email){
-    var re = /^[a-zA-Z0-9]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    var re = /[\S]{4,32}@[\w]{4,32}((?:\.[\w]+)+)?(\.(it|com|edu|org|net|eu)){1}/;
     var span = document.getElementById("emailError");
     if(email=="" || !re.test(email)){ 
-        span.innerHTML="Email non valida o assente, formato accettato: email@dominio.suffisso";
+        span.innerHTML="Email non valida, formato accettato: email@dominio.suffisso";
         return false;
     }else{
         span.innerHTML="";

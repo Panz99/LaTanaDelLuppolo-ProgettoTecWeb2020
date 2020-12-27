@@ -46,6 +46,15 @@ class DBAccess
         }
         return $list;
     }
+
+    public static function command($command) {
+        $connection = self::openDBconnection();
+        if(!($connection->query($command))) {
+            throw new Exception("L'operazione '$command' è fallita");
+        }
+        $connection->close();
+    }
+
     /*new*/
 /*escaping inputs means working queries*/
 public static function escape_input($input){
