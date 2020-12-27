@@ -165,8 +165,9 @@ form{
     padding: 0.8em;
     width: 80%;
 }
-
-
+.no-margin{
+    margin-bottom:0;
+}
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -190,17 +191,6 @@ form{
 #img_logo{
     float: left;
     width: 4em;
-}
-#login{
-    text-decoration: none;
-    padding:9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    transition: all 0.3s, ease 0s;
-}
-#login:hover{
-    background-color: rgba(0, 136, 169, 0.8);
 }
 /*Nav*/
 #list_link{
@@ -427,6 +417,12 @@ form{
 
 /*---------------------------------------------------------------------------------------------------*/
 #formRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+#formLogin{
     display: flex;
     flex-direction: column;
     justify-content: space-between;

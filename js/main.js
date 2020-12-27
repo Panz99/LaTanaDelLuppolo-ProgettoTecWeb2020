@@ -36,7 +36,7 @@ function validateUsername(username){
     var re = /^[\w_]{6,30}$/i;
     var span = document.getElementById("usernameError");
     if(username=="" || !re.test(username)){ 
-        span.innerHTML="Username non valido o assente, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 3 caratteri";
+        span.innerHTML="Username non valido o assente, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 6 caratteri";
         return false;
     }else{
         span.innerHTML="";
@@ -72,6 +72,14 @@ function checkRegistrazione(){
     var email = document.getElementById("txtEmail").value.trim();
     var password = document.getElementById("txtPassword").value.trim();
     if(validateName(name) & validateSurname(surname) & validateUsername(username) & validateEmail(email) & validatePassword(password))
+        return true;
+    return false;
+}
+
+function checkLogin(){
+    var username = document.getElementById("txtUsername").value.trim();
+    var password = document.getElementById("txtPassword").value.trim();
+    if(validateUsername(username) & validatePassword(password))
         return true;
     return false;
 }

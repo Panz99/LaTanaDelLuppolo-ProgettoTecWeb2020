@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
-
     <body>
         <header/>
-        
         <div id="breadcrumbs">
             <span>Ti trovi qui</span>
         </div>
-
         <main>
-            <div id="breadcrumbs">
-                <span>Ti trovi qui</span>
-            </div> 
             <div id="content">
-                <form action="check_login.php" method="POST" id="loginform">
-                    <p id='loginerror'></p>
-                    <label for="txtUsername" xml:lang="en-EN">Username</label><br>
-                    <input type="text" name="txtUsername" placeholder="Inserisci username">
-                    <br>
-                    <label for="txtPassword" xml:lang="en-EN">Password</label><br>
-                    <input type="text" name="txtPassword" placeholder="Inserisci password">
-                    <br>
-                    <input type="submit" class="greenBtn" value="Entra">
+                <form id="formLogin" action="<root/>php/check_login.php" method="post" onSubmit="return checkLogin();">
+                    <div class="dataRow">
+                        <label for="txtUsername" class="form-label" xml:lang="en-EN" lang="en">Username</label><br>
+                        <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"> 
+                    </div>    
+                    <span id="usernameError"class="msgError"></span>
+                    <div class="dataRow">
+                        <label for="txtPassword" class="form-label" xml:lang="en-EN" lang="en">Password</label><br>
+                        <input class="inputAge" type="password" id="txtPassword" name="txtPassword" placeholder="Inserisci password" required="required">
+                    </div>
+                    <span id="passwordError"class="msgError"></span>
+                    <p class='msgError'></p>
+                    <input type="submit" class="btn" value="Accedi">
                 </form>
 
-                <div id="registrationbutton">
-                    Vuoi creare un nuovo <span xml:lang="en-EN">account</span>?
-                    <br>
-                    <a href="registrazione.php"><button class="greenBtn">Registrati</button></a>
+                <div class="dataColumn">
+                    <p class="no-margin">Vuoi creare un nuovo <span xml:lang="en-EN">account</span>?</p>
+                    <a href="registrazione.php"><button class="btn">Registrati</button></a>
+                </div>               
             </div>
         </main>
         <tornasu/>
