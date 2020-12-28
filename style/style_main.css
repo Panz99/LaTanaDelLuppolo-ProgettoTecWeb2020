@@ -9,10 +9,11 @@ body{
     min-height: 100vh;
     margin: 0em auto;
     font-family: "Lato", cursive, sans-serif;
-    background-color: rgb(192, 219, 181);
+    background-color: #aaa;
     display: flex;
     flex-direction: column;
 }
+
 nav{
     text-align: center;
     background-color: #222;
@@ -167,6 +168,12 @@ form{
 .no-margin{
     margin-bottom:0;
 }
+
+.revremoveform{
+    margin: 0;
+    background-color: transparent;
+}
+
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -244,6 +251,12 @@ form{
 #content{
     margin-bottom: 2em;
 }
+
+#jumpscreenreader{
+    height: 0;
+    overflow: hidden;
+}
+
 /*Content prodotti.html*/
 #container_beers{
     margin-bottom: 2em;
@@ -323,6 +336,25 @@ form{
     margin-top: 0.5em;
     resize: vertical;
     border: #fff;
+}
+
+#revremovebut{
+    background: transparent;
+    border: none;
+    margin: 0;
+}
+
+#msgresult{
+    height: 0.15em;
+    color: #1a3f1c ;
+    margin: 1em 1em 0.5em 1em;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.8em 0.8em;
+
+    display: flex;
+    align-items: center;
+    margin: auto;
 }
 
 /* notfound.html */
@@ -518,6 +550,3 @@ font-size:2em;
     border-radius: 20px;
 }
 /*------------------------------------------------------*/
-.hidden{
-    display: none !important;
-}

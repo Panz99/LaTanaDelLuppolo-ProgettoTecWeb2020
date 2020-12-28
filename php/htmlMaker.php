@@ -122,11 +122,10 @@ class htmlMaker{
 
             // Aggiunge strumenti di amministrazione se utente è admin
             $html.= isset($_SESSION['admin']) ? '   <br>
-                                                    <form action="dettagli.php?id=<beerid/>" method="post">
-                                                        <button type="submit" class="material-icons">delete_forever</button>
-                                                        <input type="hidden" name="revid" value="'.$review['revid'].'">
-                                                    </form><br>
-                                                    <a href=""><div class="material-icons">rate_review</div></a>' 
+                                                    <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
+                                                        <button type="submit" id="revremovebut"><div class="material-icons">delete_forever</div></button>
+                                                        <input type="hidden" name="removeid" value="'.$review['revid'].'">
+                                                    </form>' 
                                             : '';   
 
             $html.= '</div>

@@ -19,7 +19,6 @@
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<error/>", htmlMaker::makeNotfound(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
-    $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
 
 

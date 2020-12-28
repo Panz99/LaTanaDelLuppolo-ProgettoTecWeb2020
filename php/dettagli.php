@@ -22,23 +22,34 @@
 
         $query = "SELECT * FROM birre WHERE id=".$idbirra;
         $birra = DBAccess::query($query)[0];
+
         //mostra pagina notfound se id non esiste
         if(empty($birra))
             throw new Exception("No id value found");
+       
+        if(!empty($_POST['removeid']))
+        {
+            DBAccess::command("DELETE FROM recensioni WHERE id=".$_POST['removeid']);
+            //$_SESSION['msg']="ok";
+            //redirect to self per resettare parametri post
+            header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=");
+        }
 
         $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id ';
         $recensioni = DBAccess::query($query);
 
     } catch (Exception $e) {
-        //Andrebbe lanciata una pagina con gli errori
+        //Redirect a pagina errore
         header('Location: notfound.php');
     }
+
     //breadcrumbs
     $path=[
         "Home" => "<root/>php/home.php",
         "Prodotti" => "<root/>php/prodotti.php",
         $birra["nome"] => "active",
     ];
+    
 
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagli.html');
@@ -49,6 +60,8 @@
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<beerinfo/>", htmlMaker::beerInfo($birra), $paginaHTML);
+
+    //stampa recensioni
     if(strpos($paginaHTML, "<reviews/>")!==false && $recensioni!==null)
     {
         $paginaHTML = str_replace("<reviews/>", htmlMaker::beerReview($recensioni), $paginaHTML);
@@ -56,7 +69,17 @@
         if(strpos($paginaHTML, "<beerid/>")!==false)
             $paginaHTML = str_replace("<beerid/>", $idbirra, $paginaHTML);
     }
-    $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
+
+    //stampa messaggio di risultato query
+    //if(isset($_SESSION['msg']) && $_SESSION['msg']=="ok")
+    if(isset($_GET['msg']))
+    {
+        $paginaHTML = str_replace("<msg/>", '<div id="msgresult">Operazione eseguita con successo!</div>', $paginaHTML);
+        unset($_SESSION['msg']);
+    }
+    else
+        $paginaHTML = str_replace("<msg/>", "", $paginaHTML);
+
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
 
