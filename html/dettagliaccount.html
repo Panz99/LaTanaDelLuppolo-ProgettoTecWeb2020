@@ -16,21 +16,21 @@
                     </div>
                 </div>
                 <dl class="dettagli">
-                    <div class="row">
-                        <dt class="column1" xml:lang="en-EN">Username</dt>
-                        <dd class="column2">£userid£</dd>
+                    <div class="dataRow">
+                        <dt class="form-label" xml:lang="en-EN">Username</dt>
+                        <dd class="inputAge">£userid£</dd>
                     </div>    
-                    <div class="row">
-                        <dt class="column1">Nome</dt>
-                        <dd class="column2">£name£</dd>
+                    <div class="dataRow">
+                        <dt class="form-label">Nome</dt>
+                        <dd class="inputAge">£name£</dd>
                     </div>
-                    <div class="row">
-                        <dt class="column1">Cognome</dt>
-                        <dd class="column2">£surname£</dd>
+                    <div class="dataRow">
+                        <dt class="form-label">Cognome</dt>
+                        <dd class="inputAge">£surname£</dd>
                     </div>
-                    <div class="row">
-                        <dt class="column1">Data di Nascita</dt>
-                        <dd class="column2">£data£</dd>
+                    <div class="dataRow">
+                        <dt class="form-label">Email</dt>
+                        <dd class="inputAge">£mail£</dd>
                     </div>
                     <div class = "logout">
                         <a href="logout.php">Log out</a>
@@ -39,8 +39,9 @@
                         <h3>Eliminazione del Profilo</h3>
                         <p><em>Una volta eliminato, il suo profilo non può essere più ricoverato.</em> <br/> Se ancora vuole eliminarlo inserire la propria password e cliccare sul bottone Elimina</p>
                         <form id="container_elimina" action="dettagliaccount.php" method="post">
-                            <label for="txtPassword" xml:lang="en-EN">Password</label>
-                            <input type="text" name="txtPassword" placeholder="Inserisci password" required>
+                            <span id="usernameError"class="msgError msgErrorWrap"></span>
+                            <label for="txtPassword" class="form-label" xml:lang="en-EN">Password</label>
+                            <input type="text" class="inputAge" name="txtPassword" placeholder="Inserisci password">
                         
                            <input class="btn" type="submit" value="Elimina">
                         </form>

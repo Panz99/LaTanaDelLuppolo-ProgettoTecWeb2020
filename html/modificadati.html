@@ -16,36 +16,37 @@
                     <div class="titolo-dati">
                         <h2>Modifica i dati</h2>
                         <p>Se non si vuole modificare un certo dato, basta lasciare in vuoto</p>
+                        <error/>
                     </div>
                     <form id="form-modifica-dati" action="<root/>php/modificadati.php" method="post">
-                        <div class="row">
-                            <label class="column1" xml:lang="en-EN">Username</label>
-                            <input class="column2" name="new-username" type="text" placeholder="Nuovo Username" >
+                        <div class="dataRow">
+                            <label class="form-label" xml:lang="en-EN">Username</label>
+                            <input class="inputAge" name="new-username" type="text" placeholder="Nuovo Username" >
                         </div>
-                        <div class="row">
-                            <label class="column1">Nome</label>
-                            <input class="column2" name="new-name" type="text" placeholder="Nuovo Nome" >
+                        <div class="dataRow">
+                            <label class="form-label">Nome</label>
+                            <input class="inputAge" name="new-name" type="text" placeholder="Nuovo Nome" >
                         </div>
-                        <div class="row">
-                            <label class="column1">Cognome</label>
-                            <input class="column2" name="new-surname" type="text" placeholder="Nuovo Cognome" >
+                        <div class="dataRow">
+                            <label class="form-label">Cognome</label>
+                            <input class="inputAge" name="new-surname" type="text" placeholder="Nuovo Cognome" >
                         </div>
-                        <div class="row">
-                            <label class="column1">Data di Nascita</label>
-                            <input class="column2" name="new-date" type="text" placeholder="Cambia data di nascita" >
+                        <div class="dataRow">
+                            <label class="form-label">Email</label>
+                            <input class="inputAge" name="new-email" type="text" placeholder="Nuova Email" >
                         </div>
-                        <div class="row">
-                            <label class="column1" xml:lang="en-EN">Nuova Password</label>
-                            <input class="column2" name="new-password" type="text" placeholder="Cambia password" >
+                        <div class="dataRow">
+                            <label class="form-label" xml:lang="en-EN">Nuova Password</label>
+                            <input class="inputAge" name="new-password" type="text" placeholder="Cambia password" >
                         </div>
                         <div class="conferma">
                             <h3>Per confermare le modifiche inserire la propria <en-En>password</en-En> attuale</h3>
-                            <label for="txtPassword" xml:lang="en-EN">Password</label><br>
-                            <input type="text" name="txtPassword" placeholder="Inserisci password">
-                            <input class="modifica-btn" type="submit" value="Invia">
+                            <label for="txtPassword" class="form-label" xml:lang="en-EN">Password</label>
+                            <input type="text" class="inputAge" name="txtPassword" placeholder="Inserisci password">
+                            <input class="btn" type="submit" value="Invia">
                         </div>
                     </form>
-                    <a class="annulla" href="<root/>php/login.php">Annulla le modifiche</a>
+                    <a class="annulla" href="<root/>php/login.php">Torna indietro</a>
                 </div>
             </div>
         </main>
