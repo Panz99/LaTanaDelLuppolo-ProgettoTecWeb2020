@@ -7,8 +7,9 @@
         header('Location: ageverification.php');
 
     //controllo se loggato
+    $username = "";
     if(isset($_SESSION['id'])){
-        //cambia chiamata icon account
+        $username = $_SESSION['id'];
     }
     $start = 0;
     $page = 1;
@@ -44,8 +45,8 @@
 
     $paginaHTML = str_replace("<pages/>", htmlMaker::listPages($result[0], $page), $paginaHTML);
     $paginaHTML = str_replace("<listBeers/>", htmlMaker::listBeers($listaBirre), $paginaHTML);
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/prodotti.php?page=1">', '<a class="active">', $paginaHTML);

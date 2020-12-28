@@ -7,8 +7,9 @@
         header('Location: ageverification.php');
 
     //controllo se loggato
+    $username = "";
     if(isset($_SESSION['id'])){
-        //cambia chiamata icon account
+        $username = $_SESSION['id'];
     }
 
     try {
@@ -24,8 +25,9 @@
     ];
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/home.html');
-    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Locker - La tana del Luppolo"), $paginaHTML);
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Home - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<keywords/>", ", homepage", $paginaHTML); 
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<sales/>", htmlMaker::listBeers($offerte), $paginaHTML);

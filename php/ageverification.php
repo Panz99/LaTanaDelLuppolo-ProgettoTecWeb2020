@@ -54,7 +54,7 @@
     $paginaHTML = str_replace("<keywords/>", "", $paginaHTML); 
     $paginaHTML = str_replace("<nav>", "<nav hidden='hidden'>",
                 str_replace('<div id="container_icons">', '<div id="container_icons" hidden="hidden">',
-                str_replace("<header/>", htmlMaker::makeHeader(),$paginaHTML)));
+                str_replace("<header/>", htmlMaker::makeHeader(""),$paginaHTML)));
     $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);

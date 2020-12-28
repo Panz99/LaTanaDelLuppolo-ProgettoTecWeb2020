@@ -16,7 +16,7 @@
    
    $error="";
 
-   
+   $username="";
     //controllo se loggato
     if(isset($_SESSION['login'])){
         $username=$_SESSION['id'];
@@ -42,7 +42,7 @@
     
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Profilo - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);

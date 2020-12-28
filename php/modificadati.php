@@ -7,11 +7,15 @@
     if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
         header('Location: ageverification.php');
     
+        $username = "";
+    if(isset($_SESSION['id'])){
+        $username = $_SESSION['id'];
+    }
     
     $paginaHTML = file_get_contents('../html/modificadati.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Modifica Dati - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account, modifica dati", $paginaHTML); 
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
 

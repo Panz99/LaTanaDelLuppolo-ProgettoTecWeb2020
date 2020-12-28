@@ -193,6 +193,16 @@ form{
     float: left;
     width: 4em;
 }
+#container_icons{
+    display: flex;
+    justify-content: right;
+    text-align: right;
+    flex-wrap: wrap;
+}
+#msgWelcome{
+    width: 100%;
+    color: #4CAF50;
+}
 /*Nav*/
 #list_link{
     width: 100%;
