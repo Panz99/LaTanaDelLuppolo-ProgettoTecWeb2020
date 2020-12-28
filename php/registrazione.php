@@ -2,6 +2,7 @@
     require_once 'htmlMaker.php';
     require_once 'dbConnection.php';
     session_start();
+    $paginaHTML = file_get_contents('../html/registrazione.html');
 
     function validateRegistrazione($name, $surname, $username, $email, $password){
         $error="";
@@ -19,13 +20,6 @@
     //controllo se minorenne
     if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
         header('Location: ageverification.php');
-
-    $paginaHTML = file_get_contents('../html/registrazione.html');
-    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Registrati - La tana del Luppolo"), $paginaHTML);
-    $paginaHTML = str_replace("<keywords/>", ", account, registrazione", $paginaHTML); 
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
-    $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
-    $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
 
     $Errore="";
     //controllo se loggato
@@ -61,6 +55,19 @@
             $paginaHTML = str_replace('id="txtPassword"', 'id="txtPassword" value="'.$_POST['txtPassword'].'"', $paginaHTML);
         }
     }
+    //Costruisco la pagina normalmente se non sono entrato in nessun if
+    $path=[
+        "Home" => "<root/>php/home.php",
+        "Accedi" => "<root/>php/login.php",
+        "Registrati" => "active",
+    ];
+
+    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Registrati - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<keywords/>", ", account, registrazione", $paginaHTML); 
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(""), $paginaHTML);
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
+    $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
+    $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;

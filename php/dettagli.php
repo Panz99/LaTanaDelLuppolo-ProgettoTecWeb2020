@@ -7,8 +7,9 @@
         header('Location: ageverification.php');
 
     //controllo se loggato
+    $username = "";
     if(isset($_SESSION['id'])){
-        //cambia chiamata icon account
+        $username = $_SESSION['id'];
     }
 
     $idbirra = $_GET["id"];
@@ -35,12 +36,19 @@
         //Andrebbe lanciata una pagina con gli errori
         header('Location: notfound.php');
     }
+    //breadcrumbs
+    $path=[
+        "Home" => "<root/>php/home.php",
+        "Prodotti" => "<root/>php/prodotti.php",
+        $birra["nome"] => "active",
+    ];
 
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagli.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead($birra["nome"]." - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", ".$birra["nome"], $paginaHTML); 
-    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
+    $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<beerinfo/>", htmlMaker::beerInfo($birra), $paginaHTML);

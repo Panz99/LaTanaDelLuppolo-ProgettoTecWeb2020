@@ -9,17 +9,35 @@ class htmlMaker{
         return $html;
 
     }
-    public static function makeHeader(){
-        return file_get_contents('../html/components/header.html');
+    public static function makeHeader($username){ 
+        $html = file_get_contents('../html/components/header.html');
+        if($username!=NULL)
+            $html = str_replace("<welcome/>", "<span id='msgWelcome'>Benvenuto $username</span>", $html);
+        else    
+            $html = str_replace("<welcome/>", "<span id='msgWelcome'>Accedi o registrati cliccando il simbolo dell'omino</span>", $html);
+        return $html;
         
     }
     public static function makeFooter(){
-        return file_get_contents('../html/components/footer.html');;
+        return file_get_contents('../html/components/footer.html');
     }
     public static function makeTornaSu(){
         return  '<div class="containerTornaSu">
                     <a class="link tornaSu" href="#">Torna su</a>
                 </div>';
+    }
+    public static function makeBreadCrumbs($path){ 
+        $html='<ul id="breadcrumbs">';
+        foreach($path as $nome => $link){
+            $html.= '<li class="bc-item">';
+            if($link == "active")
+                $html.='<a href="#" class="bc-link active">'.$nome.'</a>';
+            else    
+                $html.='<a href="'.$link.'" class="bc-link">'.$nome.'</a>';
+            $html.='</li>';
+        }
+        $html.='</ul>';
+        return $html;
     }
 
 
