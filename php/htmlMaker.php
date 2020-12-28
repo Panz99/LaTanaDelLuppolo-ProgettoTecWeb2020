@@ -12,7 +12,7 @@ class htmlMaker{
     public static function makeHeader($username){ 
         $html = file_get_contents('../html/components/header.html');
         if($username!=NULL)
-            $html = str_replace("<welcome/>", "<span id='msgWelcome'>Benvenuto $username</span>", $html);
+            $html = str_replace("<welcome/>", "<span id='msgWelcome'>Benvenut* $username</span>", $html);
         else    
             $html = str_replace("<welcome/>", "<span id='msgWelcome'>Accedi o registrati cliccando il simbolo dell'omino</span>", $html);
         return $html;

@@ -9,12 +9,10 @@ body{
     min-height: 100vh;
     margin: 0em auto;
     font-family: "Lato", cursive, sans-serif;
-    background-color: #aaa;
+    background-color: rgb(192, 219, 181);
     display: flex;
     flex-direction: column;
 }
-
-
 nav{
     text-align: center;
     background-color: #222;
@@ -520,3 +518,6 @@ font-size:2em;
     border-radius: 20px;
 }
 /*------------------------------------------------------*/
+.hidden{
+    display: none !important;
+}
