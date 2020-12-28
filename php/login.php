@@ -46,9 +46,6 @@
         unset($_SESSION['id']);
         $paginaHTML=str_replace("<p class='msgError'></p>","<p class='msgError'>Le credenziali inserite non sono corrette</p>",$paginaHTML);
     }
-<<<<<<< HEAD
-    //------------------------------
-=======
     //controllo se loggato
     if(isset($_SESSION['login']) && $_SESSION['login']){
         header('Location: dettagliaccount.php');
@@ -59,7 +56,6 @@
         "Accedi" => "active",
     ];
     
->>>>>>> 5856421386455b77d6bdb9cae8ee3882a5219726
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Accedi - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(""), $paginaHTML);

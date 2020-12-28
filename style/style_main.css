@@ -22,11 +22,11 @@ nav{
 }
 nav li{
     width: 100%;
+    padding: 0.5em 0;
 }
-nav li:hover:not(.active) a{
-    background-color: #fff;
-    cursor: pointer;
-    color: #222
+nav a{
+    font-size: 1.5em;
+    font-weight: bold;
 }
 main{
     display: flex;
@@ -218,7 +218,7 @@ form{
     height: 0.4em;
     justify-content: center;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #222;
     margin: 1em 1em 0.5em 1em;
     font-weight: bold;
     font-size: 1.5em;
@@ -461,10 +461,6 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-<<<<<<< HEAD
-    align-content: center;
-}
-=======
 }
 .eliminaprofilo>h3{
 text-align: center;
@@ -524,4 +520,3 @@ font-size:2em;
     border-radius: 20px;
 }
 /*------------------------------------------------------*/
->>>>>>> 5856421386455b77d6bdb9cae8ee3882a5219726

@@ -28,7 +28,7 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Home - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", homepage", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
-    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
+    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/home.php" xml:lang="en" lang="en">', '<a class="active" xml:lang="en" lang="en">', $paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<sales/>", htmlMaker::listBeers($offerte), $paginaHTML);
     

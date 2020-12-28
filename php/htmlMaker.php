@@ -33,7 +33,7 @@ class htmlMaker{
             if($link == "active")
                 $html.='<a href="#" class="active">'.$nome.'</a>';
             else    
-                $html.='<a href="'.$link.'" class="bc-link link">'.$nome.'</a>';
+                $html.='<a href="'.$link.'" class=" link">'.$nome.'</a>';
             $html.='</li>';
         }
         $html.='</ul>';
