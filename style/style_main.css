@@ -66,6 +66,7 @@ form{
 .active{
     cursor: default !important;
     color:#4CAF50 !important;
+    pointer-events: none;
     text-decoration: none; 
 }
 
@@ -201,8 +202,7 @@ form{
     padding: 0;
     margin: 0.5em 0em;
 }
-
-/*Main*/
+/*Breadcrumbs*/
 #breadcrumbs{
     width: 70%;
     height: 0.4em;
@@ -215,11 +215,28 @@ form{
     padding: 0.8em 0.8em;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin: auto;
 
 }
+.bc-item{
+    display: inline-block;
+}
+.bc-item:not(:last-of-type)::after{
+    content:'>';
+    margin: 0 5px;
+    color:#ccc;
+}
+
+.bc-link{
+    text-decoration: none;
+    color:#888;
+}
+.bc-link:hover{
+    text-decoration: underline;
+}
+
+/*Main*/
 #content{
     margin-bottom: 2em;
 }

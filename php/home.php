@@ -1,4 +1,5 @@
 <?php
+    require_once 'dbConnection.php';
     require_once 'htmlMaker.php';
     session_start();
     //controllo se minorenne
@@ -10,13 +11,25 @@
         //cambia chiamata icon account
     }
 
+    try {
+        $querySelect = "SELECT * FROM birre ORDER BY costo asc LIMIT 3";
+        $offerte = DBAccess::query($querySelect);
+    } catch (Exception $e) {
+        //Andrebbe lanciata una pagina con gli errori
+        echo 'Caught exception: ', $e->getMessage(), "\n";
+    }
+    $path=[
+        "Home" => "#",
+        "Offerte" => "active",
+    ];
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/home.html');
-    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Home - La tana del Luppolo"), $paginaHTML);
-    $paginaHTML = str_replace("<keywords/>", ", homepage", $paginaHTML); 
+    $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Locker - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(), $paginaHTML);
     $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/home.php">', '<a class="active">', $paginaHTML);
-    $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
+    $paginaHTML = str_replace("<sales/>", htmlMaker::listBeers($offerte), $paginaHTML);
+    
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
 

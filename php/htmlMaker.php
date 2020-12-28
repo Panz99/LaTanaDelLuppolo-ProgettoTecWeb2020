@@ -14,12 +14,25 @@ class htmlMaker{
         
     }
     public static function makeFooter(){
-        return file_get_contents('../html/components/footer.html');;
+        return file_get_contents('../html/components/footer.html');
     }
     public static function makeTornaSu(){
         return  '<div class="containerTornaSu">
                     <a class="link tornaSu" href="#">Torna su</a>
                 </div>';
+    }
+    public static function makeBreadCrumbs($path){ 
+        $html='<ul id="breadcrumbs">';
+        foreach($path as $nome => $link){
+            $html.= '<li class="bc-item">';
+            if($link == "active")
+                $html.='<a href="#" class="bc-link active">'.$nome.'</a>';
+            else    
+                $html.='<a href="'.$link.'" class="bc-link">'.$nome.'</a>';
+            $html.='</li>';
+        }
+        $html.='</ul>';
+        return $html;
     }
 
 
