@@ -15,11 +15,16 @@
     if(isset($_SESSION['login']) && $_SESSION['login']){
         header('Location: dettagliaccount.php');
     }
-    //Costruisco pagina
+
+    $path=[
+        "Home" => "<root/>php/home.php",
+        "Accedi" => "active",
+    ];
     
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Accedi - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(""), $paginaHTML);
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
