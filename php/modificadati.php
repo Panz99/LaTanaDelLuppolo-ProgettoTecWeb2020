@@ -26,34 +26,46 @@
                 $password = $_POST['txtPassword'];
 
                 $PassCorrect = Validate::validatePass($username,$password);
-
+                try{    
                 if($PassCorrect==true){
-               
-                    if(isset($_POST['new-username'])){
-                        $new_id=$_POST['new-username'];
+                    
+                    if($new_id=$_POST['new-username']){
                         DBAccess::escape_input(array($username,$new_id));
-                        $result=DBAccess::query("UPDATE  utenti SET username = '$new_id' WHERE username = '$username'");
+                        DBAccess::command("UPDATE  utenti SET username = '$new_id' WHERE username = '$username'");
+                        $_SESSION['id']=$new_id;
+                        
                     }
                     if($nome=$_POST['new-name']){
                         DBAccess::escape_input(array($username,$nome));
-                        $result=DBAccess::query("UPDATE  utenti SET nome = '$nome' WHERE username = '$username'");
+                        DBAccess::command("UPDATE  utenti SET nome = '$nome' WHERE username = '$username'");
+                        $_SESSION['nome']=$nome;
                     }
                     if($cognome=$_POST['new-surname']){
                         DBAccess::escape_input(array($username,$cognome));
-                        $result=DBAccess::query("UPDATE  utenti SET cognome = '$cognome' WHERE username = '$username'");
+                        DBAccess::command("UPDATE  utenti SET cognome = '$cognome' WHERE username = '$username'");
+                        $_SESSION['cogn']=$cognome;
                     }
-                    if($data=$_POST['new-date']){
-                        DBAccess::escape_input(array($username,$data));
-                        $result=DBAccess::query("UPDATE  utenti SET data_nascita = '$data' WHERE username = '$username'");
+                    if($mail=$_POST['new-email']){
+                        DBAccess::escape_input(array($username,$mail));
+                        DBAccess::command("UPDATE  utenti SET email = '$mail' WHERE username = '$username'");
+                        $_SESSION['email']=$mail;
                     }
                     if($pass=$_POST['new-password']){
                         DBAccess::escape_input(array($username,$pass));
-                        $result=DBAccess::query("UPDATE  utenti SET password = '$pass' WHERE username = '$username'");
+                        DBAccess::command("UPDATE  utenti SET password = '$pass' WHERE username = '$username'");
                     }
+                    
+                    header("Location:dettagliaccount.php");
+                
 
                 }else{
                 $Errore="Password non corretta!";
                 }
+                }
+                catch(Exception $e){
+                    $Errore=$e;
+                }   
+
             }
         }
     }
