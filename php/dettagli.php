@@ -26,13 +26,19 @@
         //mostra pagina notfound se id non esiste
         if(empty($birra))
             throw new Exception("No id value found");
-       
+
         if(!empty($_POST['removeid']))
         {
-            DBAccess::command("DELETE FROM recensioni WHERE id=".$_POST['removeid']);
-            //$_SESSION['msg']="ok";
-            //redirect to self per resettare parametri post
-            header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=");
+            $owner=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id".$removeid)[0]["username"];
+            if( (isset($_SESSION['admin']) && $_SESSION['admin']==1)  || (!empty($owner) && $owner==$_SESSION['id']) )
+            {
+                DBAccess::command("DELETE FROM recensioni WHERE id=".$_POST['removeid']);
+                //$_SESSION['msg']="ok";
+                //redirect to self per resettare parametri post
+                header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=OK");
+            }
+            else
+                header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=NO");
         }
 
         $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id ';
@@ -74,8 +80,11 @@
     //if(isset($_SESSION['msg']) && $_SESSION['msg']=="ok")
     if(isset($_GET['msg']))
     {
-        $paginaHTML = str_replace("<msg/>", '<div id="msgresult">Operazione eseguita con successo!</div>', $paginaHTML);
-        unset($_SESSION['msg']);
+        if($_GET['msg']=="OK")
+            $paginaHTML = str_replace("<msg/>", '<div id="msgsuccess">Operazione eseguita con successo!</div>', $paginaHTML);
+        else
+            $paginaHTML = str_replace("<msg/>", '<div id="msgfail">Operazione fallita.</div>', $paginaHTML);
+        //unset($_SESSION['msg']);
     }
     else
         $paginaHTML = str_replace("<msg/>", "", $paginaHTML);

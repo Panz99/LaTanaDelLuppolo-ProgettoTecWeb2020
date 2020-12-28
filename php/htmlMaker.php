@@ -121,7 +121,8 @@ class htmlMaker{
                             <div class="material-icons">account_circle</div>';
 
             // Aggiunge strumenti di amministrazione se utente è admin
-            $html.= isset($_SESSION['admin']) ? '   <br>
+            $html.= (isset($_SESSION['admin']) && $_SESSION['admin']==1) || ($_SESSION['id']==$review["username"]) ? 
+                                                '   <br>
                                                     <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
                                                         <button type="submit" id="revremovebut"><div class="material-icons">delete_forever</div></button>
                                                         <input type="hidden" name="removeid" value="'.$review['revid'].'">
