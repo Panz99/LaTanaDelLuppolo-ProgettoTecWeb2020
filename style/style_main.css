@@ -23,7 +23,7 @@ nav{
 nav li{
     width: 100%;
 }
-li:hover:not(.active) a{
+nav li:hover:not(.active) a{
     background-color: #fff;
     cursor: pointer;
     color: #222
@@ -239,11 +239,7 @@ form{
 }
 
 .bc-link{
-    text-decoration: none;
-    color:#888;
-}
-.bc-link:hover{
-    text-decoration: underline;
+	font-weight: 500;
 }
 
 /*Main*/

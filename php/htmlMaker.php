@@ -31,9 +31,9 @@ class htmlMaker{
         foreach($path as $nome => $link){
             $html.= '<li class="bc-item">';
             if($link == "active")
-                $html.='<a href="#" class="bc-link active">'.$nome.'</a>';
+                $html.='<a href="#" class="active">'.$nome.'</a>';
             else    
-                $html.='<a href="'.$link.'" class="bc-link">'.$nome.'</a>';
+                $html.='<a href="'.$link.'" class="bc-link link">'.$nome.'</a>';
             $html.='</li>';
         }
         $html.='</ul>';
