@@ -14,9 +14,6 @@
 
     $idbirra = $_GET["id"];
 
-    /* PROVA imposta utente come ADMIN se = 1*/
-    $_SESSION['admin']=1;
-
 
     //preleva info da database
     try{
@@ -31,7 +28,7 @@
 
         $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id ';
         $recensioni = DBAccess::query($query);
-        print_r($recensioni);
+
     } catch (Exception $e) {
         //Andrebbe lanciata una pagina con gli errori
         header('Location: notfound.php');
