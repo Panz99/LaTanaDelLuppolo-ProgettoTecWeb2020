@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS birre (
 
 CREATE TABLE IF NOT EXISTS utenti (
   id int(11) NOT NULL AUTO_INCREMENT,
-  username varchar(64) NOT NULL,
+  username varchar(64) NOT NULL UNIQUE,
   password varchar(64) NOT NULL,
   admin_flag boolean NOT NULL DEFAULT FALSE,
   nome varchar(64) DEFAULT NULL,

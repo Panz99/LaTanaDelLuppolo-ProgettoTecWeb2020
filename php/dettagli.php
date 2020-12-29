@@ -14,7 +14,6 @@
 
     $idbirra = $_GET["id"];
 
-
     //preleva info da database
     try{
         if(!$idbirra)
@@ -29,19 +28,21 @@
 
         if(!empty($_POST['removeid']))
         {
-            $owner=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id".$removeid)[0]["username"];
-            if( (isset($_SESSION['admin']) && $_SESSION['admin']==1)  || (!empty($owner) && $owner==$_SESSION['id']) )
+            //verifica che la recensione stia venendo eliminata dall'autore
+            $author=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id=".$_POST['removeid'])[0]["username"];
+            if( (isset($_SESSION['admin']) && $_SESSION['admin']==1)  || (!empty($author) && $author==$_SESSION['id']) )
             {
                 DBAccess::command("DELETE FROM recensioni WHERE id=".$_POST['removeid']);
                 //$_SESSION['msg']="ok";
-                //redirect to self per resettare parametri post
+                //redirect to self per resettare parametri post, parametro msg=OK per visualizzare messaggio di successo
                 header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=OK");
             }
             else
                 header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=NO");
         }
 
-        $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id ';
+        //preleva recensioni della birra
+        $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id';
         $recensioni = DBAccess::query($query);
 
     } catch (Exception $e) {
@@ -56,7 +57,6 @@
         $birra["nome"] => "active",
     ];
     
-
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagli.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead($birra["nome"]." - La tana del Luppolo"), $paginaHTML);

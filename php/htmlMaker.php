@@ -120,8 +120,8 @@ class htmlMaker{
                         <div class="recensionetools">
                             <div class="material-icons">account_circle</div>';
 
-            // Aggiunge strumenti di amministrazione se utente è admin
-            $html.= (isset($_SESSION['admin']) && $_SESSION['admin']==1) || ($_SESSION['id']==$review["username"]) ? 
+            // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
+            $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
                                                 '   <br>
                                                     <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
                                                         <button type="submit" id="revremovebut"><div class="material-icons">delete_forever</div></button>
