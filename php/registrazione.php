@@ -40,9 +40,6 @@
                 DBAccess::command("INSERT INTO utenti (username, password, nome, cognome, email) VALUES ('$username', '$password', '$name', '$surname', '$email')");
                 $_SESSION['id']=$username;
                 $_SESSION['login']=true;
-                $_SESSION['nome']=$name;
-                $_SESSION['cogn']=$surname;
-                $_SESSION['email']=$email;
                 header('Location: dettagliaccount.php');
             }catch(Exception $e){
                 $Errore = $e;

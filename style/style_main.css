@@ -322,6 +322,10 @@ form{
     width: 60%
 }
 
+#revinsertform{
+    margin: 0;
+}
+
 #recensionecreate{
     margin-bottom: 2em;
     display: flex;
@@ -334,6 +338,7 @@ form{
 
 #recensionetextarea{
     margin-top: 0.5em;
+    margin-bottom: 1em;
     resize: vertical;
     border: #fff;
 }

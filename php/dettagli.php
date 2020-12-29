@@ -26,7 +26,9 @@
         if(empty($birra))
             throw new Exception("No id value found");
 
-        if(!empty($_POST['removeid']))
+        // verifica se presenti parametri di inserimento/rimozione recensione solo se utente è loggato
+        //eliminazione recensione
+        if(isset($_SESSION['id']) && !empty($_POST['removeid']))
         {
             //verifica che la recensione stia venendo eliminata dall'autore
             $author=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id=".$_POST['removeid'])[0]["username"];
@@ -40,6 +42,29 @@
             else
                 header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=NO");
         }
+        //inserimento recensione
+        else if (isset($_SESSION['id']) && !empty($_POST['review']) && !empty($_POST['rating'])){
+            //sanitizzazione review + rating
+            $newreview=filter_var($_POST['review'], FILTER_SANITIZE_STRING);
+            $rating=filter_var($_POST['rating'], FILTER_SANITIZE_STRING);
+
+            //prelievo id utente per query di inserimento
+            $userid=DBAccess::query("SELECT id FROM utenti WHERE username=\"{$_SESSION['id']}\"")[0]["id"];
+
+            //inserimento in database
+            if(!empty($userid) && !empty($newreview) && !empty($rating) && is_numeric($rating) && $rating>=0 && $rating<=10){
+                //inserimento recensione
+                DBAccess::command("INSERT INTO recensioni (id, utente, birra, descrizione, voto) VALUES (NULL, {$userid},  {$idbirra}, \"{$newreview}\", {$rating})");
+                //$_SESSION['msg']="ok";
+                //redirect to self per resettare parametri post, parametro msg=OK per visualizzare messaggio di successo
+                header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=OK");
+            }
+            //redirect 
+            else{
+                header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=NO");
+            }
+        }   
+
 
         //preleva recensioni della birra
         $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id';
@@ -47,6 +72,7 @@
 
     } catch (Exception $e) {
         //Redirect a pagina errore
+        $_SESSION['msg']=$e->getMessage();
         header('Location: notfound.php');
     }
 
@@ -68,13 +94,16 @@
     $paginaHTML = str_replace("<beerinfo/>", htmlMaker::beerInfo($birra), $paginaHTML);
 
     //stampa recensioni
-    if(strpos($paginaHTML, "<reviews/>")!==false && $recensioni!==null)
+    if(strpos($paginaHTML, "<reviews/>")!==false)
     {
-        $paginaHTML = str_replace("<reviews/>", htmlMaker::beerReview($recensioni), $paginaHTML);
-        
-        if(strpos($paginaHTML, "<beerid/>")!==false)
-            $paginaHTML = str_replace("<beerid/>", $idbirra, $paginaHTML);
+        if($recensioni==null)
+            $paginaHTML = str_replace("<reviews/>", 'Nessuno ha ancora recensito questa birra.', $paginaHTML);
+        else
+            $paginaHTML = str_replace("<reviews/>", htmlMaker::beerReview($recensioni), $paginaHTML);
     }
+
+    if(strpos($paginaHTML, "<beerid/>")!==false)
+                $paginaHTML = str_replace("<beerid/>", $idbirra, $paginaHTML);
 
     //stampa messaggio di risultato query
     //if(isset($_SESSION['msg']) && $_SESSION['msg']=="ok")
