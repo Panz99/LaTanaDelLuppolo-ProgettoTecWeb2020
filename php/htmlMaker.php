@@ -88,8 +88,8 @@ class htmlMaker{
 
                                 <p>'. $beer["descrizione"] . '</p>
                             </div>
-                            <div id="recensionisection">
-                                <h1>Recensioni</h1>';
+                            <div>
+                                <h2>Recensioni</h2>';
             //se l'utente è loggato aggiungi textbox per inserimento recensione
             $html.= isset($_SESSION['id']) ? 
                             '   <div id="recensionecreate">
@@ -134,7 +134,7 @@ class htmlMaker{
         {
             $html .= '
                     <div class="recensioneitem">
-                        <div class="recensionetools">
+                        <div>
                             <div class="material-icons">account_circle</div>';
 
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
