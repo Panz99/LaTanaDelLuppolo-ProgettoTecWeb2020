@@ -59,12 +59,41 @@ form{
     margin: 1em;
 }
 
+fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
 /*-------------------------------------------
 -----------CSS RELATIVO ALLE CLASSI----------
 ---------------------------------------------*/
+
+.emspan{
+    font-style: italic;
+}
+
+.bspan{
+    font-weight: bold;
+}
+
+.strongspan{
+    font-weight: bolder;
+}
+
+.hiddenscreenreader{
+    height: 0;
+    overflow: hidden;
+    opacity: 0.0;
+    color: #ff0;
+    background-color: transparent;
+}
+
+
 .active{
     cursor: default !important;
-    color:#4CAF50 !important;
+    color:#D8FBD8 !important;
     pointer-events: none;
     text-decoration: none; 
 }
@@ -174,6 +203,15 @@ form{
     background-color: transparent;
 }
 
+.material-icons.dark { color: #222; }
+
+.material-icons.darknohover { color: #222; }
+.material-icons.darknohover:hover { 
+    color: #222;
+    cursor: default;
+    background-color: transparent;
+ }
+
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -194,6 +232,12 @@ form{
     font-size: 2.2em;
     color: #fff;
 }
+#logolink:visited{
+    color: #ff0;
+    background-color: transparent;
+}
+
+
 #img_logo{
     float: left;
     width: 4em;
@@ -206,7 +250,7 @@ form{
 }
 #msgWelcome{
     width: 100%;
-    color: #4CAF50;
+    color: #D8FBD8;
 }
 /*Nav*/
 #list_link{
@@ -250,11 +294,6 @@ form{
 /*Main*/
 #content{
     margin-bottom: 2em;
-}
-
-#jumpscreenreader{
-    height: 0;
-    overflow: hidden;
 }
 
 /*Content prodotti.html*/
@@ -528,12 +567,12 @@ form{
 }
 .eliminaprofilo>h3{
     text-align: center;
-    color:rgb(78, 3, 3);
+    color: #820000;
     font-size:2em;
 }
 .eliminaprofilo>p{
     font-size: 20px;
-    color: rgb(143, 5, 5);
+    color: #820000;
     margin-left:30px;
     margin-right: 30px;
 }
@@ -568,7 +607,7 @@ form{
 #container_elimina>label{
     margin-left: 50px;
     font-size: 20px;
-    color:#8a1818;
+    color: #820000;
 }
 #container_elimina > input{
     padding: 10px 120px;

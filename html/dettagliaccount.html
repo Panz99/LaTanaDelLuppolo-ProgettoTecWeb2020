@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
     <body>
         <header/>
-        
-        <div id="breadcrumbs">
-            <span>Ti trovi qui:</span>
-        </div>
+
+        <bc/>
+
         <main id="main">
             <div class="container_profile">
                 <div class="titolo-dati">
                     <h2>Profilo</h2>
-                    <div class="modifica-btn">
+                    <div>
                         <a class="link" href="modificadati.php"><h3>Modifica dati</h3></a>
                     </div>
                 </div>
@@ -32,18 +31,21 @@
                         <dt class="form-label">Email</dt>
                         <dd class="inputAge"><email/></dd>
                     </div>
-                    <div class = "logout">
-                        <a href="logout.php">Log out</a>
+                    <div>
+                        <a class="link" href="logout.php">Log out</a>
                     </div>
                     <div class="eliminaprofilo">
                         <h3>Eliminazione del Profilo</h3>
-                        <p><em>Una volta eliminato, il suo profilo non potrà più essere recuperato.</em> <br/> Se ancora vuole eliminarlo inserire la propria password e cliccare sul bottone Elimina</p>
+                        <p>
+                            <span class="emspan">Una volta eliminato, il suo profilo non potrà più essere recuperato.</span><br> 
+                            Se intende davvero eliminarlo inserire la propria password e cliccare sul bottone Elimina
+                        </p>
                         <form id="container_elimina" action="dettagliaccount.php" method="post">
                             
-                            <label for="txtPassword" class="form-label" xml:lang="en-EN">Password</label>
-                            <input type="text" class="inputAge" name="txtPassword" placeholder="Inserisci password">
+                            <label for="txtaccountdelete" class="form-label" xml:lang="en-EN">Password</label>
+                            <input type="text" class="inputAge" id="txtaccountdelete" name="txtPassword" placeholder="Inserisci password">
                             <error/>
-                           <input class="btn" type="submit" value="Elimina">
+                            <input class="btn" type="submit" value="Elimina">
                         </form>
                     </div>
                 </dl>    

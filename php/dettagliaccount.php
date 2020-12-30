@@ -44,19 +44,25 @@
         header("Location: notfound.php");
     }
     
+    //Breadcrumbs
+    $path=[
+        "Home" => "<root/>php/home.php",
+        "Account" => "active",
+    ];
 
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagliaccount.html');
     $paginaHTML = ($error) ? str_replace("<error/>", $error, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Profilo - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<userid/>",$_SESSION['id'],$paginaHTML);
-    $paginaHTML = str_replace("<name/>",$utente["nome"] ?? "<i>Non assegnato</i>", $paginaHTML);
-    $paginaHTML = str_replace("<surname/>",$utente["cognome"] ?? "<i>Non assegnato</i>", $paginaHTML);
-    $paginaHTML = str_replace("<email/>",$utente['email'] ?? "<i>Non assegnato</i>", $paginaHTML);
+    $paginaHTML = str_replace("<name/>",$utente["nome"] ?? '<span class="ispan">Non assegnato</span>', $paginaHTML);
+    $paginaHTML = str_replace("<surname/>",$utente["cognome"] ?? '<span class="ispan">Non assegnato</span>', $paginaHTML);
+    $paginaHTML = str_replace("<email/>",$utente['email'] ?? '<span class="ispan">Non assegnato</span>', $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
     
