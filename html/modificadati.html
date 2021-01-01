@@ -4,9 +4,7 @@
     <body>
         <header/>
         
-        <div id="breadcrumbs">
-            <span>Ti trovi qui:</span>
-        </div>
+        <bc/>
         <main id="main">
             <div class="container_profile">
                 <div class="nomeutente">
@@ -18,26 +16,30 @@
                         <p>Se non si vuole modificare un certo dato, basta lasciare in vuoto</p>
                         <error/>
                     </div>
-                    <form id="form-modifica-dati" action="<root/>php/modificadati.php" method="post">
+                    <form id="form-modifica-dati" action="<root/>php/modificadati.php" onSubmit="return checkModificadati();" method="post">
                         <div class="dataRow">
-                            <label class="form-label" xml:lang="en-EN">Username</label>
-                            <input class="inputAge" name="new-username" type="text" placeholder="Nuovo Username" >
+                            <label for="new-username" class="form-label" xml:lang="en-EN">Username</label>
+                            <input id="txtUsername" class="inputAge" name="new-username" type="text" placeholder="Nuovo Username" >
                         </div>
+                        <span id="usernameError"class="msgError msgErrorWrap"></span>
                         <div class="dataRow">
-                            <label class="form-label">Nome</label>
-                            <input class="inputAge" name="new-name" type="text" placeholder="Nuovo Nome" >
+                            <label for="new-name" class="form-label">Nome</label>
+                            <input id="txtName" class="inputAge" name="new-name" type="text" placeholder="Nuovo Nome" >
                         </div>
+                        <span id="nameError"class="msgError msgErrorWrap"></span>
                         <div class="dataRow">
-                            <label class="form-label">Cognome</label>
-                            <input class="inputAge" name="new-surname" type="text" placeholder="Nuovo Cognome" >
+                            <label for="new-surname" class="form-label">Cognome</label>
+                            <input id="txtSurname" class="inputAge" name="new-surname" type="text" placeholder="Nuovo Cognome" >
                         </div>
+                        <span id="surnameError"class="msgError msgErrorWrap"></span>
                         <div class="dataRow">
-                            <label class="form-label">Email</label>
-                            <input class="inputAge" name="new-email" type="text" placeholder="Nuova Email" >
+                            <label for="new-email" class="form-label" xml:lang="en-EN">E-mail</label>
+                            <input id="txtEmail" class="inputAge" name="new-email" type="text" placeholder="Nuova Email" >
                         </div>
+                        <span id="emailError"class="msgError msgErrorWrap"></span>
                         <div class="dataRow">
-                            <label class="form-label" xml:lang="en-EN">Nuova Password</label>
-                            <input class="inputAge" name="new-password" type="text" placeholder="Cambia password" >
+                            <label for="new-password"class="form-label" xml:lang="en-EN">Nuova Password</label>
+                            <input id="txtPassword" class="inputAge" name="new-password" type="text" placeholder="Cambia password" >
                         </div>
                         <div class="conferma">
                             <h3>Per confermare le modifiche inserire la propria <en-En>password</en-En> attuale</h3>
