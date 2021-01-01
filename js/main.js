@@ -75,7 +75,24 @@ function checkRegistrazione(){
         return true;
     return false;
 }
-
+function checkModificadati(){
+    var name=document.getElementById("txtName").value.trim();
+    var surname = document.getElementById("txtSurname").value.trim();
+    var username = document.getElementById("txtUsername").value.trim();
+    var email = document.getElementById("txtEmail").value.trim();
+    var password = document.getElementById("txtPassword").value.trim();
+    if((name!="") && !validateName(name))
+        return false;
+    if((surname!="") && !validateSurname(surname))
+        return false;
+    if((username!="") && !validateUsername(username))
+        return false;
+    if((email!="") && !validateEmail(email))
+        return false;
+    if((password!="") && !validatePassword(password))
+        return false;
+    return true;
+}
 function checkLogin(){
     var username = document.getElementById("txtUsername").value.trim();
     var password = document.getElementById("txtPassword").value.trim();

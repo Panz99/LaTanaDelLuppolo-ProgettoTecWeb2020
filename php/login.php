@@ -41,11 +41,12 @@
             
         }
     //------------------------------------------------------------------------------------------------
-    //quando si è sbagliato di inserire le credenziali giusti
+    //quando si inserisce un username sbagliato
     if(isset($_SESSION['id']) && !isset($_SESSION['login'])) {
         unset($_SESSION['id']);
         $paginaHTML=str_replace("<p class='msgError'></p>","<p class='msgError'>Le credenziali inserite non sono corrette</p>",$paginaHTML);
     }
+    //------------------------------
     //controllo se loggato
     if(isset($_SESSION['login']) && $_SESSION['login']){
         header('Location: dettagliaccount.php');
