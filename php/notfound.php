@@ -10,6 +10,9 @@
     if(isset($_SESSION['id'])){
         $username = $_SESSION['id'];
     }
+
+    print_r($_SESSION['msg']);
+    unset($_SESSION['msg']);
     
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/notfound.html');

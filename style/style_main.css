@@ -9,7 +9,7 @@ body{
     min-height: 100vh;
     margin: 0em auto;
     font-family: "Lato", cursive, sans-serif;
-    background-color: #aaa;
+    background-color: rgb(192, 219, 181);
     display: flex;
     flex-direction: column;
 }
@@ -59,12 +59,41 @@ form{
     margin: 1em;
 }
 
+fieldset{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
 /*-------------------------------------------
 -----------CSS RELATIVO ALLE CLASSI----------
 ---------------------------------------------*/
+
+.emspan{
+    font-style: italic;
+}
+
+.bspan{
+    font-weight: bold;
+}
+
+.strongspan{
+    font-weight: bolder;
+}
+
+.hiddenscreenreader{
+    height: 0;
+    overflow: hidden;
+    opacity: 0.0;
+    color: #ff0;
+    background-color: transparent;
+}
+
+
 .active{
     cursor: default !important;
-    color:#4CAF50 !important;
+    color:#D8FBD8 !important;
     pointer-events: none;
     text-decoration: none; 
 }
@@ -174,6 +203,15 @@ form{
     background-color: transparent;
 }
 
+.material-icons.dark { color: #222; }
+
+.material-icons.darknohover { color: #222; }
+.material-icons.darknohover:hover { 
+    color: #222;
+    cursor: default;
+    background-color: transparent;
+ }
+
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -194,6 +232,12 @@ form{
     font-size: 2.2em;
     color: #fff;
 }
+#logolink:visited{
+    color: #ff0;
+    background-color: transparent;
+}
+
+
 #img_logo{
     float: left;
     width: 4em;
@@ -206,7 +250,7 @@ form{
 }
 #msgWelcome{
     width: 100%;
-    color: #4CAF50;
+    color: #D8FBD8;
 }
 /*Nav*/
 #list_link{
@@ -250,11 +294,6 @@ form{
 /*Main*/
 #content{
     margin-bottom: 2em;
-}
-
-#jumpscreenreader{
-    height: 0;
-    overflow: hidden;
 }
 
 /*Content prodotti.html*/
@@ -322,6 +361,15 @@ form{
     width: 60%
 }
 
+#revinsertform{
+    margin: 0;
+}
+
+#descrizionebirra{
+    margin-bottom: 3em;
+}
+
+
 #recensionecreate{
     margin-bottom: 2em;
     display: flex;
@@ -334,9 +382,12 @@ form{
 
 #recensionetextarea{
     margin-top: 0.5em;
+    margin-bottom: 1em;
     resize: vertical;
     border: #fff;
 }
+
+
 
 #revremovebut{
     background: transparent;
@@ -345,29 +396,32 @@ form{
 }
 
 #msgsuccess{
-    height: 0.15em;
-    color: #1a3f1c ;
-    margin: 1em 1em 0.5em 1em;
+    font-size: 20px;
     font-weight: bold;
-    font-size: 1.5em;
-    padding: 0.8em 0.8em;
+    color:rgb(1, 19, 10);
+    background-color: yellowgreen;
+    width: 20%;
+    padding: 10px 70px;
+    border-radius: 20px;
 
     display: flex;
-    align-items: center;
-    margin: auto;
+    margin: 0.8em auto;
+    justify-content: center;
+
 }
 
 #msgfail{
-    height: 0.15em;
-    color: #840000 ;
-    margin: 1em 1em 0.5em 1em;
+    font-size: 20px;
     font-weight: bold;
-    font-size: 1.5em;
-    padding: 0.8em 0.8em;
+    color:white;
+    background-color: #800;
+    width: 20%;
+    padding: 10px 70px;
+    border-radius: 20px;
 
     display: flex;
-    align-items: center;
-    margin: auto;
+    margin: 0.8em auto;
+    justify-content: center;
 }
 
 /* notfound.html */
@@ -446,6 +500,7 @@ form{
     justify-content: space-between;
     align-items: center;
     padding: 0.2em;
+
 }
 .form-label {
     font-size: 1.5em;
@@ -500,6 +555,11 @@ form{
     align-content: center;
 }
 /*-----------------------------------------------------------------------------------------------*/
+
+.hidden{
+    display: none !important;
+}
+
 .container_profile{
     display: flex;
     flex-direction: column;

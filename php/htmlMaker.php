@@ -51,7 +51,7 @@ class htmlMaker{
             foreach($beers as $birra){
                 $html .= '<div class="prodotto">';
                 $html .= '<a class="link nome_prodotto" href="dettagli.php?id='.$birra['id'].'"><h2>' . $birra['nome'] .'</h2></a>'; 
-                $html .= '<img class="img_prodotto" alt="bottiglia di birra" src="<root/>'.$birra['img_path'].'"/>';
+                $html .= '<img class="img_prodotto" alt="Foto bottiglia di birra '.$birra['nome'].'" src="<root/>'.$birra['img_path'].'"/>';
                 $html .= '<dl class="dettagli_prodotto">'; 
                 $html .= '<dt>Costo:</dt><dd> ' . $birra['costo'] . '€' . '</dd>';   
                 $html .= '<dt>Grado:</dt><dd> ' . $birra['grado'] . '°</dd></dl>';
@@ -88,20 +88,41 @@ class htmlMaker{
 
                                 <p>'. $beer["descrizione"] . '</p>
                             </div>
-
-                            <div id="recensionisection">
-                                <h1>Recensioni</h1>
-                                <div id="recensionecreate">
+                            <div>
+                                <h2>Recensioni</h2>';
+            //se l'utente è loggato aggiungi textbox per inserimento recensione
+            $html.= isset($_SESSION['id']) ? 
+                            '   <div id="recensionecreate">
                                     <div class="recensioneuserpic">
-                                        <div class="material-icons">account_circle</div>
+                                        <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>
                                     </div>
                                     <div id="recensionetext">
-                                        <span class="recensioneusername">Tu</span><br>
-                                        <textarea id="recensionetextarea" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea><br>
-                                        <input type="submit" value="Invia recensione"> 
+                                        <form action="dettagli.php?id=<beerid/>" method="POST" id="revinsertform">   
+                                            <fieldset>
+                                                <legend><h3>Inserisci una nuova recensione</h3></legend>
+                                                <label for="recensionetextarea">Scrivi cosa pensi della birra</label><br>
+                                                <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea>
+                                                <br>
+                                                Valutazione<br>
+                                                <input type="radio" id="rateradio0" name="rating" value="0"><label for="rateradio0">0</label>&nbsp;
+                                                <input type="radio" id="rateradio1" name="rating" value="1"><label for="rateradio1">1</label>&nbsp;
+                                                <input type="radio" id="rateradio2" name="rating" value="2"><label for="rateradio2">2</label>&nbsp;
+                                                <input type="radio" id="rateradio3" name="rating" value="3"><label for="rateradio3">3</label>&nbsp;
+                                                <input type="radio" id="rateradio4" name="rating" value="4"><label for="rateradio4">4</label>&nbsp;
+                                                <input type="radio" id="rateradio5" name="rating" value="5"><label for="rateradio5">5</label>&nbsp;
+                                                <input type="radio" id="rateradio6" name="rating" value="6"><label for="rateradio6">6</label>&nbsp;
+                                                <input type="radio" id="rateradio7" name="rating" value="7"><label for="rateradio7">7</label>&nbsp;
+                                                <input type="radio" id="rateradio8" name="rating" value="8"><label for="rateradio8">8</label>&nbsp;
+                                                <input type="radio" id="rateradio9" name="rating" value="9"><label for="rateradio9">9</label>&nbsp;
+                                                <input type="radio" id="rateradio10" name="rating" value="10"><label for="rateradio10">10</label>
+                                                <br>
+                                                <input type="submit" value="Invia recensione"> 
+                                            </fieldset>
+                                        </form>
                                     </div>
-                                </div>
-                                <reviews/>
+                                </div>'
+                        : '';
+            $html.='            <reviews/>
                             </div>
                         </div>
                     </div>';
@@ -117,14 +138,14 @@ class htmlMaker{
         {
             $html .= '
                     <div class="recensioneitem">
-                        <div class="recensionetools">
-                            <div class="material-icons">account_circle</div>';
+                        <div>
+                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">person</div>';
 
-            // Aggiunge strumenti di amministrazione se utente è admin
-            $html.= (isset($_SESSION['admin']) && $_SESSION['admin']==1) || ($_SESSION['id']==$review["username"]) ? 
+            // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
+            $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
                                                 '   <br>
-                                                    <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
-                                                        <button type="submit" id="revremovebut"><div class="material-icons">delete_forever</div></button>
+                                                    <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
+                                                        <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
                                                         <input type="hidden" name="removeid" value="'.$review['revid'].'">
                                                     </form>' 
                                             : '';   
@@ -133,11 +154,11 @@ class htmlMaker{
                         <div id="recensionetext">
                             <span class="recensioneusername">'.$review["username"].'</span> ha commentato<br>
                             <div class="recensionecontent">'.$review["descrizione"].'</div>
-                            Voto: <em>'.$review["voto"].'/10</em>
+                            Voto: <span class="emspan">'.$review["voto"].'/10</span>
                         </div>
                     </div>';
         }
-
+        
         return $html;
     }
 
