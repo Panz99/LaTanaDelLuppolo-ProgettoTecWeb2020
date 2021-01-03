@@ -99,7 +99,7 @@ class htmlMaker{
                                     <div id="recensionetext">
                                         <form action="dettagli.php?id=<beerid/>" method="POST" id="revinsertform">   
                                             <fieldset>
-                                                <legend><h3>Inserisci una nuova recensione</h3></legend>
+                                                <legend>Inserisci una nuova recensione</legend>
                                                 <label for="recensionetextarea">Scrivi cosa pensi della birra</label><br>
                                                 <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea>
                                                 <br>

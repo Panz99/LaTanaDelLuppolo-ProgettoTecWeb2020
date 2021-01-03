@@ -65,6 +65,11 @@ fieldset{
     padding: 0;
 }
 
+legend{
+    font-size:1.1em;
+    font-weight: bold;
+    margin-bottom: 0.8em;
+}
 
 /*-------------------------------------------
 -----------CSS RELATIVO ALLE CLASSI----------
@@ -566,7 +571,7 @@ fieldset{
     justify-content: space-between;
 }
 
-.eliminaprofilo>h3{
+.eliminaprofilo>h2{
     color:rgb(0, 0, 0);
     font-size:2em;
     font-weight: bold;
@@ -608,12 +613,13 @@ fieldset{
     justify-content: space-around;
 }
 
-.titolo-dati>h1{
+
+#titolo-dati>h1{
     font-size:3em;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.2em;
 }
-.titolo-dati >p{
+#titolo-dati >p{
     font-size: 1.2em;
     color:rgb(1, 19, 10);
     padding: 10px 70px;
