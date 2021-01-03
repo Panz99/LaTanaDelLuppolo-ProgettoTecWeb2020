@@ -4,7 +4,7 @@
     session_start();
     //controllo se minorenne
     if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
-        header('Location: ageverification.php');
+       header('Location: ageverification.php');
 
     //controllo se loggato
     $username = "";

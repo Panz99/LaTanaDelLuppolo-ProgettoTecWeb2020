@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
@@ -6,24 +7,24 @@
         <bc/>
         <main id="main">
             <div id="content">
-                <form id="formLogin" action="<root/>php/login.php" method="post" onSubmit="return checkLogin();">
+                <form id="formLogin" action="<root/>php/login.php" method="post" onsubmit="return checkLogin();">
                     <div class="dataRow">
-                        <label for="txtUsername" class="form-label" xml:lang="en-EN" lang="en">Username</label><br>
-                        <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"> 
+                        <p><label for="txtUsername" class="form-label" xml:lang="en" lang="en">Username</label></p>
+                        <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"/> 
                     </div>    
                     <span id="usernameError"class="msgError msgErrorWrap"></span>
                     <div class="dataRow">
-                        <label for="txtPassword" class="form-label" xml:lang="en-EN" lang="en">Password</label><br>
-                        <input class="inputAge" type="password" id="txtPassword" name="txtPassword" placeholder="Inserisci password" required="required">
+                        <p><label for="txtPassword" class="form-label" xml:lang="en" lang="en">Password</label></p>
+                        <input class="inputAge" type="password" id="txtPassword" name="txtPassword" placeholder="Inserisci password" required="required"/>
                     </div>
                     <span id="passwordError"class="msgError msgErrorWrap"></span>
                     <p class='msgError'></p>
-                    <input type="submit" class="btn" value="Accedi">
+                    <input type="submit" class="btn" value="Accedi"/>
                 </form>
 
                 <div class="dataColumn">
-                    <p class="no-margin">Vuoi creare un nuovo <span xml:lang="en-EN">account</span>?</p>
-                    <a href="registrazione.php"><button class="btn">Registrati</button></a>
+                    <p>Vuoi creare un nuovo <span xml:lang="en">account</span>?</p>
+                    <a id="link" href="registrazione.php" class="btn">Registrati</a>
                 </div>               
             </div>
         </main>

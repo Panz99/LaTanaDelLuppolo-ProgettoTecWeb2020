@@ -88,7 +88,7 @@ legend{
 }
 
 .hiddenscreenreader{
-    height: 0;
+    position: absolute; left: -10000px; width: 1px; height: 1px;
     overflow: hidden;
     opacity: 0.0;
     color: #ff0;
@@ -199,18 +199,25 @@ legend{
     padding: 0.8em;
     width: 80%;
 }
-.no-margin{
-    margin-bottom:0;
-}
 
 .revremoveform{
     margin: 0;
     background-color: transparent;
 }
 
+.recensionetext{
+    width: 90%;
+}
+
+.newline{
+    margin: 0.2em 0 0.2em 0;
+}
+
+
 .material-icons.dark { color: #222; }
 
 .material-icons.darknohover { color: #222; }
+
 .material-icons.darknohover:hover { 
     color: #222;
     cursor: default;
@@ -381,9 +388,6 @@ legend{
     flex-flow: wrap;
 }
 
-#recensionetext{
-    width: 90%;
-}
 
 #recensionetextarea{
     margin-top: 0.5em;

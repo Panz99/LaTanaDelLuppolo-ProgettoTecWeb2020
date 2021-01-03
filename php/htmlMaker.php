@@ -33,7 +33,7 @@ class htmlMaker{
             if($link == "active")
                 $html.='<a href="#" class="active">'.$nome.'</a>';
             else    
-                $html.='<a href="'.$link.'" class=" link">'.$nome.'</a>';
+                $html.='<a href="'.$link.'" class="link">'.$nome.'</a>';
             $html.='</li>';
         }
         $html.='</ul>';
@@ -68,7 +68,7 @@ class htmlMaker{
         if($beer){
             $html ='<div id="detailscontainer">
                         <div id="divimgbirra">
-                            <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '">
+                            <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '" />
                         </div>
 
                         <div id="divdettagli">
@@ -96,14 +96,14 @@ class htmlMaker{
                                     <div class="recensioneuserpic">
                                         <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>
                                     </div>
-                                    <div id="recensionetext">
+                                    <div class="recensionetext">
                                         <form action="dettagli.php?id=<beerid/>" method="POST" id="revinsertform">   
                                             <fieldset>
                                                 <legend>Inserisci una nuova recensione</legend>
-                                                <label for="recensionetextarea">Scrivi cosa pensi della birra</label><br>
+                                                <p class="newline"><label for="recensionetextarea">Scrivi cosa pensi della birra</label></p>
                                                 <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea>
-                                                <br>
-                                                Valutazione<br>
+                                                
+                                                <p class="newline">Valutazione</p>
                                                 <input type="radio" id="rateradio0" name="rating" value="0"><label for="rateradio0">0</label>&nbsp;
                                                 <input type="radio" id="rateradio1" name="rating" value="1"><label for="rateradio1">1</label>&nbsp;
                                                 <input type="radio" id="rateradio2" name="rating" value="2"><label for="rateradio2">2</label>&nbsp;
@@ -115,8 +115,7 @@ class htmlMaker{
                                                 <input type="radio" id="rateradio8" name="rating" value="8"><label for="rateradio8">8</label>&nbsp;
                                                 <input type="radio" id="rateradio9" name="rating" value="9"><label for="rateradio9">9</label>&nbsp;
                                                 <input type="radio" id="rateradio10" name="rating" value="10"><label for="rateradio10">10</label>
-                                                <br>
-                                                <input type="submit" value="Invia recensione"> 
+                                                <p class="newline"><input type="submit" value="Invia recensione"></p>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -143,16 +142,16 @@ class htmlMaker{
 
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
             $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
-                                                '   <br>
-                                                    <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
-                                                        <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
-                                                        <input type="hidden" name="removeid" value="'.$review['revid'].'">
-                                                    </form>' 
+                                                '   
+                                                        <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
+                                                            <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
+                                                            <input type="hidden" name="removeid" value="'.$review['revid'].'">
+                                                        </form>' 
                                             : '';   
 
             $html.= '</div>
-                        <div id="recensionetext">
-                            <span class="recensioneusername">'.$review["username"].'</span> ha commentato<br>
+                        <div class="recensionetext">
+                            <p class="newline"><span class="recensioneusername">'.$review["username"].'</span> ha commentato</p>
                             <div class="recensionecontent">'.$review["descrizione"].'</div>
                             Voto: <span class="emspan">'.$review["voto"].'/10</span>
                         </div>
@@ -189,7 +188,7 @@ class htmlMaker{
         
         $html = "
         <div id=\"diverror\">
-            <h2>Contenuto non trovato. </h2><br>
+            <p><h2>Contenuto non trovato. </h2></p>
             <a href=\"{$back}\">Torna indietro</a>
         </div>";
 
@@ -201,7 +200,7 @@ class htmlMaker{
         
         $html = '
         <div id="diverror">
-            <h2>Non hai il permesso di visualizzare questo contenuto. </h2><br>
+            <p><h2>Non hai il permesso di visualizzare questo contenuto. </h2></p>
             <a href="'. $back .'">Torna indietro</a>
         </div>';
 

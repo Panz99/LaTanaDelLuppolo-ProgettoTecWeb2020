@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
@@ -5,7 +6,7 @@
         <header/>
         <bc/>
         <main  id="main">
-            <form id="formRegister" action="<root/>php/registrazione.php" onSubmit="return checkRegistrazione();" method="post">
+            <form id="formRegister" action="<root/>php/registrazione.php" onsubmit="return checkRegistrazione();" method="post">
                 <div class="dataRow">
                     <label for="txtName" class="form-label">Nome *</label>
                     <input class="inputAge" id="txtName" type="text" name="txtName" placeholder="Inserisci nome" required="required"/>
@@ -17,17 +18,17 @@
                 </div>
                 <span id="surnameError"class="msgError msgErrorWrap"></span>
                 <div class="dataRow">
-                    <label for="txtUsername" xml:lang="en-EN" lang="en" class="form-label" >Username *</label>
+                    <label for="txtUsername" xml:lang="en" lang="en" class="form-label" >Username *</label>
                     <input class="inputAge" id="txtUsername" type="text" name="txtUsername" placeholder="Inserisci username" required="required"/>
                 </div>
                 <span id="usernameError"class="msgError msgErrorWrap"></span>
                 <div class="dataRow">
-                    <label for="txtEmail" xml:lang="en-EN" lang="en" class="form-label">E-mail *</label>
+                    <label for="txtEmail" xml:lang="en" lang="en" class="form-label">E-mail *</label>
                     <input class="inputAge" id="txtEmail" type="email" name="txtEmail" placeholder="Inserisci e-mail" required="required"/>
                 </div>
                 <span id="emailError"class="msgError msgErrorWrap"></span>
                 <div class="dataRow">
-                    <label for="txtPassword" xml:lang="en-EN" lang="en" class="form-label">Password *</label>
+                    <label for="txtPassword" xml:lang="en" lang="en" class="form-label">Password *</label>
                     <input class="inputAge" id="txtPassword" type="text" name="txtPassword" placeholder="Inserisci password" required="required"/>
                 </div>
                 <span id="passwordError" class="msgError msgErrorWrap"></span>
