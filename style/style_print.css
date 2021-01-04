@@ -1,2 +1,49 @@
 
+/* ---- tutte le pagine ---- */
+
+.hiddenscreenreader, #container_icons, nav, .tornaSu, #imgValidCode, #imgValidCss, #recensionecreate, .revremoveform, .material-icons {
+    display: none;
+}
+body, a{
+    color:black;
+}
+#imgboiler, #imgdettagli, .img_prodotto{
+    height: 250px;
+}
+#breadcrumbs::before{
+    content: "Ti trovi in: ";
+}
+.bc-item{
+    display: inline-block;
+}
+.bc-item:not(:last-of-type)::after{
+    content:'>';
+    margin: 0 5px;
+}
+#container_logo{
+    display: inline-flex;
+}
+#img_logo {
+    height: 5em;
+    width: 5em;
+}
+.dataRow{
+    padding: 0.2em;
+}
+
+/* dettagli.php */
+.recensioneitem, .prodotto{
+    padding-top: 0.7em;
+    padding-bottom: 1em;
+    border-bottom: black 0.1em solid;
+}
+
+/* prodotti.php */
+ul>li>a[class="page-padding active fillParent"]::before{
+    content: "Pagina numero: ";
+}
+ul {
+    list-style-type: none;
+}
+
 
