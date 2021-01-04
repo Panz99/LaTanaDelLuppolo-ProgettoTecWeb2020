@@ -563,14 +563,17 @@ legend{
 #searchbar{
     background-color: #222;
     padding: 0.3em 2em;
+    text-align: center;
 }
-#searchbar input{
-    width: 100%;
+#search{
+    width: 90%;
     padding:0.8em;
     border: 1px solid #fff;
     border-radius: 10px;
 }
-
+#btnSearch{
+    padding: 0.8em;
+}
 /*---------------------------------------------------------------------------------------------------*/
 #formRegister{
     display: flex;
