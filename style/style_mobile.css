@@ -13,8 +13,21 @@ header nav ul{
 }
 #AVp, .form-label{
     font-size: 1em;
-}
+}/*
 .dataRow{
     flex-direction: column;
     align-items: center;
+}*/
+#container_header{
+    padding: 0 0.8em;
+    flex-wrap: wrap;
+}
+#breadcrumbs{
+    width: 80%;
+}
+#divdettagli{
+    width: 100%;
+}
+#txtaccountdelete{
+	margin-top: 1em;
 }

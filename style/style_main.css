@@ -224,6 +224,13 @@ legend{
     background-color: transparent;
  }
 
+.icon{
+    display: flex;
+    flex-direction: column;
+    color: #D8FBD8;
+    text-align: center;
+    
+ }
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -232,13 +239,15 @@ legend{
 #container_header{
     padding: 0em 3em;
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-between; /*lascia spazi tra i child*/
     align-items: center;    /*Allinea verticalmente*/
     background-color: #222;
 }
 #container_logo{
-    display: flex;
+    display: inline-flex;
     text-decoration: none;
+	align-items: center;
 }
 #text_logo{
     font-size: 2.2em;
@@ -252,13 +261,11 @@ legend{
 
 #img_logo{
     float: left;
-    width: 4em;
+    width: 60px;
+    height: 60px;
 }
 #container_icons{
-    display: flex;
-    justify-content: right;
-    text-align: right;
-    flex-wrap: wrap;
+    display: inline-flex;
 }
 #msgWelcome{
     width: 100%;
@@ -320,20 +327,18 @@ legend{
 #cardscontatti{
     display: flex;
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 2em;
     padding:5px;
 }
 #contacts{
-    width: 80%;
     padding: 1em;
     background-color: #fff;
     border-radius: 5px;
     text-align: left;
-    float: left;
     width: 350px;
     height: 240px;
-    margin:2em;
+    margin:2em 0;
 }
 
 #imgboiler{
@@ -341,16 +346,18 @@ legend{
     border-radius: 5px;
     width: 380px;
     height: 270px;
-    margin:2em;
+    margin:2em 0;
+}
+#container_elimina{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items: center;
 }
 
 #imgdettagli{
     width: 260px;
     height: 400px;
-}
-
-#imgside{
-    float: right;
 }
 
 /* dettagli.html */

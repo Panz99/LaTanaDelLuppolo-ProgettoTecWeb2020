@@ -6,9 +6,14 @@
             <h1 id="text_logo">La Tana del Luppolo</h1>  
         </a>
         <div id="container_icons">
-            <span id="icon-search" tabindex="0" onclick="getSearchbar()" onkeypress="getSearchbar()" class="material-icons">search</span>
-            <a href="login.php"><span class="material-icons">account_circle</span></a>
+            <div class="icon">
+                <span id="icon-search" tabindex=0 onclick="getSearchbar()" onkeypress="getSearchbar()" class="material-icons" hidden>search</span>
+                <span>Cerca</span>
+            </div>
+            <div class="icon">
+                <a href="login.php"><span class="material-icons"> account_circle </span></a>
             <welcome/>
+            </div>
         </div>
     </div>
     <div id="searchbar" hidden="hidden">
