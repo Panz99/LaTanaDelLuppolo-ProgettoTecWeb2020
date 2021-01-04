@@ -19,7 +19,7 @@
     }
     //controllo se minorenne
     if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
-        header('Location: ageverification.php');
+       header('Location: ageverification.php');
 
     $Errore="";
     //controllo se loggato
