@@ -139,24 +139,24 @@ class htmlMaker{
             $html .= '
                     <div class="recensioneitem">
                         <div>
-                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>';
-
-            // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
-            $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
-                                                '   
-                                                        <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
-                                                            <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
-                                                            <input type="hidden" name="removeid" value="'.$review['revid'].'">
-                                                        </form>' 
-                                            : '';   
-
-            $html.= '</div>
+                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>
+                        </div>
                         <div class="recensionetext">
                             <p class="newline"><span class="recensioneusername">'.$review["username"].'</span> ha commentato</p>
                             <div class="recensionecontent">'.$review["descrizione"].'</div>
                             Voto: <span class="emspan">'.$review["voto"].'/10</span>
-                        </div>
-                    </div>';
+                        </div>';
+            // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
+            $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
+                    '   <div>
+                            <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
+                                <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
+                                <input type="hidden" name="removeid" value="'.$review['revid'].'">
+                            </form>
+                        </div>' 
+                    : '';       
+            $html.='</div>';
+            
         }
         
         return $html;

@@ -68,7 +68,9 @@ fieldset{
 legend{
     font-size:1.1em;
     font-weight: bold;
-    margin-bottom: 0.8em;
+    margin-top: 0.9em;
+    margin-bottom: 0.5em;
+    padding: 0;
 }
 
 /*-------------------------------------------
@@ -197,16 +199,16 @@ legend{
     background-color: #fff;
     border-radius: 5px;
     padding: 0.8em;
-    width: 80%;
+    width: auto;
 }
 
 .revremoveform{
-    margin: 0;
+    margin: 1.8em 0 0 0;
     background-color: transparent;
 }
 
 .recensionetext{
-    width: 90%;
+    width: 80%;
 }
 
 .newline{
@@ -231,8 +233,6 @@ legend{
     text-align: center;
     
  }
-
-
 
 
 
