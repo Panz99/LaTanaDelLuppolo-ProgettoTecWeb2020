@@ -17,13 +17,13 @@
 
     $Errore="";
     //controllo se loggato
-    if(isset($_SESSION['login'])){
+    if(isset($_SESSION['login']) && $_SESSION['login']){
         $username=$_SESSION['id'];
         if(isset($_POST['new-username']) || isset($_POST['new-name']) || isset($_POST['new-surname']) || isset($_POST['new-date']) || isset($_POST['new-password'])){
 
-            if(isset($_POST['txtPassword'])){
+            if(isset($_POST['txtConfirmPassword'])){
 
-                $password = $_POST['txtPassword'];
+                $password = $_POST['txtConfirmPassword'];
 
                 $PassCorrect = Validate::validatePass($username,$password);
                 try{    
