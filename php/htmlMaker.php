@@ -18,6 +18,9 @@ class htmlMaker{
         return $html;
         
     }
+    public static function makeHeading($title){
+        return '<div id="heading"><h1>'.$title.'</h1></div>';
+    }
     public static function makeFooter(){
         return file_get_contents('../html/components/footer.html');
     }
@@ -72,9 +75,7 @@ class htmlMaker{
                         </div>
 
                         <div id="divdettagli">
-                            <div id="descrizionebirra">
-                                <h1><strong>'. $beer["nome"] .'</strong></h1>
-                                
+                            <div id="descrizionebirra">                                
                                 <dl>
                                     <dt><b>Tipo</b></dt>
                                     <dd>'. str_replace('_', ' ',  $beer['tipo']) . '</dd>
@@ -138,7 +139,7 @@ class htmlMaker{
             $html .= '
                     <div class="recensioneitem">
                         <div>
-                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">person</div>';
+                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>';
 
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
             $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 

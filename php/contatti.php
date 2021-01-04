@@ -20,6 +20,7 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Contatti - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", contatti, email, telefono", $paginaHTML); 
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("La nostra azienda"), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);

@@ -98,7 +98,7 @@ legend{
 
 .active{
     cursor: default !important;
-    color:#D8FBD8 !important;
+    color:white !important;
     pointer-events: none;
     text-decoration: none; 
 }
@@ -231,6 +231,11 @@ legend{
     text-align: center;
     
  }
+
+
+
+
+
 /*-------------------------------------------
 ------------CSS RELATIVO AGLI ID-------------
 ---------------------------------------------*/
@@ -362,7 +367,7 @@ legend{
 
 /* dettagli.html */
 #detailscontainer{
-    margin-top: 1.5em;
+    margin-top: 1.8em;
     display: flex;
     flex-flow: wrap;
     justify-content: center;
@@ -440,6 +445,14 @@ legend{
     justify-content: center;
 }
 
+#heading >h1{
+    font-size:3em;
+    border-bottom: #000 0.1em solid;
+    padding-bottom: 0.2em;
+    margin: 0.8em auto 0.6em auto;
+    width: auto;
+}
+
 /* notfound.html */
 
 #diverror{
@@ -499,6 +512,7 @@ legend{
     min-width: 8em;
     margin: 0 1em;
     padding: 1em 0.5em;
+    
 }
 #formAge{
     display: flex;

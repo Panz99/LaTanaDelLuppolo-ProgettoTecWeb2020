@@ -84,6 +84,7 @@
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagli.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead($birra["nome"]." - La tana del Luppolo"), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading($birra["nome"]), $paginaHTML); 
     $paginaHTML = str_replace("<keywords/>", ", ".$birra["nome"], $paginaHTML); 
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);

@@ -42,7 +42,7 @@
     $paginaHTML = file_get_contents('../html/prodotti.html');
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Prodotti - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", "", $paginaHTML); 
-
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Le nostre birre"), $paginaHTML);
     $paginaHTML = str_replace("<pages/>", htmlMaker::listPages($result[0], $page), $paginaHTML);
     $paginaHTML = str_replace("<listBeers/>", htmlMaker::listBeers($listaBirre), $paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
