@@ -52,6 +52,7 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Accedi - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(""), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Accedi o Registrati"),$paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);

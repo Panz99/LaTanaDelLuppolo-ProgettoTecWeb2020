@@ -59,6 +59,7 @@
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Profilo"), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<userid/>",$_SESSION['id'],$paginaHTML);

@@ -635,17 +635,4 @@ legend{
     color:rgb(43, 77, 2);
     
 }
-
-#titolo-dati>h2{
-    font-size:3em;
-    border-bottom: #000 0.1em solid;
-    padding-bottom: 0.2em;
-}
-#titolo-dati >p{
-    font-size: 1.2em;
-    color:rgb(1, 19, 10);
-    padding: 10px 70px;
-    margin:5px 20px;
-    border-radius: 20px;
-}
 /*------------------------------------------------------*/

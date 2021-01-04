@@ -99,6 +99,7 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Modifica Dati - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account, modifica dati", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Aggiornamento profilo"), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);

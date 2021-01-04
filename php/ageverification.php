@@ -56,6 +56,7 @@
                 str_replace('<div id="container_icons">', '<div id="container_icons" class="hidden">',
                 str_replace("<header/>", htmlMaker::makeHeader(""),$paginaHTML)));
     $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Inserisci la tua data di nascita"), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
