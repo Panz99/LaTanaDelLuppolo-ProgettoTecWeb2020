@@ -36,6 +36,7 @@
                             DBAccess::escape_input(array($username,$new_id));
                             DBAccess::command("UPDATE  utenti SET username = '$new_id' WHERE username = '$username'");
                             $_SESSION['id']=$new_id;
+                            $_SESSION['modificato']=true;
                         }
                     }
                     if($nome=$_POST['new-name']){
@@ -44,7 +45,7 @@
                         if($Errore==""){
                             DBAccess::escape_input(array($username,$nome));
                             DBAccess::command("UPDATE  utenti SET nome = '$nome' WHERE username = '$username'");
-                            $_SESSION['nome']=$nome;
+                            $_SESSION['modificato']=true;
                         }
                     }
                     if($cognome=$_POST['new-surname']){
@@ -53,7 +54,7 @@
                         if($Errore==""){
                             DBAccess::escape_input(array($username,$cognome));
                             DBAccess::command("UPDATE  utenti SET cognome = '$cognome' WHERE username = '$username'");
-                            $_SESSION['cogn']=$cognome;
+                            $_SESSION['modificato']=true;
                         }
                     }
                     if($mail=$_POST['new-email']){
@@ -62,12 +63,13 @@
                         if($Errore==""){
                             DBAccess::escape_input(array($username,$mail));
                             DBAccess::command("UPDATE  utenti SET email = '$mail' WHERE username = '$username'");
-                            $_SESSION['email']=$mail;
+                            $_SESSION['modificato']=true;
                         }
                     }
                     if($pass=$_POST['new-password']){
                         DBAccess::escape_input(array($username,$pass));
                         DBAccess::command("UPDATE  utenti SET password = '$pass' WHERE username = '$username'");  
+                        $_SESSION['modificato']=true;
                     }
                     if($Errore=="")
                         header("Location:dettagliaccount.php");

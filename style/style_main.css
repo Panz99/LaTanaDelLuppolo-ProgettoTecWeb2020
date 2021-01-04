@@ -607,14 +607,8 @@ legend{
     color:rgb(43, 77, 2);
     
 }
-#container_elimina{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 
-
-#titolo-dati>h1{
+#titolo-dati>h2{
     font-size:3em;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.2em;

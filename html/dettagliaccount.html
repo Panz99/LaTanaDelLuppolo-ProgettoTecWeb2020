@@ -7,9 +7,9 @@
         <bc/>
         <main id="main">
             <div class="container_profile">
-                <div class="titolo-dati">
-                    <h1>Profilo</h1>
-                    
+                <div id="titolo-dati">
+                    <h2>Profilo</h2>
+                    <msg/>
                 </div>
                 <dl class="dettagli">
                     <div class="dataRow">
@@ -41,7 +41,7 @@
                         <form id="container_elimina" action="dettagliaccount.php" method="post">
                             
                             <label for="txtaccountdelete" class="form-label" xml:lang="en-EN">Password</label>
-                            <input type="text" class="inputAge" id="txtaccountdelete" name="txtPassword" placeholder="Inserisci password">
+                            <input type="text" class="inputAge" id="txtaccountdelete" name="txtPassword" placeholder="Inserisci password"><br />
                             <error/>
                             <input class="btn" type="submit" value="Elimina">
                         </form>
