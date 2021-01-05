@@ -53,7 +53,7 @@
     //Costruisco pagina
     $paginaHTML = file_get_contents('../html/dettagliaccount.html');
     $paginaHTML = ($error) ? str_replace("<error/>", $error, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
-    $paginaHTML = (isset($_SESSION['modificato']) && $_SESSION['modificato']) ? str_replace("<msg/>", "Dati modificati con successo",$paginaHTML) : str_replace("<msg/>","",$paginaHTML);
+    $paginaHTML = (isset($_SESSION['modificato']) && $_SESSION['modificato']) ? str_replace("<msg/>", '<div id="msgsuccess">Dati modificati con successo!</div>',$paginaHTML) : str_replace("<msg/>","",$paginaHTML);
     unset($_SESSION['modificato']);
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Profilo - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account", $paginaHTML); 
