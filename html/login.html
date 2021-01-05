@@ -6,15 +6,15 @@
         <header/>
         <bc/>
         <main id="main">
+            <heading/>
             <div id="content">
-                <heading/>
-                <form id="formLogin" action="<root/>php/login.php" method="post" onsubmit="return checkLogin();">
-                    <div class="dataRow">
+                <form id="formLogin" action="<root/>php/login.php" method="post">
+                    <div class="dataRow dataLogin">
                         <p><label for="txtUsername" class="form-label" xml:lang="en" lang="en">Username</label></p>
                         <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"/> 
                     </div>    
                     <span id="usernameError"class="msgError msgErrorWrap"></span>
-                    <div class="dataRow">
+                    <div class="dataRow dataLogin">
                         <p><label for="txtPassword" class="form-label" xml:lang="en" lang="en">Password</label></p>
                         <input class="inputAge" type="password" id="txtPassword" name="txtPassword" placeholder="Inserisci password" required="required"/>
                     </div>
@@ -24,8 +24,8 @@
                 </form>
 
                 <div class="dataColumn">
-                    <p>Vuoi creare un nuovo <span xml:lang="en">account</span>?</p>
-                    <a id="link" href="registrazione.php" class="btn">Registrati</a>
+                    <p>Vuoi creare un nuovo <span xml:lang="en">account</span>? <a href="registrazione.php" class="link">Registrati</a></p>
+                    
                 </div>               
             </div>
         </main>

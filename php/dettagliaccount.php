@@ -13,7 +13,7 @@
    $username="";
 
     //se utente non è loggato redirect a pagina di errore
-    if(!isset($_SESSION['login'])){
+    if(!isset($_SESSION['logged'])){
         header("Location: accessdenied.php");
     }
     
@@ -27,7 +27,7 @@
             
             DBAccess::command("DELETE  FROM utenti WHERE username= '$username'");
             unset($_SESSION['id']);
-            unset($_SESSION['login']);
+            unset($_SESSION['logged']);
             header("Location: login.php");
         }
         else{

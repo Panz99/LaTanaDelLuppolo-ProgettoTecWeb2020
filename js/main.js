@@ -93,10 +93,3 @@ function checkModificadati(){
         return false;
     return true;
 }
-function checkLogin(){
-    var username = document.getElementById("txtUsername").value.trim();
-    var password = document.getElementById("txtPassword").value.trim();
-    if(validateUsername(username) & validatePassword(password))
-        return true;
-    return false;
-}

@@ -1,7 +1,7 @@
 <?php
 session_start();
 unset($_SESSION['id']);
-unset($_SESSION['login']);
+unset($_SESSION['logged']);
 header('Location: home.php');
 die();
 ?>

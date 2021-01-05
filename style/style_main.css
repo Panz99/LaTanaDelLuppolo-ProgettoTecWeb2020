@@ -140,7 +140,6 @@ legend{
 }
 .img_prodotto{
     max-height: 60%;
-    
 }
 .contenuto_prodotto{
     display: flex;
@@ -166,24 +165,10 @@ legend{
     height: auto;
 }
 
-.greenBtn{
-    background-color: #2E8B57;
-    border: 0;
-    border-radius: 10px;
-    height: 2em;
-    width: 7.5em;
-    font-size: medium;
-}
-
 .page:hover{
     background-color: #fff;
     color: #222;
     cursor: pointer;
-}
-.page.active:hover{
-    cursor: default !important;
-    color:#4CAF50 !important;
-    background-color: #222 !important; 
 }
 
 .recensioneitem{
@@ -367,7 +352,6 @@ legend{
 
 /* dettagli.html */
 #detailscontainer{
-    margin-top: 1.8em;
     display: flex;
     flex-flow: wrap;
     justify-content: center;
@@ -524,13 +508,23 @@ legend{
     flex-direction: column;
     align-items: center;
 }
+.dataAge{
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.2em;
+}
+.dataLogin{
+    justify-content: space-around;
+}
+.dataRegister{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0.2em;
+}
 .dataRow{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.2em;
-
 }
 .form-label {
     font-size: 1.5em;
@@ -634,5 +628,18 @@ legend{
 .logout>a:visited{
     color:rgb(43, 77, 2);
     
+}
+
+#titolo-dati>h2{
+    font-size:3em;
+    border-bottom: #000 0.1em solid;
+    padding-bottom: 0.2em;
+}
+#titolo-dati >p{
+    font-size: 1.2em;
+    color:rgb(1, 19, 10);
+    padding: 10px 70px;
+    margin:5px 20px;
+    border-radius: 20px;
 }
 /*------------------------------------------------------*/
