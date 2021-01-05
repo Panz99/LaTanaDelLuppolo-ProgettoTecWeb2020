@@ -52,6 +52,7 @@
     
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Locker - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", "", $paginaHTML); 
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Verifica la tua data di nascita"), $paginaHTML);
     $paginaHTML = str_replace("<nav>", "<nav hidden='hidden'>",
                 str_replace('<div id="container_icons">', '<div id="container_icons" class="hidden">',
                 str_replace("<header/>", htmlMaker::makeHeader(""),$paginaHTML)));

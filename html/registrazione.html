@@ -6,28 +6,29 @@
         <header/>
         <bc/>
         <main  id="main">
+            <heading/>
             <form id="formRegister" action="<root/>php/registrazione.php" onsubmit="return checkRegistrazione();" method="post">
-                <div class="dataRow">
+                <div class="dataRow dataRegister">
                     <label for="txtName" class="form-label">Nome *</label>
                     <input class="inputAge" id="txtName" type="text" name="txtName" placeholder="Inserisci nome" required="required"/>
                 </div>
                 <span id="nameError"class="msgError msgErrorWrap"></span>
-                <div class="dataRow">
+                <div class="dataRow dataRegister">
                     <label for="txtSurname" class="form-label">Cognome *</label>
                     <input class="inputAge" id="txtSurname" type="text" name="txtSurname" placeholder="Inserisci cognome" required="required"/>
                 </div>
                 <span id="surnameError"class="msgError msgErrorWrap"></span>
-                <div class="dataRow">
+                <div class="dataRow dataRegister">
                     <label for="txtUsername" xml:lang="en" lang="en" class="form-label" >Username *</label>
                     <input class="inputAge" id="txtUsername" type="text" name="txtUsername" placeholder="Inserisci username" required="required"/>
                 </div>
                 <span id="usernameError"class="msgError msgErrorWrap"></span>
-                <div class="dataRow">
+                <div class="dataRow dataRegister">
                     <label for="txtEmail" xml:lang="en" lang="en" class="form-label">E-mail *</label>
                     <input class="inputAge" id="txtEmail" type="email" name="txtEmail" placeholder="Inserisci e-mail" required="required"/>
                 </div>
                 <span id="emailError"class="msgError msgErrorWrap"></span>
-                <div class="dataRow">
+                <div class="dataRow dataRegister">
                     <label for="txtPassword" xml:lang="en" lang="en" class="form-label">Password *</label>
                     <input class="inputAge" id="txtPassword" type="text" name="txtPassword" placeholder="Inserisci password" required="required"/>
                 </div>

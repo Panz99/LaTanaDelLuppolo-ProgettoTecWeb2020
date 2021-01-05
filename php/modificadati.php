@@ -17,7 +17,7 @@
 
     $Errore="";
     //controllo se loggato
-    if(isset($_SESSION['login']) && $_SESSION['login']){
+    if(isset($_SESSION['logged']) && $_SESSION['logged']){
         $username=$_SESSION['id'];
         if(isset($_POST['new-username']) || isset($_POST['new-name']) || isset($_POST['new-surname']) || isset($_POST['new-date']) || isset($_POST['new-password'])){
 

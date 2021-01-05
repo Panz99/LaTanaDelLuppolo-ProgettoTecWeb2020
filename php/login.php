@@ -7,43 +7,31 @@
     if(!isset($_SESSION['adult']) || !$_SESSION['adult']){
         header('Location: ageverification.php');
     }
-    
-    //-------------Controllo di login---------------------
-    if (isset($_POST['txtUsername']) && isset($_POST['txtPassword'])) {
-        // se l'utente ha provato di loggarsi 
-        $username =$_POST["txtUsername"];
-        $password=$_POST["txtPassword"];
-        DBAccess::escape_input(array($username,$password));
-        $result= DBAccess::query("SELECT * FROM utenti WHERE username = '$username' AND password='$password'");
-        if($result)
-        {
-            $row = $result[0];
-            $_SESSION['id']=$username;
-            $_SESSION['login']=true;
-            $_SESSION['admin'] = $row['admin_flag'] ?? NULL;
-        }
-    }
-
-    if(isset($_SESSION['id'])){
-        header("Location:dettagliaccount.php");
-    }
-    else if (isset($username)) {
-        // se hanno provato ma fallito di loggarsi 
-        $_SESSION['id']=$username; 
-    }
-    
-    //------------------------------------------------------------------------------------------------
-    //quando si è sbagliato di inserire le credenziali giuste
-    if(isset($_SESSION['id']) && !isset($_SESSION['login'])) {
-        unset($_SESSION['id']);
-        $paginaHTML=str_replace("<p class='msgError'></p>","<p class='msgError'>Le credenziali inserite non sono corrette</p>",$paginaHTML);
-    }
-    //------------------------------
-    //controllo se loggato
-    if(isset($_SESSION['login']) && $_SESSION['login']){
+    //controllo se giá loggato
+    if(isset($_SESSION['logged']) && $_SESSION['logged']){
         header('Location: dettagliaccount.php');
     }
 
+    //Controllo se sta provando il login
+    $error="";
+    if (isset($_POST['txtUsername']) && isset($_POST['txtPassword'])) {
+        $username=filter_var($_POST['txtUsername'], FILTER_SANITIZE_STRING);
+        $password=filter_var($_POST['txtPassword'], FILTER_SANITIZE_STRING);
+        try{
+            $result= DBAccess::query("SELECT * FROM utenti WHERE username = '$username' AND password='$password'", true);
+            if($result){
+                $_SESSION['id']=$username;
+                $_SESSION['logged']=true;
+                $_SESSION['admin'] = $result['admin_flag'] ?? NULL;
+                header('Location: dettagliaccount.php');
+            }else{
+                $error = "Le credenziali inserite non sono corrette";
+            }
+        }catch(Exception $e){
+            header('Location: accessdenied.php');
+        }
+    }
+    //Genero la pagina
     $path=[
         "Home" => "<root/>php/home.php",
         "Accedi" => "active",
@@ -55,6 +43,7 @@
     $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Accedi o Registrati"),$paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
+    $paginaHTML=str_replace("<p class='msgError'></p>","<p class='msgError'>$error</p>",$paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;

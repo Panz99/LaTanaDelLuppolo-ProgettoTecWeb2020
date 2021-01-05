@@ -23,7 +23,7 @@
 
     $Errore="";
     //controllo se loggato
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['logged']) && $_SESSION['logged']){
         //se è loggto non ha la possibilità di registrare un nuovo account, non dovrebbe poter arrivare a questa pagina
         header('Location: accessdenied.php');
     }
@@ -39,10 +39,10 @@
             try{
                 DBAccess::command("INSERT INTO utenti (username, password, nome, cognome, email) VALUES ('$username', '$password', '$name', '$surname', '$email')");
                 $_SESSION['id']=$username;
-                $_SESSION['login']=true;
+                $_SESSION['logged']=true;
                 header('Location: dettagliaccount.php');
             }catch(Exception $e){
-                $Errore = $e;
+                $Errore = "<p class='msgError'>".$e->getMessage()."</p>";
             }
         }else{
             $paginaHTML = str_replace('id="txtName"', 'id="txtName" value="'.$_POST['txtName'].'"', $paginaHTML);
@@ -62,6 +62,7 @@
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Registrati - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account, registrazione", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader(""), $paginaHTML);
+    $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Registra un nuovo account"), $paginaHTML);
     $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);

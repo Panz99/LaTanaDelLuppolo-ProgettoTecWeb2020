@@ -50,7 +50,14 @@ class DBAccess
     public static function command($command) {
         $connection = self::openDBconnection();
         if(!($connection->query($command))) {
-            throw new Exception("L'operazione '$command' è fallita");
+            switch ($connection->errno) {
+                case '1062':
+                    throw new Exception("L'utente é giá presente nel database");
+                    break;
+                default:
+                    throw new Exception("Operazione fallita. Errore: $connection->error, codice: $connection->errno");
+                    break;
+            }
         }
         $connection->close();
     }
