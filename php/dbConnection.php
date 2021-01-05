@@ -21,8 +21,8 @@ class DBAccess
             $lim = count($result);
             for($i = 0; $i < $lim; $i++) {
                 $new_result[$i] = $result[$i][$key];
-        }
-        return $new_result;
+            }
+            return $new_result;
         }
         return null;
         

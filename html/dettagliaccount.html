@@ -7,46 +7,22 @@
         
         <bc/>
         <main id="main">
-            <div class="container_profile">
-                <heading/>
-                    <msg/>
-                <dl class="dettagli">
-                    <div class="dataRow">
-                        <dt class="form-label" xml:lang="en">Username</dt>
-                        <dd class="inputAge"><userid/></dd>
-                    </div>    
-                    <div class="dataRow">
-                        <dt class="form-label">Nome</dt>
-                        <dd class="inputAge"><name/></dd>
-                    </div>
-                    <div class="dataRow">
-                        <dt class="form-label">Cognome</dt>
-                        <dd class="inputAge"><surname/></dd>
-                    </div>
-                    <div class="dataRow">
-                        <dt class="form-label" xml:lang="en">E-mail</dt>
-                        <dd class="inputAge"><email/></dd>
-                    </div>
-                    <div class = "logout">
-                        <a id="link" href="logout.php" class="btn" xml:lang="en">Log out</a>
-                        <a id="link" href="modificadati.php" class="btn">Modifica dati</a>
-                    </div>
-                    <div class="eliminaprofilo">
-                        <h2>Eliminazione del Profilo</h2>
-                        <p>
-                            <span class="emspan">Una volta eliminato, il suo profilo non potrà più essere recuperato.</span>
-                        </p>
-                        <p>
-                            Se intende davvero eliminarlo inserire la propria password e cliccare sul bottone Elimina
-                        </p>
-                        <form id="container_elimina" action="dettagliaccount.php" method="post">
-                            <label for="txtaccountdelete" class="form-label" xml:lang="en">Password</label>
-                            <input type="text" class="inputAge" id="txtaccountdelete" name="txtPassword" placeholder="Inserisci password"/>
-                            <error/>
-                            <input class="btn" type="submit" value="Elimina"/>
-                        </form>
-                    </div>
-                </dl>    
+            <heading/>
+            <div id="container_profilo">
+                <msg/>
+                <user/>
+                <p>Desideri modificare i tuoi dati?<span><a href="modificadati.php" class="link btn">Modifica dati</a></span></p>
+                <p>Effettua il <span xml:lang="en" lang="en"><a href="logout.php" class="link">Logout</a></p>
+                <div id="container_delete">
+                    <h2>Elimina il tuo profilo</h2>
+                    <p><span class="bspan">Attenzione! </span> L'azione non é reversibile, saranno eliminate tutte le recensioni collegate al suddetto account</p>
+                    <form id="formElimina" action="dettagliaccount.php" method="post">
+                        <label for="txtaccountdelete" class="form-label" xml:lang="en" lang="en">Password</label>
+                        <input type="text" class="inputAge" id="txtaccountdelete" name="txtPassword" placeholder="Inserisci password"/>
+                        <input id="btnElimina" class="btn" type="submit" value="Elimina"/>
+                    </form>
+                    <error/>
+                </div> 
             </div>
         </main>
         <tornasu/>

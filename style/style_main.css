@@ -338,12 +338,6 @@ legend{
     height: 270px;
     margin:2em 0;
 }
-#container_elimina{
-	display: flex;
-	flex-wrap:wrap;
-	justify-content:center;
-	align-items: center;
-}
 
 #imgdettagli{
     width: 260px;
@@ -587,34 +581,35 @@ legend{
     display: none !important;
 }
 
-.container_profile{
+#container_profilo{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-.eliminaprofilo>h2{
-    color:rgb(0, 0, 0);
+#container_delete{
+    border-bottom: #000 0.2em solid;
+    margin-bottom: 2em;
+}
+#formElimina{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items: center;
+}
+#btnElimina{
+    margin: 0;
+}
+#container_delete>h2{
     font-size:2em;
     font-weight: bold;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.4em;
 }
-.eliminaprofilo>p{
+#container_delete>p{
     font-size: 1.2em;
-    color: rgb(143, 5, 5);
-   font-weight: bold;
-   margin:0.5em;
-}
-.logout{
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5em;
-    padding-top:0.5em;
-    border-top: black 0.1em solid;
-    align-items: center;
-    row-gap: 1.5em;
-    
+    width: 100%;
+    text-align: center;
+    margin:0.5em;
 }
 
 /*------------------------------------------------------*/

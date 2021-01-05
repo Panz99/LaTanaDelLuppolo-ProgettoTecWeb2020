@@ -208,7 +208,27 @@ class htmlMaker{
         return $html;
     }
 
-
+    public static function userInfo($utente){
+        $html = "<dl id='dettagli'>";
+        $html.= "<dt class='form-label' xml:lang='en' lang='en'>Username</dt><dd>".$utente['username']."</dd>";
+        if($utente['nome']!=NULL){
+            $html.= "<dt class='form-label'>Nome</dt><dd>".$utente['nome']."</dd>";
+        }else{
+            $html.= "<dt class='form-label'>Nome</dt><dd>Non assegnato</dd>";
+        }
+        if($utente['cognome']!=NULL){  
+            $html.= "<dt class='form-label'>Cognome</dt><dd>".$utente['cognome']."</dd>";
+        }else{
+            $html.= "<dt class='form-label'>Cognome</dt><dd>Non assegnato</dd>";
+        }
+        if($utente['email']!=NULL){
+            $html.= "<dt class='form-label' xml:lang='en' lang='en'>Email</dt><dd>".$utente['email']."</dd>";
+        }else{
+            $html.= "<dt class='form-label' xml:lang='en' lang='en'>E-mail</dt><dd>Non assegnato</dd>";      
+        }
+        $html.= "</dl>";
+        return $html;
+    }
 }
 
 ?>
