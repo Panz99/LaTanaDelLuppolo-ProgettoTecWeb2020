@@ -6,16 +6,12 @@
         <header/>
         
         <main id="main">
-            <div class="container_profile">
-                <div class="nomeutente">
-    
-                </div>
-                <div>
+            <div>
                 <heading/>
-                    <p>Se non si vuole modificare un certo dato, lasciare vuoto il campo</p>
+                    <p class="infoP">Se non si vuole modificare un certo dato, lasciare vuoto il campo</p>
                     <error/>
                     <form id="form-modifica-dati" action="<root/>php/modificadati.php" onSubmit="return checkModificadati();" method="post">
-                        <fieldset>
+                        <fieldset id="form_modifica">
                             <legend>Modifica i dati</legend>
                             <div class="dataRow">
                                 <label for="txtUsername" class="form-label" xml:lang="en">Username</label>
@@ -50,7 +46,7 @@
                             </div>
                         </fieldset>
                     </form>
-                    <a class="annulla" href="<root/>php/login.php">Torna indietro</a>
+                    <a class="link" href="<root/>php/login.php">Torna indietro</a>
                 </div>
             </div>
         </main>

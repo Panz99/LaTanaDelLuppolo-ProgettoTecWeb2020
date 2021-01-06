@@ -605,11 +605,35 @@ legend{
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.4em;
 }
-#container_delete>p{
+#container_delete>p, .infoP{
     font-size: 1.2em;
     width: 100%;
     text-align: center;
     margin:0.5em;
 }
-
+#dettagli{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1.5em;
+    margin:4em;
+}
+#dettagli>dt{
+    font-size: 1.8em;
+    font-weight: bold;
+    border-bottom:black 0.1em solid;
+}
+#dettagli>dd{
+    font-size:1.5em;
+    border-bottom:black 0.11em solid;
+}
+#container_profilo>p{
+    font-size:1.2em;
+}
+#form_modifica {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4em;
+    font-size: 1.2em;
+}
 /*------------------------------------------------------*/
