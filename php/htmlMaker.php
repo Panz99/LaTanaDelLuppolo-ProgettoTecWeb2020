@@ -189,10 +189,18 @@ class htmlMaker{
         
         $html = "
         <div id=\"diverror\">
-            <p><h2>Contenuto non trovato. </h2></p>
-            <a href=\"{$back}\">Torna indietro</a>
+            <h2>Contenuto non trovato. </h2>
+            <a class ='link' href=\"{$back}\">Torna indietro</a>
         </div>";
 
+        return $html;
+    }
+    public static function makeDeleteAccount(){        
+        $html = "
+        <div id='diverror'>
+            <h2>Account eliminato con successo!</h2>
+            <a class ='link' href='<root/>php/home.php'>Torna alla home</a>
+        </div>";
         return $html;
     }
 
@@ -201,8 +209,8 @@ class htmlMaker{
         
         $html = '
         <div id="diverror">
-            <p><h2>Non hai il permesso di visualizzare questo contenuto. </h2></p>
-            <a href="'. $back .'">Torna indietro</a>
+            <h2>Non hai il permesso di visualizzare questo contenuto. </h2>
+            <a class ="link" href="'. $back .'">Torna indietro</a>
         </div>';
 
         return $html;

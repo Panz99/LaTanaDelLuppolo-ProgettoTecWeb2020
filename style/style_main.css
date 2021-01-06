@@ -100,7 +100,7 @@ legend{
 
 .active{
     cursor: default !important;
-    color:white !important;
+    color:#92ff83  !important;
     pointer-events: none;
     text-decoration: none; 
 }
