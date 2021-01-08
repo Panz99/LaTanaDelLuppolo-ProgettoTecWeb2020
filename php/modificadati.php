@@ -1,33 +1,30 @@
 <?php
     require_once 'htmlMaker.php';
     require_once 'dbConnection.php';
-    require_once 'validator.php';
+
     session_start();
     //controllo se minorenne
-    if(!isset($_SESSION['adult']) || !$_SESSION['adult'])
+    if(!isset($_SESSION['adult']) || !$_SESSION['adult']){
         header('Location: ageverification.php');
-    
-        $username = "";
-    if(isset($_SESSION['id'])){
-        $username = $_SESSION['id'];
     }
     
     $paginaHTML = file_get_contents('../html/modificadati.html');
-   
-
-    $Errore="";
-    //controllo se loggato
+    
     if(isset($_SESSION['logged']) && $_SESSION['logged']){
-        $username=$_SESSION['id'];
+       
+        $username = $_SESSION['id'];
+        $Errore="";
+
         if(isset($_POST['new-username']) || isset($_POST['new-name']) || isset($_POST['new-surname']) || isset($_POST['new-date']) || isset($_POST['new-password'])){
 
             if(isset($_POST['txtConfirmPassword'])){
 
                 $password = $_POST['txtConfirmPassword'];
-
-                $PassCorrect = Validate::validatePass($username,$password);
-                try{    
-                if($PassCorrect==true){
+                try{
+                
+                    $PassCorrect = DBAccess::query("SELECT password FROM utenti WHERE username = '$username' ",true)[0];
+                   
+                if($PassCorrect == $password){
                     
                     if($new_id=$_POST['new-username']){
                         $new_id=filter_var($_POST['new-username'], FILTER_SANITIZE_STRING);
@@ -73,36 +70,34 @@
                     }
                     if($Errore=="")
                         header("Location:dettagliaccount.php");
-                    else{
-                        $paginaHTML = str_replace('id="txtName"', 'id="txtName" value="'.$_POST['new-name'].'"', $paginaHTML);
-                        $paginaHTML = str_replace('id="txtSurname"', 'id="txtSurname" value="'.$_POST['new-surname'].'"', $paginaHTML);
-                        $paginaHTML = str_replace('id="txtUsername"', 'id="txtUsername" value="'.$_POST['new-username'].'"', $paginaHTML);
-                        $paginaHTML = str_replace('id="txtEmail"', 'id="txtEmail" value="'.$_POST['new-email'].'"', $paginaHTML);
-                        $paginaHTML = str_replace('id="txtPassword"', 'id="txtPassword" value="'.$_POST['new-password'].'"', $paginaHTML);
-                    }
-                
 
                 }else{
-                    $Errore="Password non corretta!";
+                    $Errore="La <span  xml:lang='en'>password</span> inserita non è corretta!";
                 }
                 }
                 catch(Exception $e){
-                    $Errore=$e;
+                    $Errore = "<p class='msgError'>".$e->getMessage()."</p>";
                 }   
 
             }
         }
     }
+    
+    $path=[
+        "Home" => "<root/>php/home.php",
+        "Account" => "<root/>php/dettagliaccount.php",
+        "Modifica Dati" => "active",
+    ];
 
-        //Costruisco la pagina normalmente
-     
+    
     $paginaHTML = str_replace("<head/>", htmlMaker::makeHead("Modifica Dati - La tana del Luppolo"), $paginaHTML);
     $paginaHTML = str_replace("<keywords/>", ", account, modifica dati", $paginaHTML); 
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<heading/>", htmlMaker::makeHeading("Aggiornamento profilo"), $paginaHTML);
+    $paginaHTML = str_replace("<bc/>", htmlMaker::makeBreadCrumbs($path), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
-    $paginaHTML = ($Errore) ? str_replace("<error/>", $Errore, $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
+    $paginaHTML = ($Errore) ? str_replace("<error/>", "<p class='msgError'>$Errore</p>", $paginaHTML) : str_replace("<error/>", "", $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
 ?>

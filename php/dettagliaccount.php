@@ -1,7 +1,6 @@
 <?php
     require_once 'htmlMaker.php';
     require_once 'dbConnection.php';
-    require_once 'validator.php';
     session_start();
     //controllo se minorenne
     if(!isset($_SESSION['adult']) || !$_SESSION['adult']){

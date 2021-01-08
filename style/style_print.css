@@ -1,6 +1,8 @@
 
 /* ---- tutte le pagine ---- */
-
+html{
+    font-size: 14pt;
+}
 .hiddenscreenreader, #container_icons, nav, .tornaSu, #imgValidCode, #imgValidCss, #recensionecreate, .revremoveform, .material-icons {
     display: none;
 }
@@ -32,7 +34,7 @@ body, a{
 }
 
 /* dettagli.php */
-.recensioneitem, .prodotto{
+.recensioneitem, .prodotto, #formElimina{
     padding-top: 0.7em;
     padding-bottom: 1em;
     border-bottom: black 0.1em solid;
@@ -46,4 +48,12 @@ ul {
     list-style-type: none;
 }
 
+#dettagli>dd{
+    margin-top:20px;
+    margin-left:120px;
+    border-bottom: black 0.1em solid;
+}
+#dettagli>dt{
+    font-weight: bold;
+}
 
