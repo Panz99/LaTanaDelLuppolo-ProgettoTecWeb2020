@@ -1,10 +1,50 @@
 \section{Progettazione}
-Abbiamo scelto di utilizzare \textit{Responsive Web Design} come strategia di progettazione, il sito infatti é in grado di adattarsi graficamente in modo automatico in base al dispositivo con il quale viene visualizzato.Abbiamo  preferito  usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA descritta nella sezione x.x.x
+E' stato scelto \textit{Responsive Web Design} come strategia di progettazione, il sito infatti é in grado di adattarsi graficamente in modo automatico in base al dispositivo con il quale viene visualizzato. \\
+Si è preferito usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA descritta nella sezione x.x.x
+
+Il progetto è stato affrontato con un approccio top-down, individuando elementi generici da implementare e procedendo quindi con lo sviluppo di pagine e funzioni.
+
+
+\subsection{Struttura delle pagine}
+Sono di seguito riportati i differenti elementi della struttura delle pagine del sito.
+\paragraph{Header}
+L' header contiene il logo ed il nome del sito, due pulsanti per visualizzare la barra di ricerca delle birre ed accedere al profilo personale oltre ad una barra di navigazione con i riferimenti alle principali pagine del sito.\\
+E' presente in tutte le pagine del sito.
+\paragraph{Breadcrumb}
+Sotto alla testata è situata la breadcrumb che permette all'utente di orientarsi visualizzando il percorso dalla homepage fino alla pagina corrente.\\
+La breadcrumb non è visibile nelle pagine di avviso di contenuto non trovato e accesso negato in quanto sono pagine di eccezione.
+\paragraph{Main}
+La sezione Main visualizza il contenuto principale e caratterizzante della pagina.
+\paragraph{Footer}
+Al piede della pagina è situato il footer che riporta informazioni sul progetto e i relativi certificati di validazione.\\
+E' presente in tutte le pagine del sito.
+
+\subsection{Struttura del sito}
+L'index page del sito reindirizza alla pagina di verifica dell'età mentre conduce direttamente alla homepage se nelle variabili di sessione è inidicato che l'utente ha già eseguito la verifica ed è maggiorenne.\\
+La verifica viene eseguita dalla pagina stessa \textit{ageverification} ed ogni altra pagina reindirizza a quest'ultima se rileva che nella sessione dell'utente non è presente la variabile che rappresenta l'avvenuta verifica.\\
+Di seguito si riportano le pagine del sito e le rispettive caratteristiche.
+
+\paragraph{Home}
+L'homepage è la pagina che viene mostrata all'utente dopo la verifica dell'età e contiene una lista di birre in offerta o consigliate dall'amministrazione.
+
+\paragraph{Prodotti}
+La pagina \textit{prodotti} visualizza tutte le birre disponibili nel database, suddivise in pagine.\\
+La pagina viene inoltre utilizzata per visualizzare i risultati di una ricerca tramite la barra di ricerca.
+
+\paragraph{Dettagli}
+La pagina \textit{dettagli} visualizza informazioni complete e recensioni della birra scelta dalla pagina Prodotti.\\
+Se l'utente ha effettuato l'accesso vengono visualizzati i controlli per aggiungere e rimuovere recensioni.
+
+\paragraph{Contatti}
+La pagina \textit{contatti} contiene una breve descrizione dell'azienda ed il contatto telefonico e di posta elettronica dell'azienda.
+
+\paragraph{Spazio utente}
+La registrazione e l'accesso degli utenti viene gestita dalle pagine \textit{login} e \textit{registrazione} mentre \textit{dettagliaccount} e \textit{modificadati} permettono la visualizzazione e la modifica dei dati del proprio profilo.
+
+\paragraph{Avvisi}
+L'accesso ad aree vietate o contenuti non disponibili viene notificato dalle pagine \textit{accessdenied} e \textit{notfound} mentre il risultato di query viene visualizzato in sezioni della pagina dalla quale viene eseguita l'operazione.\\
+La pagina \textit{deleteaccount} avverte della corretta eliminazione dell'account e la pagina \textit{logout} si occupa di terminare la sessione dell'utente e reindirizza alla homepage.
+
 \subsection{Attori}
 \subsection{Database}
-\subsection{Struttura del sito}
-\subsubsection{Header}
-\subsubsection{Breadcrumb}
-\subsubsection{Main}
-\subsubsection{Footer}
 \subsection{Accessibilitá}
