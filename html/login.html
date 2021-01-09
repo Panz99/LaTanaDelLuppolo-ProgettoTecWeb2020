@@ -7,8 +7,9 @@
         <bc/>
         <main id="main">
             <heading/>
-            <div id="content">
-                <form id="formLogin" action="<root/>php/login.php" method="post">
+            <form id="formLogin" action="<root/>php/login.php" method="post">
+                <fieldset>
+                    <legend>Accedi</legend>
                     <div class="dataRow dataLogin">
                         <p><label for="txtUsername" class="form-label" xml:lang="en" lang="en">Username</label></p>
                         <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"/> 
@@ -21,13 +22,11 @@
                     <span id="passwordError"class="msgError msgErrorWrap"></span>
                     <p class='msgError'></p>
                     <input type="submit" class="btn" value="Accedi"/>
-                </form>
-
-                <div class="dataColumn">
-                    <p>Vuoi creare un nuovo <span xml:lang="en">account</span>? <a href="registrazione.php" class="link">Registrati</a></p>
-                    
-                </div>               
-            </div>
+                </fieldset>
+            </form>
+            <div class="dataColumn">
+                <p>Vuoi creare un nuovo <span xml:lang="en">account</span>? <a href="registrazione.php" class="link">Registrati</a></p>
+            </div>               
         </main>
         <tornasu/>
         <footer/>
