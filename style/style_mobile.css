@@ -31,3 +31,20 @@ header nav ul{
 #txtaccountdelete{
 	margin-top: 1em;
 }
+#container_profilo, #content{
+    width: 120%;
+}
+#dettagli {
+    font-size: 0.7em;
+    margin-left: 0;
+}
+#container_profilo>p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 0.5em;
+}
+#container_profilo>p>span {
+    max-width: inherit;
+    font-size: 0.7em;
+}

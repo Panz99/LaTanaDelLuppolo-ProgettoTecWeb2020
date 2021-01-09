@@ -9,11 +9,12 @@
     }
     
     $paginaHTML = file_get_contents('../html/modificadati.html');
-    
+    $Errore="";
+    $username="";
     if(isset($_SESSION['logged']) && $_SESSION['logged']){
        
         $username = $_SESSION['id'];
-        $Errore="";
+        
 
         if(isset($_POST['new-username']) || isset($_POST['new-name']) || isset($_POST['new-surname']) || isset($_POST['new-date']) || isset($_POST['new-password'])){
 
