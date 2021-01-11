@@ -590,13 +590,13 @@ a.hiddenscreenreader:hover{
     border-bottom: #000 0.2em solid;
     margin-bottom: 2em;
 }
-#formElimina{
+#formElimina, #divConferma{
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:center;
 	align-items: center;
 }
-#btnElimina{
+#btnElimina, #btnInvia{
     margin: 0;
 }
 #container_delete>h2{

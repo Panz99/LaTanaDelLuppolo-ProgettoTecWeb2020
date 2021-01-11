@@ -11,7 +11,7 @@
             
             <form action="<root/>php/modificadati.php" onsubmit="return checkModificadati();" method="post">
                 <fieldset id="form-modifica-dati">
-                    <legend>Modifica i dati</legend>
+                    <legend>Inserisci i nuovi valori per i dati da modificare</legend>
                     <div class="dataRow dataRegister">
                         <label for="txtUsername" class="form-label" xml:lang="en">Username</label>
                         <input id="txtUsername" class="inputAge" name="new-username" type="text" placeholder="Nuovo Username"/>
@@ -37,14 +37,14 @@
                         <input id="txtPassword" class="inputAge" name="new-password" type="text" placeholder="Cambia password"/>
                     </div>
                     <span id="passwordError"class="msgError msgErrorWrap"></span>
-                    <error/>
-                    <div class="conferma">
-                        <h2>Per confermare le modifiche inserire la propria <span xml:lang="en">password</span> attuale</h2>
+                    </fieldset>
+                    <h2>Per confermare le modifiche inserire la propria <span xml:lang="en">password</span> attuale</h2>
+                    <div id="divConferma">
                         <label for="txtConfirmPassword" class="form-label" xml:lang="en">Password</label>
                         <input id="txtConfirmPassword" type="text" class="inputAge" name="txtConfirmPassword" placeholder="Inserisci password" required="required"/>
-                        <input class="btn" type="submit" value="Invia"/>
+                        <input id="btnInvia" class="btn" type="submit" value="Invia"/>
                     </div>
-                </fieldset>
+                    <error/>
             </form>
             <a class="link ritorna" href="<root/>php/login.php">Torna indietro</a>
         </main>
