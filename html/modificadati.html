@@ -8,9 +8,9 @@
         <main id="main">
             <heading/>
             <p class="infoP">Se non si vuole modificare un certo dato, lasciare vuoto il campo</p>
-            <error/>
-            <form id="form-modifica-dati" action="<root/>php/modificadati.php" onsubmit="return checkModificadati();" method="post">
-                <fieldset>
+            
+            <form action="<root/>php/modificadati.php" onsubmit="return checkModificadati();" method="post">
+                <fieldset id="form-modifica-dati">
                     <legend>Modifica i dati</legend>
                     <div class="dataRow dataRegister">
                         <label for="txtUsername" class="form-label" xml:lang="en">Username</label>
@@ -36,10 +36,12 @@
                         <label for="txtPassword"class="form-label" xml:lang="en">Nuova Password</label>
                         <input id="txtPassword" class="inputAge" name="new-password" type="text" placeholder="Cambia password"/>
                     </div>
+                    <span id="passwordError"class="msgError msgErrorWrap"></span>
+                    <error/>
                     <div class="conferma">
                         <h2>Per confermare le modifiche inserire la propria <span xml:lang="en">password</span> attuale</h2>
                         <label for="txtConfirmPassword" class="form-label" xml:lang="en">Password</label>
-                        <input id="txtConfirmPassword" type="text" class="inputAge" name="txtConfirmPassword" placeholder="Inserisci password"/>
+                        <input id="txtConfirmPassword" type="text" class="inputAge" name="txtConfirmPassword" placeholder="Inserisci password" required="required"/>
                         <input class="btn" type="submit" value="Invia"/>
                     </div>
                 </fieldset>

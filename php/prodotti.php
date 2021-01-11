@@ -51,8 +51,8 @@
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
-    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/prodotti.php?page=1">', '<a class="active">', $paginaHTML);
-    $paginaHTML = str_replace('<a href="prodotti.php?page='.$page.'" class="link page-padding fillParent">', '<a class="page-padding active fillParent">', $paginaHTML);
+    if(!isset($_GET['search'])) {$paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/prodotti.php?page=1">', '<a class="active" role="presentation">', $paginaHTML);}
+    $paginaHTML = str_replace('<a href="prodotti.php?page='.$page.'" class="link page-padding fillParent">', '<a class="page-padding active fillParent" role="presentation">', $paginaHTML);
 
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;

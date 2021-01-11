@@ -24,7 +24,7 @@
     $paginaHTML = str_replace("<header/>", htmlMaker::makeHeader($username), $paginaHTML);
     $paginaHTML = str_replace("<tornasu/>", htmlMaker::makeTornaSu(), $paginaHTML);
     $paginaHTML = str_replace("<footer/>", htmlMaker::makeFooter(), $paginaHTML);
-    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/contatti.php">', '<a class="active">', $paginaHTML);
+    $paginaHTML = str_replace('<a class="link fillParent" href="<root/>php/contatti.php">', '<a class="active" role="presentation">', $paginaHTML);
     $paginaHTML = str_replace("<root/>", "../", $paginaHTML);
     echo $paginaHTML;
     

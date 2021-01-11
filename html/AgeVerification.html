@@ -7,23 +7,26 @@
         <main id="main">
             <heading/>
             <p id = "AVp">Le tue informazioni non saranno condivise o salvate</p>
-            <form id="formAge" action="ageverification.php" method="post">
-                <div class="dataRow dataAge">
-                    <div class="dataColumn">
-                        <label for="day" class="form-label">Giorno</label>
-                        <input class="inputAge" id="day" name="day" type="number" min="1" max="31" placeholder="DD" required="required"/>
+            <form  action="ageverification.php" method="post">
+                <fieldset id="formAge">
+                    <legend>Inserisci data di nascita</legend>
+                    <div class="dataRow dataAge">
+                        <div class="dataColumn">
+                            <label for="day" class="form-label">Giorno</label>
+                            <input class="inputAge" id="day" name="day" type="number" min="1" max="31" placeholder="DD" required="required"/>
+                        </div>
+                        <div class="dataColumn">
+                    	    <label for="month" class="form-label">Mese</label>
+                            <input class="inputAge" id="month" name="month" type="number" min="1" max="12" placeholder="MM" required="required"/>
+                        </div>
+                        <div class="dataColumn">
+                    	    <label for="year" class="form-label">Anno</label>
+                            <input class="inputAge" id="year" name="year" type="number" min="1900" max="2100" placeholder="YYYY" required="required"/>
+                        </div>
                     </div>
-                    <div class="dataColumn">
-                	    <label for="month" class="form-label">Mese</label>
-                        <input class="inputAge" id="month" name="month" type="number" min="1" max="12" placeholder="MM" required="required"/>
-                    </div>
-                    <div class="dataColumn">
-                	    <label for="year" class="form-label">Anno</label>
-                        <input class="inputAge" id="year" name="year" type="number" min="1900" max="2100" placeholder="YYYY" required="required"/>
-                    </div>
-                </div>
-                <error/>
-                <input class="btn" type="submit" value="Invia" /> 
+                    <error/>
+                    <input class="btn" type="submit" value="Invia" /> 
+                </fieldset>
              </form>
         </main>
         <footer/>

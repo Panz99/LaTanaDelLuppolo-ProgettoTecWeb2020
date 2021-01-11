@@ -10,7 +10,8 @@
             $error .= (!preg_match("/^[A-Z ,.'-]{3,30}$/i", $name)) ? "<li>Nome non valido, non sono ammessi numeri e la lunghezza minima è di 3 caratteri</li>" : "";
             $error .= (!preg_match("/^[A-Z ,.'-]{3,30}$/i", $surname)) ? "<li>Cognome non valido, non sono ammessi numeri e la lunghezza minima è di 3 caratteri</li>" : "";
             $error .= (!preg_match("/^[\w_]{4,30}$/i", $username)) ? "<li>Username non valido, sono ammessi solamente caratteri alfanumerici e il trattino basso e la lunghezza minima è di 4 caratteri</li>" : "";
-            $error .= (!preg_match("/[\S]{4,32}@[\w]{4,32}((?:\.[\w]+)+)?(\.(it|com|edu|org|net|eu)){1}/", $email)) ? "<li>Email non valida, formato accettato: email@dominio.suffisso</li>" : "";
+            $error .= (!preg_match("/[\S]{4,32}@[\w]{4,32}((?:\.[\w]+)+)?(\.(it|com|edu|org|net|eu)){1}/", $email)) ? "<li>Email non valida, dominio sconosciuto</li>" : "";
+            $error .= (!preg_match("/^[\w_]{4,30}$/i", $password)) ? "<li>Password non valida, sono ammessi solamente caratteri alfanumerici e il trattino basso e deve essere di lunghezza compresa tra 4 e 30</li>" : "";
             $error = ($error!=NULL) ? '<ul class="msgError">'.$error.'</ul>' : "";
         }else{
             $error="<p class='msgError'>Tutti i campi devono essere inseriti</p>";

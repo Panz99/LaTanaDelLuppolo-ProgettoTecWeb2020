@@ -168,12 +168,12 @@ class htmlMaker{
             $n_pagine = ($nBeers%8==0) ? $nBeers/8 : intdiv($nBeers, 8) + 1;
             //Creo la parte di pagina HTML con elenco delle birre
             $html = '<ul id="list_pages">';
-            if($page>1)
+            if($page>2)
                 $html .= '<li><a href="prodotti.php?page='.($page-1).'" class="link page-padding fillParent">Precedente</a></li>';
             for($i=1; $i<=$n_pagine; $i++){
                 $html .= '<li><a href="prodotti.php?page='.$i.'" class="link page-padding fillParent">'.$i.'</a></li>';
             }
-            if($page<$n_pagine)
+            if($page<$n_pagine-1)
                 $html .= '<li><a href="prodotti.php?page='.($page+1).'" class="link page-padding fillParent">Successiva</a></li>';
             $html.='</ul>';
         }

@@ -90,7 +90,7 @@ legend{
 }
 
 .hiddenscreenreader{
-    position: absolute; left: -10000px; width: 1px; height: 1px;
+    position: absolute; height: 0;
     overflow: hidden;
     color: white;
     background-color: transparent;
@@ -407,32 +407,22 @@ a.hiddenscreenreader:hover{
 }
 
 #msgsuccess{
-    font-size: 20px;
+    font-size: 2em;
     font-weight: bold;
-    color:rgb(1, 19, 10);
     background-color: yellowgreen;
-    width: 20%;
-    padding: 10px 70px;
+    padding: 0.5em;
     border-radius: 20px;
-
-    display: flex;
-    margin: 0.8em auto;
-    justify-content: center;
+    margin: 0.5em auto;
 
 }
-
 #msgfail{
-    font-size: 20px;
+    font-size: 2em;
     font-weight: bold;
     color:white;
     background-color: #800;
-    width: 20%;
-    padding: 10px 70px;
+    padding: 0.5em;
     border-radius: 20px;
-
-    display: flex;
-    margin: 0.8em auto;
-    justify-content: center;
+    margin: 0.5em auto;
 }
 
 #heading >h1{
@@ -559,6 +549,10 @@ a.hiddenscreenreader:hover{
     color: #000;
     border-radius: 100%;
     cursor:pointer;
+}
+#lblSearch{
+    color: #fff;
+    padding-right: 1em;
 }
 #searchbar{
     background-color: #222;

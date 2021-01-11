@@ -13,7 +13,7 @@ class DBAccess
         mysqli_set_charset($connection,"utf8");
         return $connection;
     }
-    //Utilizzato per le query che restituiscono una sola linea, trasforma la risposta in un array monodimensionale
+    //Utilizzato per le query che restituiscono una sola colonna, trasforma la risposta in un array monodimensionale
     private static function collapse($result) {
         if ($result != null) {
             $key = array_keys($result[0])[0];
@@ -61,16 +61,5 @@ class DBAccess
         }
         $connection->close();
     }
-
-    /*new*/
-/*escaping inputs means working queries*/
-public static function escape_input($input){
-    $connection = self::openDBConnection();
-    for($i=0; $i<count($input);$i++){
-        $input[$i] = htmlspecialchars($input[$i]);
-        $input[$i] = $connection->escape_string($input[$i]);
-    }
-    $connection->close();
-}
 }
 ?>

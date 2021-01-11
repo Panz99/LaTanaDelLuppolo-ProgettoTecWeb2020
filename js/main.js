@@ -44,9 +44,10 @@ function validateUsername(username){
     }
 }
 function validatePassword(password){
+    var re = /^[\w_]{4,30}$/i;
     var span = document.getElementById("passwordError");
-    if(password==""){
-        span.innerHTML="Password assente";
+    if(password=="" || !re.test(password)){
+        span.innerHTML="Password non valida, sono ammessi solamente caratteri alfanumerici e il trattino basso e deve essere di lunghezza compresa tra 4 e 30";
         return false;
     }else{
         span.innerHTML="";
@@ -57,7 +58,7 @@ function validateEmail(email){
     var re = /[\S]{4,32}@[\w]{4,32}((?:\.[\w]+)+)?(\.(it|com|edu|org|net|eu)){1}/;
     var span = document.getElementById("emailError");
     if(email=="" || !re.test(email)){ 
-        span.innerHTML="Email non valida, formato accettato: email@dominio.suffisso";
+        span.innerHTML="Email non valida, troppo corta o di dominio sconosciuto";
         return false;
     }else{
         span.innerHTML="";
@@ -81,15 +82,21 @@ function checkModificadati(){
     var username = document.getElementById("txtUsername").value.trim();
     var email = document.getElementById("txtEmail").value.trim();
     var password = document.getElementById("txtPassword").value.trim();
-    if((name!="") && !validateName(name))
-        return false;
-    if((surname!="") && !validateSurname(surname))
-        return false;
-    if((username!="") && !validateUsername(username))
-        return false;
-    if((email!="") && !validateEmail(email))
-        return false;
-    if((password!="") && !validatePassword(password))
-        return false;
-    return true;
+    var valid=true;
+    if(name!=""){
+        valid = valid & validateName(name)
+    }
+    if(surname!=""){
+        valid = valid & validateSurname(surname)
+    }
+    if(username!=""){
+        valid = valid & validateUsername(username)
+    }
+    if(email!=""){
+        valid = valid & validateEmail(email)
+    }
+    if(password!=""){
+        valid = valid & validatePassword(password)
+    }
+    return Boolean(valid);
 }
