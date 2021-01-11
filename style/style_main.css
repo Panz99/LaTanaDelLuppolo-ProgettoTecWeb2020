@@ -92,9 +92,21 @@ legend{
 .hiddenscreenreader{
     position: absolute; left: -10000px; width: 1px; height: 1px;
     overflow: hidden;
-    opacity: 0.0;
-    color: #ff0;
+    color: white;
     background-color: transparent;
+}
+
+a.hiddenscreenreader{
+    color:white;
+    background-color: black;
+}
+a.hiddenscreenreader:visited{
+    color: white;
+    background-color: black;
+}
+a.hiddenscreenreader:hover{
+    color: black;
+    background-color: white;
 }
 
 
@@ -234,18 +246,17 @@ legend{
     align-items: center;    /*Allinea verticalmente*/
     background-color: #222;
 }
+
 #container_logo{
     display: inline-flex;
     text-decoration: none;
 	align-items: center;
 }
+
+
 #text_logo{
     font-size: 2.2em;
     color: #fff;
-}
-#logolink:visited{
-    color: #ff0;
-    background-color: transparent;
 }
 
 
