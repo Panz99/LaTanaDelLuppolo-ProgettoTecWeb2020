@@ -71,7 +71,7 @@ class htmlMaker{
         if($beer){
             $html ='<div id="detailscontainer">
                         <div id="divimgbirra">
-                            <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '" />
+                            <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '"/>
                         </div>
 
                         <div id="divdettagli">
@@ -95,28 +95,28 @@ class htmlMaker{
             $html.= isset($_SESSION['id']) ? 
                             '   <div id="recensionecreate">
                                     <div class="recensioneuserpic">
-                                        <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>
+                                        <div class="material-icons darknohover" role="presentation" tabindex="-1">account_circle</div>
                                     </div>
                                     <div class="recensionetext">
-                                        <form action="dettagli.php?id=<beerid/>" method="POST" id="revinsertform">   
+                                        <form action="dettagli.php?id=<beerid/>" method="post" id="revinsertform">   
                                             <fieldset>
                                                 <legend>Inserisci una nuova recensione</legend>
                                                 <p class="newline"><label for="recensionetextarea">Scrivi cosa pensi della birra</label></p>
                                                 <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea>
                                                 
                                                 <p class="newline">Valutazione</p>
-                                                <input type="radio" id="rateradio0" name="rating" value="0"><label for="rateradio0">0</label>&nbsp;
-                                                <input type="radio" id="rateradio1" name="rating" value="1"><label for="rateradio1">1</label>&nbsp;
-                                                <input type="radio" id="rateradio2" name="rating" value="2"><label for="rateradio2">2</label>&nbsp;
-                                                <input type="radio" id="rateradio3" name="rating" value="3"><label for="rateradio3">3</label>&nbsp;
-                                                <input type="radio" id="rateradio4" name="rating" value="4"><label for="rateradio4">4</label>&nbsp;
-                                                <input type="radio" id="rateradio5" name="rating" value="5"><label for="rateradio5">5</label>&nbsp;
-                                                <input type="radio" id="rateradio6" name="rating" value="6"><label for="rateradio6">6</label>&nbsp;
-                                                <input type="radio" id="rateradio7" name="rating" value="7"><label for="rateradio7">7</label>&nbsp;
-                                                <input type="radio" id="rateradio8" name="rating" value="8"><label for="rateradio8">8</label>&nbsp;
-                                                <input type="radio" id="rateradio9" name="rating" value="9"><label for="rateradio9">9</label>&nbsp;
-                                                <input type="radio" id="rateradio10" name="rating" value="10"><label for="rateradio10">10</label>
-                                                <p class="newline"><input type="submit" value="Invia recensione"></p>
+                                                <input type="radio" id="rateradio0" name="rating" value="0"/><label for="rateradio0">0</label>&nbsp;
+                                                <input type="radio" id="rateradio1" name="rating" value="1"/><label for="rateradio1">1</label>&nbsp;
+                                                <input type="radio" id="rateradio2" name="rating" value="2"/><label for="rateradio2">2</label>&nbsp;
+                                                <input type="radio" id="rateradio3" name="rating" value="3"/><label for="rateradio3">3</label>&nbsp;
+                                                <input type="radio" id="rateradio4" name="rating" value="4"/><label for="rateradio4">4</label>&nbsp;
+                                                <input type="radio" id="rateradio5" name="rating" value="5"/><label for="rateradio5">5</label>&nbsp;
+                                                <input type="radio" id="rateradio6" name="rating" value="6"/><label for="rateradio6">6</label>&nbsp;
+                                                <input type="radio" id="rateradio7" name="rating" value="7"/><label for="rateradio7">7</label>&nbsp;
+                                                <input type="radio" id="rateradio8" name="rating" value="8"/><label for="rateradio8">8</label>&nbsp;
+                                                <input type="radio" id="rateradio9" name="rating" value="9"/><label for="rateradio9">9</label>&nbsp;
+                                                <input type="radio" id="rateradio10" name="rating" value="10"/><label for="rateradio10">10</label>
+                                                <p class="newline"><input type="submit" value="Invia recensione"/></p>
                                             </fieldset>
                                         </form>
                                     </div>
@@ -139,7 +139,7 @@ class htmlMaker{
             $html .= '
                     <div class="recensioneitem">
                         <div>
-                            <div class="material-icons darknohover" aria-hidden="true" role="presentation" tabindex="-1">account_circle</div>
+                            <div class="material-icons darknohover" role="presentation" tabindex="-1">account_circle</div>
                         </div>
                         <div class="recensionetext">
                             <p class="newline"><span class="recensioneusername">'.$review["username"].'</span> ha commentato</p>
@@ -149,9 +149,9 @@ class htmlMaker{
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
             $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
                     '   <div>
-                            <form action="dettagli.php?id=<beerid/>" method="POST" class="revremoveform">
-                                <button type="submit" id="revremovebut"><div class="material-icons dark">delete_forever</div></button>
-                                <input type="hidden" name="removeid" value="'.$review['revid'].'">
+                            <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
+                                <button class="material-icons dark revremovebut" type="submit">delete_forever</button>
+                                <input type="hidden" name="removeid" value="'.$review['revid'].'"/>
                             </form>
                         </div>' 
                     : '';       
