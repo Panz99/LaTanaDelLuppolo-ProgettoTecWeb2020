@@ -100,3 +100,36 @@ function checkModificadati(){
     }
     return Boolean(valid);
 }
+
+function checkWidth(){
+    var btnmenu = document.getElementById("menu-btn");
+    var header = document.getElementsByTagName("header")[0];
+    if(btnmenu.hidden== true && window.innerWidth <= 850){
+        btnmenu.hidden=false;
+        var hid =  header.innerHTML.slice(header.innerHTML.indexOf('<div id="container_icons">'));
+        header.removeChild(document.getElementById("container_icons"));
+        header.removeChild(document.getElementById("searchbar"));
+        header.removeChild(document.getElementById("nav"));
+        document.getElementById("sidebar").innerHTML=hid;
+    } 
+    else if (window.innerWidth>850 && btnmenu.hidden == false){
+        btnmenu.hidden=true;
+        header.appendChild(document.getElementById("container_icons"));
+        header.appendChild(document.getElementById("searchbar"));
+        header.appendChild(document.getElementById("nav"));
+   }
+}
+
+var open = false;
+function showMenu(){
+    if(!open){
+        document.getElementById("sidebar").style.width = "100%";
+        document.getElementById("menu-btn").classList.add("open");
+        open=true;
+    }
+    else{
+        document.getElementById("sidebar").style.width = "0";
+        document.getElementById("menu-btn").classList.remove("open");
+        open=false;
+    }
+}

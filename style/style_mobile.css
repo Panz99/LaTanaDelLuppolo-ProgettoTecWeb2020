@@ -1,3 +1,15 @@
+@media screen and (max-width: 430px){
+#text_logo{
+    font-size: 1.8em;;
+}
+}
+#text_logo{
+    font-size: 1.8em;;
+    margin: auto;
+}
+header{
+    height: 80px;
+}
 header nav ul{
     flex-direction: column;
 }
@@ -19,7 +31,6 @@ header nav ul{
     align-items: center;
 }*/
 #container_header{
-    padding: 0 0.8em;
     flex-wrap: wrap;
 }
 #breadcrumbs{
@@ -47,4 +58,66 @@ header nav ul{
 #container_profilo>p>span {
     max-width: inherit;
     font-size: 0.7em;
+} 
+#menu-btn{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    z-index: 2;
+    top:0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+#menu-burger{
+    width:50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#menu-burger::after, #menu-burger::before{
+    content:"";
+    position:absolute;
+    width:50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#menu-burger::after{
+    transform: translateY(16px);
+
+} #menu-burger::before{
+   transform: translateY(-16px);
+}
+#menu-btn.open{
+    position:fixed;
+}
+#menu-btn.open #menu-burger{
+    transform: translateX(-50px);
+    background-color: transparent;
+}
+#menu-btn.open #menu-burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+#menu-btn.open #menu-burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+#searchbar, nav{
+    background-color: #222;
+
+}
+#sidebar{
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    right:0;
+    overflow-x: hidden;
+    background-color: #222;
+    
 }

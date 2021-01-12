@@ -1,34 +1,37 @@
 <header>
+    
     <a href="#main" class="hiddenscreenreader" >Salta a contenuto</a>
+    <div id="menu-btn" onclick="showMenu();" hidden="hidden">
+        <div id="menu-burger"></div>
+    </div>
+    <div id="sidebar"></div>
     <div id="container_header">
-        <a href="<root/>php/home.php" id="container_logo">
+        <a href="<root/>php/home.php" class="logolink" id="container_logo">
             <img id="img_logo" src="<root/>img/logo.png" alt="Fiore di luppolo stilizzato"/>
             <h1 id="text_logo">La Tana del Luppolo</h1>  
         </a>
-        <div id="container_icons">
+    </div>
+    
+    <div id="container_icons">
             <div class="icon">
-                <span id="icon-search" tabindex="0" onclick="getSearchbar()" onkeypress="getSearchbar()" role="button" class="material-icons" hidden="hidden">search</span>
+                <span id="icon-search" tabindex="0" onclick="getSearchbar()" onkeypress="getSearchbar()" class="material-icons" hidden="hidden">search</span>
                 <span>Cerca</span>
             </div>
             <div class="icon">
                 <a href="login.php"><span class="material-icons"> account_circle </span></a>
             <welcome/>
             </div>
-        </div>
     </div>
     <div id="searchbar" hidden="hidden">
         <form  method="get" action="prodotti.php?">
-            <fieldset>
-                <legend class="hiddenscreenreader">Barra di ricerca</legend>
-                <label id="lblSearch" for="search">Cerca</label>
-                <input type="search" id="search" name="search" placeholder="Cerca per nome o tipo di birra"/>
-                <input type="hidden" tabindex="-1" name="page" value="1"/>
-                <input type="submit" id="btnSearch"name="btnsearch" value="Cerca"/>
-            </fieldset>
+            <label for="search" class="hiddenscreenreader">Cerca</label>
+            <input type="search" id="search" name="search" placeholder="Search"/>
+            <input type="hidden" tabindex="-1" name="page" value="1"/>
+            <input type="submit" id="btnSearch"name="btnsearch" value="Cerca"/>
         </form>
     </div>
     
-    <nav>
+    <nav id="nav">
         <ul id="list_link">
             <li><a class="link fillParent" href="<root/>php/home.php" xml:lang="en" lang="en">Home</a></li>
             <li><a class="link fillParent" href="<root/>php/prodotti.php?page=1">Prodotti</a></li>
