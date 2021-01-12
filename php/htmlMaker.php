@@ -66,7 +66,7 @@ class htmlMaker{
 
     public static function beerInfo($beer){
 
-        $html = "<p>Non siamo riusciti a trovare ciò che stai cercando<p>"; 
+        $html = "<p>Non siamo riusciti a trovare ciò che stai cercando</p>"; 
 
         if($beer){
             $html ='<div id="detailscontainer">
@@ -74,91 +74,72 @@ class htmlMaker{
                             <img src="<root/>'. $beer["img_path"] . '" id="imgdettagli" alt="Foto birra '. $beer["nome"] . '"/>
                         </div>
 
-                        <div id="divdettagli">
-                            <div id="descrizionebirra">                                
-                                <dl>
-                                    <dt><b>Tipo</b></dt>
-                                    <dd>'. str_replace('_', ' ',  $beer['tipo']) . '</dd>
+                        <div id="divdettagli">                            
+                            <dl>
+                                <dt><span class="bspan">Tipo</span></dt>
+                                <dd>'. str_replace('_', ' ',  $beer['tipo']) . '</dd>
                                     
-                                    <dt><b>Gradi</b></dt>
-                                    <dd>'. $beer["grado"] . '°</dd>
+                                <dt><span class="bspan">Gradi</span></dt>
+                                <dd>'. $beer["grado"] . '°</dd>
 
-                                    <dt><b>Costo</b></dt>
-                                    <dd>'. $beer["costo"] . '€</dd>
-                                </dl>
-
-                                <p>'. $beer["descrizione"] . '</p>
-                            </div>
-                            <div>
-                                <h2>Recensioni</h2>';
+                                <dt><span class="bspan">Costo</span></dt>
+                                <dd>'. $beer["costo"] . '€</dd>
+                            </dl>
+                            <p>'. $beer["descrizione"] . '</p>
+                        </div>
+                    </div>
+                    <h2 id="recensioneheading">Recensioni</h2>';      
             //se l'utente è loggato aggiungi textbox per inserimento recensione
             $html.= isset($_SESSION['id']) ? 
-                            '   <div id="recensionecreate">
-                                    <div class="recensioneuserpic">
-                                        <div class="material-icons darknohover" role="presentation" tabindex="-1">account_circle</div>
-                                    </div>
-                                    <div class="recensionetext">
-                                        <form action="dettagli.php?id=<beerid/>" method="post" id="revinsertform">   
-                                            <fieldset>
-                                                <legend>Inserisci una nuova recensione</legend>
-                                                <p class="newline"><label for="recensionetextarea">Scrivi cosa pensi della birra</label></p>
-                                                <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra"></textarea>
-                                                
-                                                <p class="newline">Valutazione</p>
-                                                <input type="radio" id="rateradio0" name="rating" value="0"/><label for="rateradio0">0</label>&nbsp;
-                                                <input type="radio" id="rateradio1" name="rating" value="1"/><label for="rateradio1">1</label>&nbsp;
-                                                <input type="radio" id="rateradio2" name="rating" value="2"/><label for="rateradio2">2</label>&nbsp;
-                                                <input type="radio" id="rateradio3" name="rating" value="3"/><label for="rateradio3">3</label>&nbsp;
-                                                <input type="radio" id="rateradio4" name="rating" value="4"/><label for="rateradio4">4</label>&nbsp;
-                                                <input type="radio" id="rateradio5" name="rating" value="5"/><label for="rateradio5">5</label>&nbsp;
-                                                <input type="radio" id="rateradio6" name="rating" value="6"/><label for="rateradio6">6</label>&nbsp;
-                                                <input type="radio" id="rateradio7" name="rating" value="7"/><label for="rateradio7">7</label>&nbsp;
-                                                <input type="radio" id="rateradio8" name="rating" value="8"/><label for="rateradio8">8</label>&nbsp;
-                                                <input type="radio" id="rateradio9" name="rating" value="9"/><label for="rateradio9">9</label>&nbsp;
-                                                <input type="radio" id="rateradio10" name="rating" value="10"/><label for="rateradio10">10</label>
-                                                <p class="newline"><input type="submit" value="Invia recensione"/></p>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>'
-                        : '';
-            $html.='            <reviews/>
-                            </div>
-                        </div>
-                    </div>';
+                '
+                        <form action="dettagli.php?id=<beerid/>" method="post" id="revinsertform">   
+                            <fieldset>
+                                <legend>Inserisci una nuova recensione</legend>
+                                <p class="newline"><label for="recensionetextarea">Scrivi cosa pensi della birra</label></p>
+                                <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra" required="required"></textarea>
+                            </fieldset>  
+                            <fieldset>
+                            <legend>Inserisci una voto</legend>
+                                <input type="radio" id="rateradio0" name="rating" value="0" checked="checked"/><label for="rateradio0">0</label>&nbsp;
+                                <input type="radio" id="rateradio1" name="rating" value="1"/><label for="rateradio1">1</label>&nbsp;
+                                <input type="radio" id="rateradio2" name="rating" value="2"/><label for="rateradio2">2</label>&nbsp;
+                                <input type="radio" id="rateradio3" name="rating" value="3"/><label for="rateradio3">3</label>&nbsp;
+                                <input type="radio" id="rateradio4" name="rating" value="4"/><label for="rateradio4">4</label>&nbsp;
+                                <input type="radio" id="rateradio5" name="rating" value="5"/><label for="rateradio5">5</label>&nbsp;
+                                <input type="radio" id="rateradio6" name="rating" value="6"/><label for="rateradio6">6</label>&nbsp;
+                                <input type="radio" id="rateradio7" name="rating" value="7"/><label for="rateradio7">7</label>&nbsp;
+                                <input type="radio" id="rateradio8" name="rating" value="8"/><label for="rateradio8">8</label>&nbsp;
+                                <input type="radio" id="rateradio9" name="rating" value="9"/><label for="rateradio9">9</label>&nbsp;
+                                <input type="radio" id="rateradio10" name="rating" value="10"/><label for="rateradio10">10</label>
+                            </fieldset>
+                            <input class="btn" type="submit" value="Invia recensione"/>
+                        </form>
+                    ': '';
+            $html.='<reviews/>';
         }
 
         return $html;
     }
 
     public static function beerReview($reviews){
-        $html ="";
-
+        $html ="<ul id='recensionelist'>";
         foreach($reviews as $review)
         {
             $html .= '
-                    <div class="recensioneitem">
-                        <div>
-                            <div class="material-icons darknohover" role="presentation" tabindex="-1">account_circle</div>
-                        </div>
+                    <li class="recensioneitem">
+                        <span class="material-icons darknohover" role="presentation" tabindex="-1">account_circle</span>
                         <div class="recensionetext">
                             <p class="newline"><span class="recensioneusername">'.$review["username"].'</span> ha commentato</p>
                             <div class="recensionecontent">'.$review["descrizione"].'</div>
-                            Voto: <span class="emspan">'.$review["voto"].'/10</span>
+                            <span>Voto: <span class="emspan">'.$review["voto"].'/10</span></span>
                         </div>';
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
             $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
-                    '   <div>
-                            <form action="dettagli.php?id=<beerid/>" method="post" class="revremoveform">
-                                <button class="material-icons dark revremovebut" type="submit">delete_forever</button>
-                                <input type="hidden" name="removeid" value="'.$review['revid'].'"/>
-                            </form>
-                        </div>' 
+                    '<a href="dettagli.php?id=<beerid/>&rmrev='.$review['revid'].'"><span class="material-icons dark">delete_forever</span></a>'
                     : '';       
-            $html.='</div>';
-            
+            $html.='</li>';
         }
-        
+        $html.="</ul>";
         return $html;
     }
 

@@ -25,51 +25,59 @@
         //mostra pagina notfound se id non esiste
         if(empty($birra))
             throw new Exception("No id value found");
-
-        // verifica se presenti parametri di inserimento/rimozione recensione solo se utente è loggato
-        //eliminazione recensione
-        if(isset($_SESSION['id']) && !empty($_POST['removeid']))
-        {
-            //verifica che la recensione stia venendo eliminata dall'autore
-            $msg="NO";
-            $author=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id=".$_POST['removeid'])[0]["username"];
+        
+    } catch (Exception $e) {
+            //Redirect a pagina errore
+        header('Location: notfound.php');
+    }
+    // verifica se presenti parametri di inserimento/rimozione recensione solo se utente è loggato
+    //eliminazione recensione
+    $msg="";
+    $error="";
+    if(isset($_SESSION['id']) && isset($_GET['rmrev']))
+    {
+        //verifica che la recensione stia venendo eliminata dall'autore
+        $msg="NO";
+        try{
+            $author=DBAccess::query("SELECT username FROM recensioni, utenti WHERE recensioni.utente=utenti.id AND recensioni.id=".$_GET['rmrev'])[0]["username"];
             if( (isset($_SESSION['admin']) && $_SESSION['admin']==1)  || (!empty($author) && $author==$_SESSION['id']) )
             {
-                DBAccess::command("DELETE FROM recensioni WHERE id=".$_POST['removeid']);
+                DBAccess::command("DELETE FROM recensioni WHERE id=".$_GET['rmrev']);
                 $msg="OK";
-            }
-            
-            //redirect to self per resettare parametri post, parametro msg=OK messaggio di successo, NO msg di fallimento
-            header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=".$msg);
-        } 
-        //inserimento recensione
-        else if (isset($_SESSION['id']) && !empty($_POST['review']) && !empty($_POST['rating'])){
-            //sanitizzazione review + rating
-            $newreview=filter_var($_POST['review'], FILTER_SANITIZE_STRING);
-            $rating=filter_var($_POST['rating'], FILTER_SANITIZE_STRING);
-
-            //prelievo id utente per query di inserimento
+            }else{$error = "Non hai il permesso per compiere questa operazione";}
+        }catch(Exception $e){
+            $msg="NO";
+            $error=$e->getMessage();
+        }
+    } 
+    //inserimento recensione
+    else if (isset($_SESSION['id']) && !empty($_POST['review']) && !empty($_POST['rating'])){
+        //sanitizzazione review + rating
+        $newreview=filter_var($_POST['review'], FILTER_SANITIZE_STRING);
+        $rating=filter_var($_POST['rating'], FILTER_SANITIZE_STRING);
+        //prelievo id utente per query di inserimento
+        try{
             $userid=DBAccess::query("SELECT id FROM utenti WHERE username=\"{$_SESSION['id']}\"")[0]["id"];
-
             //inserimento in database
             $msg="NO";
             if(!empty($userid) && !empty($newreview) && !empty($rating) && is_numeric($rating) && $rating>=0 && $rating<=10){
                 //inserimento recensione
                 DBAccess::command("INSERT INTO recensioni (id, utente, birra, descrizione, voto) VALUES (NULL, {$userid},  {$idbirra}, \"{$newreview}\", {$rating})");
                 $msg="OK";
-            }
-            
-            //redirect to self per resettare parametri post, parametro msg=OK messaggio di successo, NO msg di fallimento
-            header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=".$msg);
-        }   
+            }else{$error = "Non hai il permesso per compiere questa operazione";}
+        }catch(Exception $e){
+            $msg="NO";
+            $error=$e->getMessage();
+        }
+        //redirect to self per resettare parametri post, parametro msg=OK messaggio di successo, NO msg di fallimento
+        //header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=".$msg);
+    }   
 
-
-        //preleva recensioni della birra
+    //preleva recensioni della birra
+    try{
         $query = 'SELECT recensioni.id AS revid, recensioni.descrizione, recensioni.voto, utenti.username FROM recensioni, utenti WHERE recensioni.birra='.$idbirra.' AND recensioni.utente=utenti.id';
         $recensioni = DBAccess::query($query);
-
-    } catch (Exception $e) {
-        //Redirect a pagina errore
+    }catch(Exception $e){
         header('Location: notfound.php');
     }
 
@@ -91,12 +99,12 @@
     $paginaHTML = str_replace("<beerinfo/>", htmlMaker::beerInfo($birra), $paginaHTML);
 
     //se presente stampa messaggio di risultato query inserimento/eliminazione recensione
-    if(isset($_GET['msg']))
+    if($msg!="")
     {
-        if($_GET['msg']=="OK")
+        if($msg=="OK")
             $paginaHTML = str_replace("<msg/>", '<div id="msgsuccess">Operazione eseguita con successo!</div>', $paginaHTML);
         else
-            $paginaHTML = str_replace("<msg/>", '<div id="msgfail">Operazione fallita.</div>', $paginaHTML);
+            $paginaHTML = str_replace("<msg/>", '<div id="msgfail">Operazione fallita. '.$error.'</div>', $paginaHTML);
     }
     else
         $paginaHTML = str_replace("<msg/>", "", $paginaHTML);
@@ -105,7 +113,7 @@
     if(strpos($paginaHTML, "<reviews/>")!==false)
     {
         if($recensioni==null)
-            $paginaHTML = str_replace("<reviews/>", 'Nessuno ha ancora recensito questa birra.', $paginaHTML);
+            $paginaHTML = str_replace("<reviews/>", '<p>Nessuno ha ancora recensito questa birra.</p>', $paginaHTML);
         else
             $paginaHTML = str_replace("<reviews/>", htmlMaker::beerReview($recensioni), $paginaHTML);
     }

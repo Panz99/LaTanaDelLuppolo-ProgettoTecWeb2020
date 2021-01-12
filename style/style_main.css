@@ -187,7 +187,9 @@ a.hiddenscreenreader:hover{
     padding-top: 0.7em;
     padding-bottom: 0.7em;
     display: flex;
-    flex-flow: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .recensionecontent{
@@ -202,10 +204,6 @@ a.hiddenscreenreader:hover{
 .revremoveform{
     margin: 1.8em 0 0 0;
     background-color: transparent;
-}
-
-.recensionetext{
-    width: 80%;
 }
 
 .newline{
@@ -361,7 +359,6 @@ a.hiddenscreenreader:hover{
     display: flex;
     flex-flow: wrap;
     justify-content: center;
-    padding:5px;
 }
 
 #divimgbirra{
@@ -371,35 +368,37 @@ a.hiddenscreenreader:hover{
 
 #divdettagli{
     float: right;
-    margin: 0em 1em 1em 1em;
+    margin: 0em 2em;
     width: 60%
-}
-
-#revinsertform{
-    margin: 0;
 }
 
 #descrizionebirra{
     margin-bottom: 3em;
 }
-
-
-#recensionecreate{
-    margin-bottom: 2em;
-    display: flex;
-    flex-flow: wrap;
+#recensioneheading{
+    font-size:2em;
+    border-bottom: #000 0.1em solid;
+    padding-bottom: 0.2em;
+    width: auto;
+    text-align: center;
 }
-
-
+.recensionetext{
+    width: 80%;
+}
 #recensionetextarea{
+    width: 100%;
     margin-top: 0.5em;
     margin-bottom: 1em;
     resize: vertical;
     border: #fff;
 }
-
-
-
+#recensionelist{
+    margin: 1em 0;
+    padding: 0;
+}
+#revinsertform{
+    margin: 0;
+}
 .revremovebut{
     background: transparent;
     border: none;
@@ -596,7 +595,7 @@ a.hiddenscreenreader:hover{
 	justify-content:center;
 	align-items: center;
 }
-#btnElimina, #btnInvia{
+#btnElimina, #btnInvia, .no-margin{
     margin: 0;
 }
 #container_delete>h2{
