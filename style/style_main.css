@@ -15,6 +15,7 @@ body{
 }
 
 nav{
+	flex:100%;
     text-align: center;
     background-color: #222;
     margin-bottom: 0.8em;
@@ -245,7 +246,7 @@ a.hiddenscreenreader:hover{
 
 /*Header*/
 #container_header{
-    flex:75%;
+	flex:75%;
 }
 
 #container_logo{
@@ -557,6 +558,7 @@ a.hiddenscreenreader:hover{
     padding-right: 1em;
 }
 #searchbar{
+	flex:100%;
     background-color: #222;
     padding: 0.3em 2em;
     text-align: center;
