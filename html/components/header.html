@@ -14,7 +14,7 @@
     
     <div id="container_icons">
             <div class="icon">
-                <span id="icon-search" tabindex="0" onclick="getSearchbar()" onkeypress="getSearchbar()" class="material-icons" hidden="hidden">search</span>
+                <span id="icon-search" tabindex="0" onclick="getSearchbar()" onkeypress="getSearchbar()" role="button" class="material-icons" hidden="hidden">search</span>
                 <span>Cerca</span>
             </div>
             <div class="icon">
@@ -24,10 +24,12 @@
     </div>
     <div id="searchbar" hidden="hidden">
         <form  method="get" action="prodotti.php?">
-            <label for="search" class="hiddenscreenreader">Cerca</label>
-            <input type="search" id="search" name="search" placeholder="Search"/>
-            <input type="hidden" tabindex="-1" name="page" value="1"/>
-            <input type="submit" id="btnSearch"name="btnsearch" value="Cerca"/>
+            <fieldset>
+                <label for="search" class="hiddenscreenreader">Cerca</label>
+                <input type="search" id="search" name="search" placeholder="Search"/>
+                <input type="hidden" tabindex="-1" name="page" value="1"/>
+                <input type="submit" id="btnSearch"name="btnsearch" value="Cerca"/>
+            </fieldset>
         </form>
     </div>
     
