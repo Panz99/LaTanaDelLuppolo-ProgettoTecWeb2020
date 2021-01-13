@@ -4,61 +4,74 @@
 }
 }
 #text_logo{
-    font-size: 1.8em;;
-    margin: auto;
+    font-size: 1.8em;
+    margin: auto 0;
+}
+#container_logo{
+    width: 80%;
 }
 header{
     height: 80px;
 }
+main{
+    width: 90%;
+}
 header nav ul{
     flex-direction: column;
-}
-.link_prodotto{
-    margin: 0;
 }
 .prodotto{
     width:100%;
     max-width: 400px;
 }
-#AVh2{
+#heading > h1{
+    font-size: 2em;
+}
+h2, #AVh2{
     font-size: 1.5em;
 }
-#AVp, .form-label{
+#AVp, .form-label, legend, .btn, .msgError, #msgsuccess, #msgfail, #divdettagli{
     font-size: 1em;
-}/*
-.dataRow{
-    flex-direction: column;
-    align-items: center;
-}*/
+}
+#msgsuccess, #msgfail, #divdettagli{
+    width: 90%;
+}
+#formElimina, #divConferma{
+    gap: 0.5em;
+}
+.msgErrorWrap{
+    width: auto;
+}
+#imgdettagli{
+    width: 130px;
+}
 #container_header{
     flex-wrap: wrap;
 }
 #breadcrumbs{
     width: 80%;
+    height: auto;
+    font-size: 1em;
 }
-#divdettagli{
-    width: 100%;
+form, #divdettagli, .link_prodotto{
+    margin: 0;
+}
+#container_delete{
+    padding-bottom: 1em;
 }
 #txtaccountdelete{
 	margin-top: 1em;
 }
-#container_profilo, #content{
-    width: 120%;
-}
+
 #dettagli {
     font-size: 0.7em;
     margin-left: 0;
 }
-#container_profilo>p {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    row-gap: 0.5em;
+#container_profilo>p{
+    font-size: 1em;
 }
-#container_profilo>p>span {
-    max-width: inherit;
-    font-size: 0.7em;
-} 
+#dettagli{
+    padding: 0;
+}
 #menu-btn{
     height: 80px;
     width: 80px;
@@ -119,5 +132,8 @@ header nav ul{
     right:0;
     overflow-x: hidden;
     background-color: #222;
-    
+}
+
+#imgValidCode, #imgValidCss{
+    margin: 0 1em;
 }

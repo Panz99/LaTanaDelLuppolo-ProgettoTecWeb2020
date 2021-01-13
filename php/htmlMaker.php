@@ -99,7 +99,7 @@ class htmlMaker{
                                 <textarea id="recensionetextarea" name="review" cols="50" rows="3" placeholder="Scrivi una recensione sulla birra" required="required"></textarea>
                             </fieldset>  
                             <fieldset>
-                            <legend>Inserisci una voto</legend>
+                            <legend>Inserisci un voto</legend>
                                 <input type="radio" id="rateradio0" name="rating" value="0" checked="checked"/><label for="rateradio0">0</label>&nbsp;
                                 <input type="radio" id="rateradio1" name="rating" value="1"/><label for="rateradio1">1</label>&nbsp;
                                 <input type="radio" id="rateradio2" name="rating" value="2"/><label for="rateradio2">2</label>&nbsp;

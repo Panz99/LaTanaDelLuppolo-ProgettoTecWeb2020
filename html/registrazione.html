@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
-    <body>
+    <body onresize="checkWidth()" onload="checkWidth()">
         <header/>
         <bc/>
         <main  id="main">
             <heading/>
             <form action="<root/>php/registrazione.php" onsubmit="return checkRegistrazione();" method="post">
                 <fieldset id="formRegister">
-                    <legend>Registrazione</legend>
+                    <legend>Inserisci i tuoi dati</legend>
                     <div class="dataRow dataRegister">
                         <label for="txtName" class="form-label">Nome *</label>
                         <input class="inputAge" id="txtName" type="text" name="txtName" placeholder="Inserisci nome" required="required"/>
@@ -40,6 +40,7 @@
                     <input class="btn" type="submit" name="registrati" value="Registrati"/>
                 </fieldset>
             </form>
+            <p>Possiedi giá un <span xml:lang="en">account</span>? <a href="login.php" class="link">Accedi</a></p>
         </main>
         <tornasu/>
         <footer/>

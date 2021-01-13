@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head/>
-    <body>
+    <body onresize="checkWidth()" onload="checkWidth()">
         <header/>
         <bc/>
         <main id="main">
@@ -29,7 +29,7 @@
                     <span id="surnameError"class="msgError msgErrorWrap"></span>
                     <div class="dataRow dataRegister">
                         <label for="txtEmail" class="form-label" xml:lang="en">E-mail</label>
-                        <input id="txtEmail" class="inputAge" name="new-email" type="text" placeholder="Nuova Email"/>
+                        <input id="txtEmail" class="inputAge" name="new-email" type="email" placeholder="Nuova Email"/>
                     </div>
                     <span id="emailError"class="msgError msgErrorWrap"></span>
                     <div class="dataRow dataRegister">

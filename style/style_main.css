@@ -69,8 +69,7 @@ fieldset{
 legend{
     font-size:1.1em;
     font-weight: bold;
-    margin-top: 0.9em;
-    margin-bottom: 0.5em;
+    margin: 0.5em auto;
     padding: 0;
 }
 header{
@@ -193,8 +192,7 @@ a.hiddenscreenreader:hover{
 }
 
 .recensioneitem{
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
+    padding: 0.7em 0;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -355,7 +353,7 @@ a.hiddenscreenreader:hover{
 
 #imgdettagli{
     width: 260px;
-    height: 400px;
+    height: auto;
 }
 
 /* dettagli.html */
@@ -373,7 +371,11 @@ a.hiddenscreenreader:hover{
 #divdettagli{
     float: right;
     margin: 0em 2em;
-    width: 60%
+    width: 60%;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 1em;
+    font-size: 1.2em;
 }
 
 #descrizionebirra{
@@ -383,14 +385,13 @@ a.hiddenscreenreader:hover{
     font-size:2em;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.2em;
-    width: auto;
     text-align: center;
 }
 .recensionetext{
     width: 80%;
 }
 #recensionetextarea{
-    width: 100%;
+    width: 80%;
     margin-top: 0.5em;
     margin-bottom: 1em;
     resize: vertical;
@@ -401,7 +402,7 @@ a.hiddenscreenreader:hover{
     padding: 0;
 }
 #revinsertform{
-    margin: 0;
+    text-align: center;
 }
 .revremovebut{
     background: transparent;
@@ -416,6 +417,7 @@ a.hiddenscreenreader:hover{
     padding: 0.5em;
     border-radius: 20px;
     margin: 0.5em auto;
+    text-align: center;
 
 }
 #msgfail{
@@ -426,13 +428,14 @@ a.hiddenscreenreader:hover{
     padding: 0.5em;
     border-radius: 20px;
     margin: 0.5em auto;
+    text-align: center;
 }
 
 #heading >h1{
     font-size:3em;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.2em;
-    margin: 0.8em auto 0.6em auto;
+    margin: 0.5em auto;
     width: auto;
 }
 
@@ -598,7 +601,8 @@ a.hiddenscreenreader:hover{
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:center;
-	align-items: center;
+    align-items: center;
+    text-align: center;
 }
 #btnElimina, #btnInvia, .no-margin{
     margin: 0;
@@ -608,10 +612,10 @@ a.hiddenscreenreader:hover{
     font-weight: bold;
     border-bottom: #000 0.1em solid;
     padding-bottom: 0.4em;
+    text-align: center;
 }
 #container_delete>p, .infoP{
     font-size: 1.2em;
-    width: 100%;
     text-align: center;
     margin:0.5em;
 }
@@ -620,7 +624,7 @@ a.hiddenscreenreader:hover{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-row-gap: 1.5em;
-    margin:4em;
+    padding:4em;
 }
 #dettagli>dt{
     font-size: 1.8em;
