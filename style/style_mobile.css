@@ -137,3 +137,6 @@ form, #divdettagli, .link_prodotto{
 #imgValidCode, #imgValidCss{
     margin: 0 1em;
 }
+#content{
+    max-width: 100%;
+}

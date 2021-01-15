@@ -644,3 +644,8 @@ a.hiddenscreenreader:hover{
     margin-bottom: 1.5em;
 }
 /*------------------------------------------------------*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    main{
+        display:block;
+    }
+}
