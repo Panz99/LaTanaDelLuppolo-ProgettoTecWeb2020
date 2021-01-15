@@ -2,15 +2,23 @@
 /* ---- tutte le pagine ---- */
 html{
     font-size: 14pt;
+    font-family: "Times New Roman", Times, serif;
 }
-.hiddenscreenreader, #container_icons, nav, .tornaSu, #imgValidCode, #imgValidCss, #recensionecreate, .revremoveform, .material-icons {
+.hiddenscreenreader, #container_icons, nav, footer, .tornaSu, #recensionecreate, .revremoveform, .material-icons {
     display: none;
+}
+#container_beers{
+    display: flex;
+    flex-wrap: wrap;
 }
 body, a{
     color:black;
 }
-#imgboiler, #imgdettagli, .img_prodotto{
+#imgboiler, #imgdettagli{
     height: 250px;
+}
+.img_prodotto{
+    height: 125px;
 }
 #breadcrumbs::before{
     content: "Ti trovi in: ";
@@ -34,18 +42,29 @@ body, a{
 }
 
 /* dettagli.php */
-.recensioneitem, .prodotto, #formElimina{
+.recensioneitem, #formElimina{
     padding-top: 0.7em;
     padding-bottom: 1em;
     border-bottom: black 0.1em solid;
+}
+.prodotto{
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid black;
+    width: 35%;
 }
 
 /* prodotti.php */
 ul>li>a[class="page-padding active fillParent"]::before{
     content: "Pagina numero: ";
 }
+#list_pages>li>a:not(.active){
+    display: none;
+}
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 #dettagli>dd{
