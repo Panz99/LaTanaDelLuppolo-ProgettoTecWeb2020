@@ -42,6 +42,13 @@ class htmlMaker{
         $html.='</ul>';
         return $html;
     }
+    public static function makeBanner(){ 
+        $html='<div id="banner">';
+        $html.= '<p><span class="bspan">Benvenuto</span> nella tana pi&ugrave fruttata del mondo.</p>';
+        $html.='Entra a far parte della <span xml:lang="en" lang="en">community</span> pi&ugrave critica e preparata che i mastri birrai abbiano mai temuto.';
+        $html.='</div>';
+        return $html;
+    }
 
 
 

@@ -51,6 +51,7 @@ h2, #AVh2{
     width: 80%;
     height: auto;
     font-size: 1em;
+    padding:0.5em 0.5em;
 }
 form, #divdettagli, .link_prodotto{
     margin: 0;
@@ -139,4 +140,7 @@ form, #divdettagli, .link_prodotto{
 }
 #content{
     max-width: 100%;
+}
+#banner{
+    width:65%;
 }

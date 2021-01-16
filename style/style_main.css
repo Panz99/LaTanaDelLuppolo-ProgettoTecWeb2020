@@ -288,7 +288,6 @@ a.hiddenscreenreader:hover{
     justify-content: center;
     border-radius: 10px;
     background-color: #222;
-    margin: 1em 1em 0.5em 1em;
     font-weight: bold;
     font-size: 1.5em;
     padding: 0.8em 0.8em;
@@ -309,6 +308,21 @@ a.hiddenscreenreader:hover{
 
 .bc-link{
 	font-weight: 500;
+}
+
+#banner{
+    width:50%;
+    margin: auto;
+    padding: 1em 0.8em;
+    background-color: #d4e6f7;
+    border-width: 0px 2px 2px 2px; 
+    border-style: solid;
+    border-radius: 0 0 5px 5px;
+    font-size: 1.2em;
+
+}
+#banner>p{
+    margin:0px 0px;
 }
 
 /*Main*/
