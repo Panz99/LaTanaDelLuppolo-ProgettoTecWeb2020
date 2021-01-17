@@ -17,7 +17,7 @@ La breadcrumb non è visibile nelle pagine di avviso di contenuto non trovato e 
 La sezione Main visualizza il contenuto principale e caratterizzante della pagina.
 \paragraph{Footer}
 Al piede della pagina è situato il footer che riporta informazioni sul progetto e i relativi certificati di validazione.\\
-E' presente in tutte le pagine del sito.
+\'E presente in tutte le pagine del sito.
 
 \subsection{Struttura del sito}
 L'index page del sito reindirizza alla pagina di verifica dell'età mentre conduce direttamente alla homepage se nelle variabili di sessione è inidicato che l'utente ha già eseguito la verifica ed è maggiorenne.\\
@@ -47,25 +47,30 @@ La pagina \textit{deleteaccount} avverte della corretta eliminazione dell'accoun
 
 \subsection{Attori}
 Vengono di seguito elencati i possibili tipi di utenti che possono interagire con il sito.
-
-\paragraph{Utente non abilitato}
-Se l'utente non ha una sessione attiva o ha dichiarato di essere minorenne, ogni tentativo di accesso alle pagine del sito risulta in una redirezione alla pagina di verifica dell'età, dalla quale può proseguire solo dopo aver confermato di essere maggiorenne.
-
-\paragraph{Utente maggiorenne e non loggato}
-Un utente che ha dichiarato di essere maggiorenne e non è loggato nel sito ha accesso a tutte le pagine tranne quelle di gestione dell'account; il tentativo di accesso a quest'ultime verrà negato e segnalato da una pagina apposita.
+\begin{itemize}
+\item \textbf{Utente non abilitato:} Se l'utente non ha una sessione attiva o ha dichiarato di essere minorenne, ogni tentativo di accesso alle pagine del sito risulta in una ridirezione alla pagina di verifica dell'età, dalla quale può proseguire solo dopo aver confermato di essere maggiorenne;
+\item \textbf{Utente maggiorenne e non loggato:} Un utente che ha dichiarato di essere maggiorenne e non è loggato nel sito ha accesso a tutte le pagine tranne quelle di gestione dell'account; il tentativo di accesso a quest'ultime verrà negato e segnalato da una pagina apposita.
 L'utente può accedere alla pagina di registrazione attraverso il link \textit{Registrati} nella pagina login, raggiungibile dal tasto account situato nell'header.
-Nelle pagine di dettagli delle birre saranno visualizzate le recensioni ma non ci sarà la possibilità di modificarle o aggiungerne di nuove.
-
-
-\paragraph{Utente maggiorenne e loggato}
-Gli utenti che hanno effettuato l'accesso possono visitare tutte le pagine del sito ed hanno la possibilità di aggiungere ed eliminare le proprie recensioni.
-Dal tasto account possono inoltre visualizzare e modificare i propri dati, effettuare il logout o eliminare l'account.
-
-\paragraph{Utente amministratore}
-Un utente amministratore ha accesso a tutte le pagine del sito e ha la possibilità di eliminare anche le recensioni degli altri utenti.
+Nelle pagine di dettagli delle birre saranno visualizzate le recensioni ma non ci sarà la possibilità di modificarle o aggiungerne di nuove;
+\item \textbf{Utente maggiorenne e loggato:} Gli utenti che hanno effettuato l'accesso possono visitare tutte le pagine del sito ed hanno la possibilità di aggiungere ed eliminare le proprie recensioni.
+Dal tasto account possono inoltre visualizzare e modificare i propri dati, effettuare il logout o eliminare l'account;
+\item \textbf{Utente amministratore:} Un utente amministratore ha accesso a tutte le pagine del sito e ha la possibilità di eliminare anche le recensioni degli altri utenti.
 Un account deve essere eletto amministratore dagli operatori del database.
+\end{itemize}
 
 \subsection{Database}
+Il sito sfrutta un database molto semplice, composto da tre tabelle:
+\begin{itemize}
+\item \textbf{Utenti:} raccoglie i dati anagrafici e di accesso di tutti gli utenti registrati al sito. \'E stata implementato un campo admin\textunderscore flag che viene posto a TRUE nel caso in cui l'account sia amministratore, la chiave primaria é un id auto-incrementate e username é chiave univoca, così da non permettere la registrazione al sito di piú utenti con lo stesso username. Abbiamo deciso di non memorizzare la data di nascita nel database in quanto un utente che visita il sito deve aver dichiarato precedentemente di essere maggiorenne, un campo data\textunderscore nascita per gli utenti non verrebbe quindi utilizzato e sarebbe superfluo;
+\item \textbf{Birre:} raccoglie i dati delle birre presenti nel sito. La chiave primaria é un id auto-incrementante, mentre il nome é chiave univoca, così da non permettere l'inserimento di più birre con lo stesso nome;
+\item \textbf{Recensioni:} raccoglie le recensioni delle birre (testo e voto) lasciate dagli utenti. Anche qui la chiave primaria é un id auto-incrementante, non abbiamo messo altre chiavi, un utente quindi può lasciare più recensioni della stessa birra. Il campo utente é chiave esterna riferita al campo id della tabella Utenti, e il campo birra é la chiave esterna riferita al campo id della tabella Birre.
+\end{itemize}
+Il database é normalizzato.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{utility/db.png}
+	\caption{UML database}
+\end{figure}
 \subsection{Accessibilità e standard}
 % divisione logica/presentazione (anche formattazione testo)
 
