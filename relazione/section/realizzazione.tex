@@ -1,5 +1,5 @@
 \section{Realizzazione}
-Ogni pagina ha un suo scheletro in un file html, il quale viene aperto dal file nome\textunderscore pagina.php tramite la funzione file_get_contents(), successivamente la pagina viene popolata dalla classe php htmlMaker da noi sviluppata e solo a questo punto viene mostrata all'utente. 
+Ogni pagina ha un suo scheletro in un file html, il quale viene aperto dal file nome\textunderscore pagina.php tramite la funzione file\textunderscore get\textunderscore contents(), successivamente la pagina viene popolata dalla classe php htmlMaker da noi sviluppata e solo a questo punto viene mostrata all'utente. 
 Cosí facendo riusciamo a tenere totalmente separato il comportamento dalla struttura, riusciamo a gestire le sessioni e non abbiamo bisogno di fare chiamate AJAX dalle pagine.
 \subsection{HTML}
 Abbiamo cominciato scrivendo un header e un footer che fosseró unici per tutte le pagine, questi due file html vengono letti dalla classe htmlMaker e inseriti in tutte le pagine presenti nel sito. Successivamente abbiamo iniziato a scrivere l'html di ogni altra pagina, a partire dalla home, prodotti e contatti. Man mano che le pagine prendevano forma andavamo a spostare l'html scritto, nella classe php responsabile della generazione del contenuto delle varie pagine.
