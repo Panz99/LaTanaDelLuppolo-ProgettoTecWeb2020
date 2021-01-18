@@ -18,8 +18,9 @@
         $username=filter_var($_POST['txtUsername'], FILTER_SANITIZE_STRING);
         $password=filter_var($_POST['txtPassword'], FILTER_SANITIZE_STRING);
         try{
-            $result= DBAccess::query("SELECT * FROM utenti WHERE username = '$username' AND password='$password'")[0];
+            $result= DBAccess::query("SELECT * FROM utenti WHERE username = '$username' AND password='$password'");
             if($result){
+                $result=$result[0];
                 $_SESSION['id']=$username;
                 $_SESSION['logged']=true;
                 $_SESSION['admin'] = $result['admin_flag'] ?? NULL;
