@@ -29,14 +29,14 @@ class htmlMaker{
                     <a class="link tornaSu" href="#">Torna su</a>
                 </div>';
     }
-    public static function makeBreadCrumbs($path){ 
+    public static function makeBreadCrumbs($path){
         $html='<ul id="breadcrumbs">';
         foreach($path as $nome => $link){
             $html.= '<li class="bc-item">';
             if($link == "active")
-                $html.='<a href="#" class="active">'.$nome.'</a>';
+                $html.='<a href="#" class="active"'.($nome=="Home"?'xml:lang="en" lang="en"':'').'>'.$nome.'</a>';
             else    
-                $html.='<a href="'.$link.'" class="link">'.$nome.'</a>';
+                $html.='<a href="'.$link.'" class="link"'.($nome=="Home"?'xml:lang="en" lang="en"':'').'>'.$nome.'</a>';
             $html.='</li>';
         }
         $html.='</ul>';
