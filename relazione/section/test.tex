@@ -1,27 +1,33 @@
 \section{Accessibilitá}
 
-\paragraph{Controlli}
-I controlli sono correttamente assegnati ad una label e nelle form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.
-
-
-Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icona degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.
-
-
+\subsection{Controlli}
+I controlli sono correttamente assegnati ad una label e nelle form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
+Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icona degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
 I valori provenienti dai controlli prima di essere processati lato server vengono validati e sanitizzati.
 
-\paragraph{Tag vari}
-% heading
-I tag di heading sono stati utilizzati seguendo la corretta gerarchia ed in modo coerentemente per segnalare titoli e contenuti delle sezioni.
-% hidden link, back to top button
-% lingua, charset
-% alternative text
-% ARIA
-% label fieldset legend, gerarchia heading
-% link circolari
+\subsection{Tag vari}
+I tag di heading sono stati utilizzati seguendo la corretta gerarchia ed in modo coerentemente per segnalare titoli e contenuti delle sezioni.\\
+Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina e un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
+In aiuto ai sistemi di screen-reading sono inoltre segnalate le parole inglesi dagli attributi \textit{xml:lang} e \textit{lang} e le immagini principali sono dotate di un attributo \textit{alternative text} consono.
 
-\paragraph{Validazioni}
+\subsection{Validazioni}
+
+
+% ff extention WCAG Color Checker https://addons.mozilla.org/it/firefox/addon/wcag-contrast-checker
+\paragraph{WCAG Color Checker}\ap{1}
+L'estensione per il browser Firefox non rileva problemi tra i colori scelti ed i livelli di contrasto.
+
+% ff extention WAVE Evaluation Tool https://addons.mozilla.org/it/firefox/addon/wave-accessibility-tool/
+\paragraph{WebAIM WAVE Tool}\ap{2}
+L'estensione per il browser Firefox valuta positivamente l'utilizzo dei tag, gerarchia degli heading e label dei controlli e non segnala problemi.
 
 % Total Validator
-% console sviluppatore firefox
-% ff extention WCAG Color Checker https://addons.mozilla.org/it/firefox/addon/wcag-contrast-checker
-% ff extention WAVE Evaluation Toolhttps://addons.mozilla.org/it/firefox/addon/wave-accessibility-tool/
+
+
+
+\vfill
+\section*{Links}
+\begin{itemize}
+    \item 1. WCAG Color Checker \url{https://addons.mozilla.org/it/firefox/addon/wcag-contrast-checker} 
+    \item 2. WebAIM WAVE Tool \url{https://addons.mozilla.org/it/firefox/addon/wave-accessibility-tool/} 
+\end{itemize}
