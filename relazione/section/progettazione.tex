@@ -61,9 +61,9 @@ Un account deve essere eletto amministratore dagli operatori del database.
 \subsection{Database}
 Il sito sfrutta un database molto semplice, composto da tre tabelle:
 \begin{itemize}
-\item \textbf{Utenti:} raccoglie i dati anagrafici e di accesso di tutti gli utenti registrati al sito. \'E stata implementato un campo admin\textunderscore flag che viene posto a TRUE nel caso in cui l'account sia amministratore, la chiave primaria é un id auto-incrementate e username é chiave univoca, così da non permettere la registrazione al sito di piú utenti con lo stesso username. Abbiamo deciso di non memorizzare la data di nascita nel database in quanto un utente che visita il sito deve aver dichiarato precedentemente di essere maggiorenne, un campo data\textunderscore nascita per gli utenti non verrebbe quindi utilizzato e sarebbe superfluo;
-\item \textbf{Birre:} raccoglie i dati delle birre presenti nel sito. La chiave primaria é un id auto-incrementante, mentre il nome é chiave univoca, così da non permettere l'inserimento di più birre con lo stesso nome;
-\item \textbf{Recensioni:} raccoglie le recensioni delle birre (testo e voto) lasciate dagli utenti. Anche qui la chiave primaria é un id auto-incrementante, non abbiamo messo altre chiavi, un utente quindi può lasciare più recensioni della stessa birra. Il campo utente é chiave esterna riferita al campo id della tabella Utenti, e il campo birra é la chiave esterna riferita al campo id della tabella Birre.
+\item \textbf{Utenti:} raccoglie i dati anagrafici e di accesso di tutti gli utenti registrati al sito. \'E stata implementato un campo \textit{admin\textunderscore flag} che viene posto a \textit{TRUE} nel caso in cui l'account sia amministratore; la chiave primaria é un id auto-incrementate e \textit{username} é chiave univoca, così da impedire la registrazione al sito di più utenti con lo stesso username. Abbiamo deciso di non memorizzare la data di nascita nel database in quanto un utente che visita il sito deve aver dichiarato precedentemente di essere maggiorenne, un campo \textit{data\textunderscore nascita} per gli utenti non verrebbe quindi utilizzato e risulterebbe superfluo;
+\item \textbf{Birre:} raccoglie i dati delle birre presenti nel sito. La chiave primaria é un id auto-incrementante, mentre il nome é chiave univoca, così da impedire l'inserimento di più birre con lo stesso nome;
+\item \textbf{Recensioni:} raccoglie le recensioni delle birre (testo e voto) lasciate dagli utenti. La chiave primaria é un id auto-incrementante, ed essendo l'unica chiave un utente quindi può lasciare più recensioni della stessa birra. Il campo \textit{utente} é chiave esterna riferita al campo \textit{id} della tabella \textit{Utenti} mentre il campo \textit{birra} é la chiave esterna riferita al campo \textit{id} della tabella \textit{Birre}.
 \end{itemize}
 Il database é normalizzato.
 \begin{figure}[H]
@@ -71,45 +71,5 @@ Il database é normalizzato.
 	\includegraphics[width=16cm]{utility/db.png}
 	\caption{UML database}
 \end{figure}
-\subsection{Accessibilità e standard}
-% divisione logica/presentazione (anche formattazione testo)
 
-\paragraph{Presentazione e CSS}
-I colori dominanti del sito sono il grigio scuro e un verde pistacchio per header, sfondi e altri elementi di presentazione mentre vengono utilizzati il nero, verde e giallo per testi e link.
-La palette è stata scelta in modo da garantire una corretta visualizzazione anche da persone affette da diversi tipi di cecità o sensibilità del contrasto. 
-
-
-Il contenuto del sito rimane correttamente visualizzabile anche senza il caricamento dello stile CSS.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=16cm]{utility/prodotti_deuteranopia.png}
-	\caption{Vista della pagina Prodotti da persone affette da deuteranopia (cecità al verde)}
-\end{figure}
-
-\paragraph{CSS di stampa}
-E' stato predisposto un foglio di stile per la stampa dalla quale sono stati nascosti alcuni elementi giudicati superflui (ad esempio la barra di navigazione o i pulsanti Torna Su, ricerca e account) o modificati per migliorarne la presentazione (come la breadcrumb, le recensioni o la grandezza delle immagini principali).
-
-\paragraph{CSS mobile}
-Per i dispositivi mobili la presentazione è gestita da un apposito foglio di stile che ottimizza la visualizzazione e dispone barra di navigazione e pulsanti di ricerca e account nel menu ad hamburger nella parte destra dell'header.
-
-\paragraph{Controlli}
-I controlli sono correttamente assegnati ad una label e nelle form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.
-
-
-Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icona degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.
-
-
-I valori provenienti dai controlli prima di essere processati lato server vengono validati e sanitizzati.
-
-\paragraph{Altro}
-% heading
-% hidden link, back to top button
-% lingua, charset
-% alternative text
-% ARIA
-% label fieldset legend, gerarchia heading
-% link circolari
-
-\paragraph{Validazioni}
 
