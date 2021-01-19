@@ -50,8 +50,33 @@ La palette è stata scelta in modo da garantire una corretta visualizzazione anc
 
 \subsection{Javascript}
 \subsection{PHP}
-Nel nostro sito, ogni pagina ha un suo file PHP, inoltre abbiamo creato due classi con metodi statici, così da non dover istanziare oggetti per richiamarne le funzioni:
+Nel nostro sito, ogni pagina é generata da un file PHP.
+Abbiamo creato due classi con metodi statici,una per la costruzione dell'html e una per la connessione al database, abbiamo deciso di utilizzare solo metodi statici in mod da non dover istanziare oggetti per richiamarne le funzioni:
 \begin{itemize}
-\item \textbf{htmlMaker.php:}
-\item \textbf{dbConnection.php:}
+\item \textbf{htmlMaker.php:} si occupa della costruzione di codice html, ed é composta dai seguenti metodi:
+	\begin{itemize}
+		\item \textit{makeHead}: metodo utilizzato da tutte le pagine del sito, costruisce l'head html.
+		\item \textit{makeHeader}: metodo utilizzato da tutte le pagine del sito, costruisce l'intestazione html.
+		\item \textit{makeHeading}: metodo utilizzato da tutte le pagine del sito, costruisce il titolo principale.
+		\item \textit{makeBreadCrumbs}: metodo utilizzato da tutte le pagine del sito, costruisce la breadcrumb.
+		\item \textit{makeTornaSu}: metodo utilizzato da tutte le pagine del sito, costruisce il pulsante per tornare all'inizio della pagina.
+		\item \textit{makeFooter}: metodo utilizzato da tutte le pagine del sito, costruisce il piè di pagina.
+		\item \textit{makeBanner}: metodo utilizzato dalla home per costruire il banner di presentazione del sito.
+		\item \textit{listBeers}: metodo utilizzato da home e prodotti, costruisce la lista con le birre presenti nel sito.
+		\item \textit{beerInfo}: metodo utilizzato dalla pagina di dettagli di ogni birra, costruisce la parte di dettagli, e nel caso l'utente sia loggato anche la form per l'invio di una recensione. 
+		\item \textit{beerReview}: metodo utilizzato dalla pagina di dettagli di ogni birra, costruisce la lista di recensioni.
+		\item \textit{makeNotfound}: costruisce una pagina di errore nel caso in cui il contenuto cercato dall'utente non sia presente nel sito.
+		\item \textit{makeDeleteAccount}: costruisce la pagina che viene restituita quando si elimina un account.
+		\item \textit{makeAccessdenied}: costruisce una pagina di errore nel caso in cui l'utente non abbia i permessi di vedere una determinata pagina.
+		\item \textit{userInfo}: metodo utilizzato da dettagli account, costruisce una lista con tutte le informazioni dell'account in cui si é loggati.
+	\end{itemize}
+\item \textbf{dbConnection.php:} si occupa di far interagire il nostro sito con il database, possiede delle costanti contenenti i dati per la connessione (username, password, host e nome del database) ed é composta dai seguenti metodi:
+	\begin{itemize}
+		\item \textit{openDBConnection}: apre la connessione con il database, é un metodo privato che viene richiamato solo dalle altre funzioni della classe. Nel caso di errore lancia un'eccezione;
+		\item \textit{collapse}: viene utilizzato per tutte le interrogazione al db che restituiscono un risultato di una sola colonna, utilizzando questo metodo l'input fornito in forma di lista di array viene compresso in un'array monodimensionale. \'E un metodo privato che può essere richiamato solamente da altri metodi della classe;
+		\item \textit{query}: metodo utilizzato per interrogare il database, accetta come parametro la query da inviare e un booleano da mettere a true nel caso in cui si voglia utilizzare il metodo collapse. Questo metodo apre la connessione al database con utilizzando openDBConnection, invia la query e nel caso di errori lancia un'eccezione, se il booleano é posto a true utilizza il metodo collapse per comprimere il risultato della query, infine chiude la connessione al database e restituisce i dati ricevuti tramite l'interrogazione.
+		\item \textit{command}: metodo utilizzato per inviare al database comandi(insert, update, delete, alter, drop, create), come parametro accetta solamente il comando da inviare. Questo metodo apre la connessione al database utilizzando openDBConnection, invia il comando, nel caso di errori lancia diverse eccezioni ed infine chiude la connessione.
+	\end{itemize}
 \end{itemize}
+\paragraph{}
+Per ogni pagina del sito andiamo a prelevare lo scheletro dal suo file html, controlliamo che la variabile di sessione relativa al controllo dell'etá sia inizializzata e posta a true, successivamente andiamo a controllare la variabile di sessione relativa all'account nel caso in cui quella determinata pagina abbia comportamenti diversi in base al tipo di utente che la visualizza. Nella pagine che possono essere raggiunte da diverse fonti, andiamo a verificare, come la pagina é stata richiamata, quindi controlliamo se sono stati mandati parametri post o get. Infine con una serie di str\textunderscore replate() andiamo ad aggiornare lo scheletro della pagina inizialmente caricato con i vari metodi presenti in htmlMaker.php, solo a questo punto mostriamo la pagina all'utente.
