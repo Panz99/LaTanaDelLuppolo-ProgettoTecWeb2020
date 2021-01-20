@@ -109,7 +109,7 @@ class htmlMaker{
                             </fieldset>  
                             <fieldset>
                             <legend>Inserisci un voto</legend>
-                                <input type="radio" id="rateradio1" name="rating" value="1"/><label for="rateradio1">1</label>&nbsp;
+                                <input type="radio" id="rateradio1" name="rating" value="1" required="required"/><label for="rateradio1">1</label>&nbsp;
                                 <input type="radio" id="rateradio2" name="rating" value="2"/><label for="rateradio2">2</label>&nbsp;
                                 <input type="radio" id="rateradio3" name="rating" value="3"/><label for="rateradio3">3</label>&nbsp;
                                 <input type="radio" id="rateradio4" name="rating" value="4"/><label for="rateradio4">4</label>&nbsp;
@@ -118,7 +118,7 @@ class htmlMaker{
                                 <input type="radio" id="rateradio7" name="rating" value="7"/><label for="rateradio7">7</label>&nbsp;
                                 <input type="radio" id="rateradio8" name="rating" value="8"/><label for="rateradio8">8</label>&nbsp;
                                 <input type="radio" id="rateradio9" name="rating" value="9"/><label for="rateradio9">9</label>&nbsp;
-                                <input type="radio" id="rateradio10" name="rating" value="10" checked="checked" /><label for="rateradio10">10</label>
+                                <input type="radio" id="rateradio10" name="rating" value="10"/><label for="rateradio10">10</label>
                             </fieldset>
                             <input class="btn" type="submit" value="Invia recensione"/>
                         </form>
