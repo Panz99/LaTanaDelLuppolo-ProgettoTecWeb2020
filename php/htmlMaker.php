@@ -26,7 +26,7 @@ class htmlMaker{
     }
     public static function makeTornaSu(){
         return  '<div class="containerTornaSu">
-                    <a class="link tornaSu" href="#">Torna su</a>
+                    <a class="link tornaSu" href="#" aria-label="Torna su">Torna su</a>
                 </div>';
     }
     public static function makeBreadCrumbs($path){
@@ -143,7 +143,7 @@ class htmlMaker{
                         </div>';
             // Controlla se utente è loggato e aggiunge tasto eliminazione se è l'autore della recensione oppure admin
             $html.= isset($_SESSION['id']) && (isset($_SESSION['admin']) && $_SESSION['admin']==1 || $_SESSION['id']==$review["username"]) ? 
-                    '<a href="dettagli.php?id=<beerid/>&rmrev='.$review['revid'].'"><span class="material-icons dark">delete_forever</span></a>'
+                    '<a href="dettagli.php?id=<beerid/>&rmrev='.$review['revid'].'"><span class="material-icons dark" aria-label="Elimina recensione">delete_forever</span></a>'
                     : '';       
             $html.='</li>';
         }
