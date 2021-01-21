@@ -1,5 +1,5 @@
 \section{Accessibilitá}
-
+Seguendo le linee guida per l'accessibilità del contenuto Web (WCAG 2.1), abbiamo modificato e aggiunto specifici elementi per rendere il nostro sito accessibile a tutti i nostri utenti, tra cui anche quelli che usano tecnologie assistive.   
 \subsection{Controlli}
 I controlli sono correttamente assegnati ad una label e nelle form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
 Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icona degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
@@ -9,6 +9,7 @@ I valori provenienti dai controlli prima di essere processati lato server vengon
 I tag di heading sono stati utilizzati seguendo la corretta gerarchia ed in modo coerentemente per segnalare titoli e contenuti delle sezioni.\\
 Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina e un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
 In aiuto ai sistemi di screen-reading sono inoltre segnalate le parole inglesi dagli attributi \textit{xml:lang} e \textit{lang} e le immagini principali sono dotate di un attributo \textit{alternative text} consono.
+
 
 \subsection{Validazioni}
 
@@ -24,9 +25,8 @@ L'estensione per il browser Firefox valuta positivamente l'utilizzo dei tag, ger
 \subsubsection{Total Validator}
 Abbiamo validato tutte la pagine del sito attraverso l'estensione per browser di Total Validator\ap{4} e Total Validator Test\ap{3}. Abbiamo validato il codice sorgente generato da php di ogni pagina con standard XHTML5, cosí da poter utilizzare i tag piú recenti forniti da html5, mantenendo una struttura in stile xhtml. Con questo validatore abbiamo verificato pure che le pagine garantissero un'accessibilitá conforme agli standard WCAG21 AAA.
 \subsubsection{ChromeVox}
-È stata usata l'estensione ChromeVox di Google Chrome per testare il funzionamento dello screen reader. ChromeVox interpreta le pagine come gli altri screen reader ed è facile da usare per i sviluppatori ed ovviamente da chi ne ha bisogno. 
-/*ci sono dei problemi... 
-1. quando si va a inserire la data di nascita il cursore si mette al inizio della scritta cioè se inizio a scrivere 10 finisce come 01*/
+È stata usata l'estensione ChromeVox di Google Chrome per testare il funzionamento dello screen reader sul sito. ChromeVox interpreta le pagine come gli altri screen reader ed è facile da usare per i sviluppatori ed ovviamente da chi ne ha bisogno. Con l'uso di questo tipo di screenreader si è verificato che tutte le funzionalità del contenuto di una pagina sono utilizzabili tramite un'interfaccia di tastiera senza richiedere tempi specifici per la pressione dei singoli tasti.
+
 
 \vfill
 \section*{Links}
