@@ -49,6 +49,32 @@ La palette è stata scelta in modo da garantire una corretta visualizzazione anc
 
 
 \subsection{Javascript}
+Tutta la parte di JavaScript del progetto è contenuta in un unico file \verb|main.js| e viene invocata da un link esterno nella sezione head di ogni pagina. \\
+Il file \verb|main.js| è stato come segue strutturato.
+\paragraph{Validatori}
+I primi metodi servono per controllare la corretta compilazione dei vari campi di input testuali presenti nelle form di registrazione di un account e di modifica dei dati di un utente. Inoltre nel caso di non corrispondenza con la specifica grammatica in seguito definita si occupano di mostrare lo specifico errore.
+\begin{itemize}
+    \item \textit{validateName(str)}: controlla che il nome dell'utente corrisponda all'espressione regolare \verb| /^[A-Z ,.'-]{3,30}$/i|. Saranno accettate quindi solamente stringhe di lunghezza compresa tra i 3 e i 30 caratteri, composte da caratteri alfabetici e i caratteri \verb|. , ' -|;
+    \item \textit{validateSurname(str)}: controlla che il cognome dell'utente corrisponda all'espressione regolare\verb| /^[A-Z ,.'-]{3,30}$/i|. Saranno accettate quindi solamente stringhe di lunghezza compresa tra i 3 e i 30 caratteri, composte da caratteri alfabetici e i caratteri \verb|. , ' -|;
+    \item \textit{validateUsername(str)}: controlla che lo username dell'utente corrisponda all'espressione regolare\verb| /^[w_]{4,30}$/i|. Saranno accettate quindi solamente stringhe di lunghezza compresa tra i 4 e i 30 caratteri composte da caratteri alfabetici e il carattere \verb|_| ;
+    \item \textit{validatePassword(str)}: controlla che la password dell'utente corrisponda all'espressione regolare\verb| /^[w_]{4,30}$/i|. Saranno accettate quindi solamente stringhe di lunghezza compresa tra i 4 e i 30 caratteri composte da caratteri alfabetici e il carattere \verb|_| ;
+    \item \textit{validateEmail(str)}: controlla che l'email dell'utente corrisponda all'espressione regolare\begin{verbatim}/[\S]{4,32}@[\w]{4,32}((?:\.[\w]+)+)?(\.(it|com|edu|org|net|eu)){1}/\end{verbatim}Le stringhe accettate dovranno quindi essere composte da una stringa tra i 4 e i 32 caratteri come identificativo, il carattere di at \verb|@|, il dominio tra i 4 e i 32 caratteri e infine un suffisso tra \texttt{(.it|.com|.edu|.org|.net|.eu)}.
+\end{itemize}
+\paragraph{Controlli input}
+I metodi che seguono vengono utilizzati dalle invocazioni tramite submit delle form.
+\begin{itemize}
+    \item \textit{CheckRegistrazione()}: si occupa di recuperare il valore dei campi della form di registrazione di un nuovo utente e restituisce true se tutti i campi sono stati compilati e se rispettano le grammatiche prefissate;
+    \item \textit{CheckModificadati()}: si occupa di recuperare il valore dei campi della form di modifica delle informazioni di un utente, restituisce true se tutti i campi sono stati compilati e se rispettano le grammatiche prefissate;
+\end{itemize}
+\paragraph{Gestori presentazione}
+Gli ultimi tre metodi servono solamente per la modifica della contenuto del DOM anche al fine di una migliore portabilità verso gli schermi più piccoli.
+\begin{itemize}
+    \item \textit{getSearchbar()}: Questo è un metodo trigger che viene invocato nel caso di click sull'icona di ricerca, si occupa di rendere visibile la barra di ricerca ed assegnarle il focus. Nel caso di un secondo click la barra tornerà invisibile;
+    \item \textit{checkWidth()}: Questo è un metodo trigger che viene invocato al caricamento di ogni pagina e al rilevamento di una modifica alla larghezza del body. Quando la larghezza del display diventa inferiore a \verb|850px|, come in un dispositivo mobile, si occupa di rimuovere le icone, la barra di navigazione e la barra di ricerca dalla parte di header visibile e aggiungerle al menù laterale a comparsa.
+    Viceversa, nel caso in cui la larghezza dovesse superare \verb|850px| riposiziona i contenitori nella parte di header visibile ;
+    \item \textit{showMenu()}: Questo è un metodo trigger che viene invocato nel caso di click sull'icona del menù ad hamburgher. Si occupa di mostrare in primo piano il menù nascosto con l'applicazione o la rimozione della classe di stile \verb|open|;
+\end{itemize}
+
 \subsection{PHP}
 Ogni pagina del sito è generata da un file PHP.
 Abbiamo creato due classi con metodi statici, una per la costruzione dell'HTML e una per la connessione al database, in modo da non aver bisogno di istanziare oggetti per richiamarne le funzioni:
