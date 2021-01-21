@@ -1,6 +1,6 @@
 \section{Progettazione}
 E' stato scelto \textit{Responsive Web Design} come strategia di progettazione, il sito infatti é in grado di adattarsi graficamente in modo automatico in base al dispositivo con il quale viene visualizzato. \\
-Si è preferito usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA descritta nella sezione x.x.x
+Si è preferito usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA, discussa in seguito.
 
 Il progetto è stato affrontato con un approccio top-down, individuando elementi generici da implementare e procedendo quindi con lo sviluppo di pagine e funzioni.
 
@@ -20,19 +20,19 @@ Al piede della pagina è situato il footer che riporta informazioni sul progetto
 \'E presente in tutte le pagine del sito.
 
 \subsection{Struttura del sito}
-L'index page del sito reindirizza alla pagina di verifica dell'età mentre conduce direttamente alla homepage se nelle variabili di sessione è inidicato che l'utente ha già eseguito la verifica ed è maggiorenne.\\
-La verifica viene eseguita dalla pagina stessa \textit{ageverification} ed ogni altra pagina reindirizza a quest'ultima se rileva che nella sessione dell'utente non è presente la variabile che rappresenta l'avvenuta verifica.\\
+L'index page del sito reindirizza alla pagina di verifica dell'età, mentre conduce direttamente alla homepage se nelle variabili di sessione è indicato che l'utente ha già eseguito la verifica ed è maggiorenne.\\
+La verifica viene eseguita dalla pagina \textit{ageverification} stessa ed ogni altra pagina reindirizza a quest'ultima se rileva che nella sessione dell'utente non è presente la variabile che rappresenta l'avvenuta verifica.\\
 Di seguito si riportano le pagine del sito e le rispettive caratteristiche.
 
 \paragraph{Home}
-L'homepage è la pagina che viene mostrata all'utente dopo la verifica dell'età e contiene una lista di birre in offerta o consigliate dall'amministrazione.
+L'\textit{homepage} è la pagina che viene mostrata all'utente dopo la verifica dell'età e contiene una lista di birre in offerta o consigliate dall'amministrazione.
 
 \paragraph{Prodotti}
 La pagina \textit{prodotti} visualizza tutte le birre disponibili nel database, suddivise in pagine.\\
 La pagina viene inoltre utilizzata per visualizzare i risultati di una ricerca tramite la barra di ricerca.
 
 \paragraph{Dettagli}
-La pagina \textit{dettagli} visualizza informazioni complete e recensioni della birra scelta dalla pagina Prodotti.\\
+La pagina \textit{dettagli} visualizza informazioni complete e recensioni della birra scelta dalla pagina \textit{prodotti}.\\
 Se l'utente ha effettuato l'accesso vengono visualizzati i controlli per aggiungere e rimuovere recensioni.
 
 \paragraph{Contatti}
@@ -42,8 +42,8 @@ La pagina \textit{contatti} contiene una breve descrizione dell'azienda ed il co
 La registrazione e l'accesso degli utenti viene gestita dalle pagine \textit{login} e \textit{registrazione} mentre \textit{dettagliaccount} e \textit{modificadati} permettono la visualizzazione e la modifica dei dati del proprio profilo.
 
 \paragraph{Avvisi}
-L'accesso ad aree vietate o contenuti non disponibili viene notificato dalle pagine \textit{accessdenied} e \textit{notfound} mentre il risultato di query viene visualizzato in sezioni della pagina dalla quale viene eseguita l'operazione.\\
-La pagina \textit{deleteaccount} avverte della corretta eliminazione dell'account e la pagina \textit{logout} si occupa di terminare la sessione dell'utente e reindirizza alla homepage.
+Il tentativo di accesso ad aree vietate o a contenuti non disponibili viene notificato dalle pagine \textit{accessdenied} e \textit{notfound} mentre il risultato di query viene visualizzato in sezioni della pagina dalla quale viene eseguita l'operazione.\\
+La pagina \textit{deleteaccount} avverte della corretta eliminazione dell'account e la pagina \textit{logout} si occupa di terminare la sessione e reindirizzare l'utente alla homepage.
 
 \subsection{Attori}
 Vengono di seguito elencati i possibili tipi di utenti che possono interagire con il sito.
@@ -53,17 +53,18 @@ Vengono di seguito elencati i possibili tipi di utenti che possono interagire co
 L'utente può accedere alla pagina di registrazione attraverso il link \textit{Registrati} nella pagina login, raggiungibile dal tasto account situato nell'header.
 Nelle pagine di dettagli delle birre saranno visualizzate le recensioni ma non ci sarà la possibilità di modificarle o aggiungerne di nuove;
 \item \textbf{Utente maggiorenne e loggato:} Gli utenti che hanno effettuato l'accesso possono visitare tutte le pagine del sito ed hanno la possibilità di aggiungere ed eliminare le proprie recensioni.
-Dal tasto account possono inoltre visualizzare e modificare i propri dati, effettuare il logout o eliminare l'account;
-\item \textbf{Utente amministratore:} Un utente amministratore ha accesso a tutte le pagine del sito e ha la possibilità di eliminare anche le recensioni degli altri utenti.
+Dalla pagina \textit{account} possono inoltre visualizzare e modificare i propri dati, effettuare il logout o eliminare l'account;
+\item \textbf{Utente amministratore:} Un utente amministratore ha accesso a tutte le pagine del sito ed ha la possibilità di eliminare anche le recensioni degli altri utenti.
 Un account deve essere eletto amministratore dagli operatori del database.
 \end{itemize}
 
+\newpage
 \subsection{Database}
 Il sito sfrutta un database molto semplice, composto da tre tabelle:
 \begin{itemize}
 \item \textbf{Utenti:} raccoglie i dati anagrafici e di accesso di tutti gli utenti registrati al sito. \'E stata implementato un campo \textit{admin\textunderscore flag} che viene posto a \textit{TRUE} nel caso in cui l'account sia amministratore; la chiave primaria é un id auto-incrementate e \textit{username} é chiave univoca, così da impedire la registrazione al sito di più utenti con lo stesso username. Abbiamo deciso di non memorizzare la data di nascita nel database in quanto un utente che visita il sito deve aver dichiarato precedentemente di essere maggiorenne, un campo \textit{data\textunderscore nascita} per gli utenti non verrebbe quindi utilizzato e risulterebbe superfluo;
 \item \textbf{Birre:} raccoglie i dati delle birre presenti nel sito. La chiave primaria é un id auto-incrementante, mentre il nome é chiave univoca, così da impedire l'inserimento di più birre con lo stesso nome;
-\item \textbf{Recensioni:} raccoglie le recensioni delle birre (testo e voto) lasciate dagli utenti. La chiave primaria é un id auto-incrementante, ed essendo l'unica chiave un utente quindi può lasciare più recensioni della stessa birra. Il campo \textit{utente} é chiave esterna riferita al campo \textit{id} della tabella \textit{Utenti} mentre il campo \textit{birra} é la chiave esterna riferita al campo \textit{id} della tabella \textit{Birre}.
+\item \textbf{Recensioni:} raccoglie le recensioni delle birre (testo e voto) lasciate dagli utenti. La chiave primaria é un id auto-incrementante, ed essendo l'unica chiave un utente può lasciare più recensioni della stessa birra. Il campo \textit{utente} é chiave esterna riferita al campo \textit{id} della tabella \textit{Utenti} mentre il campo \textit{birra} é la chiave esterna riferita al campo \textit{id} della tabella \textit{Birre}.
 \end{itemize}
 Il database é normalizzato.
 \begin{figure}[H]

@@ -1,32 +1,32 @@
 \section{Accessibilitá}
 
 \subsection{Controlli}
-I controlli sono correttamente assegnati ad una label e nelle form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
-Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icona degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
-I valori provenienti dai controlli prima di essere processati lato server vengono validati e sanitizzati.
+I controlli sono correttamente assegnati ad una label e all'interno di form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
+Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tasto tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icone degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
+I valori provenienti dai controlli, prima di essere processati lato server vengono validati e sanitizzati.
 
 \subsection{Tag vari}
-I tag di heading sono stati utilizzati seguendo la corretta gerarchia ed in modo coerentemente per segnalare titoli e contenuti delle sezioni.\\
-Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina e un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
-In aiuto ai sistemi di screen-reading sono inoltre segnalate le parole inglesi dagli attributi \textit{xml:lang} e \textit{lang} e le immagini principali sono dotate di un attributo \textit{alternative text} consono.
+I tag di heading sono stati utilizzati seguendo una corretta gerarchia ed in modo coerente per segnalare titoli e contenuti delle sezioni.\\
+Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina ed un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
+In aiuto ai sistemi di screen-reading sono inoltre segnalate le parole inglesi dagli attributi \textit{xml:lang} e \textit{lang}, le immagini principali sono dotate di un attributo \textit{alternative text} consono e i alcuni controlli marcati con l'attributo \textit{aria-label}.\\
+Tutti i tag sono chiusi in modo corretto ed ogni pagina è caratterizzata da una lista adeguata di keyword.
 
 \subsection{Validazioni}
 
 
 % ff extention WCAG Color Checker https://addons.mozilla.org/it/firefox/addon/wcag-contrast-checker
-\subsubsection{WCAG Color Checker\ap{1}}
-L'estensione per il browser Firefox non rileva problemi tra i colori scelti ed i livelli di contrasto.
+\subsubsection{WCAG Color Checker}
+L'estensione\ap{1} per il browser Firefox non rileva problemi tra i colori scelti ed i livelli di contrasto.
 
 % ff extention WAVE Evaluation Tool https://addons.mozilla.org/it/firefox/addon/wave-accessibility-tool/
-\subsubsection{WebAIM WAVE Tool\ap{2}}
-L'estensione per il browser Firefox valuta positivamente l'utilizzo dei tag, gerarchia degli heading e label dei controlli e non segnala problemi.
+\subsubsection{WebAIM WAVE Tool}
+L'estensione\ap{2} per il browser Firefox non segnala problemi e valuta positivamente l'utilizzo dei tag, gerarchia degli heading e label dei controlli.
 
 \subsubsection{Total Validator}
-Abbiamo validato tutte la pagine del sito attraverso l'estensione per browser di Total Validator\ap{4} e Total Validator Test\ap{3}. Abbiamo validato il codice sorgente generato da php di ogni pagina con standard XHTML5, cosí da poter utilizzare i tag piú recenti forniti da html5, mantenendo una struttura in stile xhtml. Con questo validatore abbiamo verificato pure che le pagine garantissero un'accessibilitá conforme agli standard WCAG21 AAA.
+Tutte la pagine del sito sono state alidate attraverso l'estensione per browser di Total Validator\ap{4} e Total Validator Test\ap{3}. Il codice sorgente generato da PHP di ogni pagina è stato validato con standard \textit{XHTML5}, cosí da poter utilizzare i tag piú recenti forniti da HTML5, mantenendo una struttura in stile XHTML. Inoltre è stato verificato che le pagine garantiscano un'accessibilitá conforme agli standard \textit{WCAG21 AAA}.
 \subsubsection{ChromeVox}
-È stata usata l'estensione ChromeVox di Google Chrome per testare il funzionamento dello screen reader. ChromeVox interpreta le pagine come gli altri screen reader ed è facile da usare per i sviluppatori ed ovviamente da chi ne ha bisogno. 
-/*ci sono dei problemi... 
-1. quando si va a inserire la data di nascita il cursore si mette al inizio della scritta cioè se inizio a scrivere 10 finisce come 01*/
+È stata usata l'estensione ChromeVox\ap{5} di Google Chrome per testare il funzionamento dello screen reader. ChromeVox interpreta le pagine come gli altri screen reader; è facile da usare e non ha rilevato problemi.
+
 
 \vfill
 \section*{Links}
