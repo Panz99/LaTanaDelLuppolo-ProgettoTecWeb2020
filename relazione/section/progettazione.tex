@@ -59,6 +59,28 @@ Un account deve essere eletto amministratore dagli operatori del database.
 \end{itemize}
 
 \newpage
+\subsection{Accessibilitá}
+Seguendo le linee guida per l'accessibilità del contenuto Web (WCAG 2.1), abbiamo modificato e aggiunto specifici elementi per rendere il nostro sito accessibile a tutti i nostri utenti, tra cui anche quelli che usano tecnologie assistive.   
+\subsubsection{Percepibile}
+\paragraph{Alternative testuali}
+Tutti i contenuti non testuali presentati all'utente hanno un'alternativa testuale equivalente.
+\paragraph{Adattabile}
+Per la strategia seguita (\textit{Responsive Web Design} il sito non perde informazioni o struttura quando viene visualizzato in dispositivi diversi.
+\paragraph{Distinguibile}
+L'uso dei colori non è stato fatto solamente per presentazione ma si usano colori specifici che rappresentano emozioni, come per esempio l'uso del verde quando un'azione esegue con successo e l'uso del rosso quando succede il contrario.
+La rappresentazione visiva del testo e immagini contenenti testo ha un rapporto di contrasto di almeno 7:1, che ci fa superare il test WCAG AAA.
+\subsubsection{Utilizzabile}
+I controlli sono correttamente assegnati ad una label e all'interno di form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
+Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tasto tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icone degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
+
+I tag di heading sono stati utilizzati seguendo una corretta gerarchia ed in modo coerente per segnalare titoli e contenuti delle sezioni.\\
+Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina ed un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
+\subsubsection{Comprensibile}
+In aiuto ai sistemi di screen-reading sono inoltre segnalate le parole inglesi dagli attributi \textit{xml:lang} e \textit{lang}, le immagini principali sono dotate di un attributo \textit{alternative text} consono e i alcuni controlli marcati con l'attributo \textit{aria-label}.\\
+I valori provenienti dai controlli, prima di essere processati lato server vengono validati e sanitizzati.
+\subsubsection{Robusto}
+Tutti i tag sono chiusi in modo corretto ed ogni pagina è caratterizzata da una lista adeguata di keyword.
+\newpage
 \subsection{Database}
 Il sito sfrutta un database molto semplice, composto da tre tabelle:
 \begin{itemize}
