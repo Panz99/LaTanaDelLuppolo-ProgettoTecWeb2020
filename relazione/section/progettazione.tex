@@ -1,18 +1,16 @@
 \section{Progettazione}
-E' stato scelto \textit{Responsive Web Design} come strategia di progettazione, il sito infatti é in grado di adattarsi graficamente in modo automatico in base al dispositivo con il quale viene visualizzato. \\
-Si è preferito usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA, discussa in seguito.
-
+E' stata scelta una strategia di progettazione \textit{Responsive Web Design}, il sito infatti é in grado di adattarsi graficamente in modo automatico in base al dispositivo con il quale viene visualizzato. \\
+Si è preferito usare  XHTML5  perché  ci  permette  di  usare  la  specifica  WAI-ARIA, discussa in seguito.\\
 Il progetto è stato affrontato con un approccio top-down, individuando elementi generici da implementare e procedendo quindi con lo sviluppo di pagine e funzioni.
-
 
 \subsection{Struttura delle pagine}
 Sono di seguito riportati i differenti elementi della struttura delle pagine del sito.
 \paragraph{Header}
-L' header contiene il logo ed il nome del sito, due pulsanti per visualizzare la barra di ricerca delle birre ed accedere al profilo personale oltre ad una barra di navigazione con i riferimenti alle principali pagine del sito.\\
-E' presente in tutte le pagine del sito.
+L' header contiene il logo ed il nome del sito, un pulsante per visualizzare la barra di ricerca, un pulsante per accedere al profilo personale ed una barra di navigazione con i riferimenti alle principali pagine del sito.\\
+\'E presente in tutte le pagine del sito.
 \paragraph{Breadcrumb}
-Sotto alla testata è situata la breadcrumb che permette all'utente di orientarsi visualizzando il percorso dalla homepage fino alla pagina corrente.\\
-La breadcrumb non è visibile nelle pagine di avviso di contenuto non trovato e accesso negato in quanto sono pagine di eccezione.
+Sotto alla testata è situata la breadcrumb, che permette all'utente di orientarsi visualizzando il percorso dalla homepage fino alla pagina corrente.\\
+La breadcrumb non è visibile nelle pagine di avviso di contenuto non trovato, di accesso negato e di conferma dell'eliminazione dell'account.
 \paragraph{Main}
 La sezione Main visualizza il contenuto principale e caratterizzante della pagina.
 \paragraph{Footer}
@@ -25,7 +23,7 @@ La verifica viene eseguita dalla pagina \textit{ageverification} stessa ed ogni 
 Di seguito si riportano le pagine del sito e le rispettive caratteristiche.
 
 \paragraph{Home}
-L'\textit{homepage} è la pagina che viene mostrata all'utente dopo la verifica dell'età e contiene una lista di birre in offerta o consigliate dall'amministrazione.
+L'\textit{homepage} è la pagina che viene mostrata all'utente dopo la verifica dell'età e contiene una lista di birre in offerta o consigliate dall'azienda.
 
 \paragraph{Prodotti}
 La pagina \textit{prodotti} visualizza tutte le birre disponibili nel database, suddivise in pagine.\\
@@ -59,7 +57,7 @@ Un account deve essere eletto amministratore dagli operatori del database.
 \end{itemize}
 
 \newpage
-\subsection{Accessibilitá}
+\subsection{Accessibilità}
 Seguendo le linee guida per l'accessibilità del contenuto Web (WCAG 2.1), abbiamo modificato e aggiunto specifici elementi per rendere il nostro sito accessibile a tutti i nostri utenti, tra cui anche quelli che usano tecnologie assistive.   
 \subsubsection{Percepibile}
 \paragraph{Alternative testuali}
@@ -72,7 +70,6 @@ La rappresentazione visiva del testo e immagini contenenti testo ha un rapporto 
 \subsubsection{Utilizzabile}
 I controlli sono correttamente assegnati ad una label e all'interno di form sono raggruppati da un tag \textit{fieldset}, descritto da un rispettivo tag \textit{legend}.\\
 Tramite l'attributo \textit{tabindex} l'ordine di focus tramite tasto tab viene corretto o nascosto ad alcuni elementi di presentazione, come ad esempio le icone degli utenti delle recensioni, che sono quindi marcate con il valore \textit{presentation} dell'attributo \textit{role}.\\
-
 I tag di heading sono stati utilizzati seguendo una corretta gerarchia ed in modo coerente per segnalare titoli e contenuti delle sezioni.\\
 Nel sito sono assenti link circolari e sono presenti un \textit{hidden link} utile allo screen reader per saltare al contenuto della pagina ed un \textit{back-to-top-button} per tornare all'inizio della pagina.\\
 \subsubsection{Comprensibile}

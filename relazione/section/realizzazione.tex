@@ -19,8 +19,8 @@ Infine è stato predisposto un foglio di stile per la stampa, dalla quale sono s
 
 \begin{figure}[H]
 	\centering
-	\caption{Il layout di stampa della pagina Prodotti}
 	\includegraphics[width=16cm]{utility/prodotti_printcss.png}
+	\caption{Il layout di stampa della pagina Prodotti}
 \end{figure}
 
 I colori dominanti del sito sono il grigio scuro ed un verde pistacchio per header, sfondi ed altri elementi di presentazione, mentre vengono utilizzati il nero, il verde ed il giallo per testi e link.\\
@@ -104,5 +104,4 @@ Abbiamo creato due classi con metodi statici, una per la costruzione dell'HTML e
 		\item \textit{command}: metodo utilizzato per inviare al database comandi (insert, update, delete, alter, drop, create), l'unico parametro accettato è il comando da inviare. Questo metodo apre la connessione al database utilizzando openDBConnection, invia il comando, nel caso di errori lancia diverse eccezioni ed infine chiude la connessione.
 	\end{itemize}
 \end{itemize}
-\paragraph{}
 Per ogni pagina del sito viene prelevata la struttura dal suo file HTML, controllata l'inizializzazione e la valorizzazione della variabile dell'età, successivamente viene controllata la variabile di sessione relativa all'account nel caso in cui quella determinata pagina abbia comportamenti diversi a seconda del tipo di utente che la visualizza. Nelle pagine raggiungibili da più fonti, viene verificata la pagina di provenienza dell'utente e quindi controllata la presenza di parametri \textit{GET} o \textit{POST} nella richiesta. Infine con una serie di \textit{str\textunderscore replace()} viene aggiornato lo scheletro della pagina inizialmente caricato con i vari metodi presenti in \textit{htmlMaker.php}; solo a questo punto la pagina è pronta per la visualizzazione.
