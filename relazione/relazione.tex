@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english,italian]{babel}%lingua
+\usepackage[margin=2cm]{geometry} %margini
+\usepackage{float} %float per immagini e tabelle
+\usepackage{graphicx} %figure
+\usepackage{longtable} %tabelle
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+\usepackage[table]{xcolor} %colori tabelle
+\usepackage{lastpage} %numero pagine
+\usepackage{fancyhdr} %stile template
+\usepackage{hyperref} %stile template
+\usepackage{xurl} %url a capo
+\usepackage{textcomp} %elenchi puntati carini
+%Colori definiti
+\definecolor{green}{HTML}{0a6b2a}
+\definecolor{grey}{HTML}{cccccc}
+%Righe per il template
+\pagestyle{fancy}
+\fancyhf{} %eliminare le cose già presenti nella pagina (numero)
+\rhead{\textbf{\leftmark}}
+\lfoot{\textit{La Tana del Luppolo}}
+\rfoot{\thepage\ / \pageref{LastPage}}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+
+\title{Progetto di Tecnologie Web}
+\author{}
+\date{Anno accademico 2020/2021}
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{utility/logo.png}
+\end{figure}
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\rowcolors{2}{grey}{white}
+	\begin{longtable}{c c c}
+		\rowcolor{green}\multicolumn{3}{c }{\textcolor{white}{\textbf{Componenti}}}\\
+		\endhead
+		 Ayoub & Maher & 1187406 \\
+		 Denisa & Hida & 1204284 \\
+		 Giacomo & Sassaro & 1187566 \\
+		 Gianpiero Giuseppe & Tovo & 1193350 \\
+	\end{longtable}
+\end{table}
+
+\begin{center}
+	\textbf{Indirizzo sito web}: http://tecweb.studenti.math.unipd.it/gsassaro\\
+	\textbf{Email referente del gruppo}: giacomo.sassaro@studenti.unipd.it
+\end{center}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{2}
+	\rowcolors{2}{grey}{white}
+	\begin{longtable}{c | c c}
+		\rowcolor{green}\textcolor{white}{\textbf{Utenti}} & \textcolor{white}{\textbf{Username}} & \textcolor{white}{\textbf{Password}}\\
+		\endhead
+		Admin & admin & admin\\
+		User & user  & user \\
+	\end{longtable}
+\end{table}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+\input{section/introduzione}
+\newpage
+\input{section/progettazione}
+\newpage
+\input{section/realizzazione}
+\newpage
+\input{section/test}
+\newpage
+\input{section/organizzazione}
+\newpage
+\input{section/note}
+\end{document}

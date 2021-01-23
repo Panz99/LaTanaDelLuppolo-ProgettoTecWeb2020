@@ -1,0 +1,34 @@
+\section{Note per l'utilizzo e l'installazione}
+\subsection{Installazione}
+I requisiti minimi per il corretto funzionamento del sito sono:
+\begin{itemize}
+\item \textbf{Server HTTP}, si consiglia APACHE;
+\item \textbf{PHP versione 7.0 o superiore};
+\item \textbf{DBMS compatibile}, si consiglia MariaDB;
+\end{itemize}
+\subsection{Credenziali}
+Come riportato nella tabella ad inizio pagina le credenziali per l'accesso al sito sono:
+\begin{itemize}
+\item \textbf{Amministratore}:
+	\begin{itemize}
+		\item Username: admin;
+		\item Password: admin.
+	\end{itemize}
+
+\item \textbf{Utente}:
+	\begin{itemize}
+		\item Username: user;
+		\item Password: user.
+	\end{itemize}
+\end{itemize}
+Nel sito sono registrati altri utenti, che sono stati utili per il debugging del sito, é comunque possibile registrare altri utenti attraverso la pagina di registrazione.
+\subsection{Popolamento}
+Sono state inserite nel sito un numero relativamente basso di birre, mentre le recensioni non hanno un senso in quanto generate randomicamente da un tool. Abbiamo deciso di non perdere troppo tempo nel popolamento del database in quanto il sito é utilizzato puramente a scopo didattico.
+\subsection{Connessione al database}
+Le credenziali per la connessione al database vanno modificate nel file \textit{dbConnetion.php} dentro la cartella PHP.
+\begin{itemize}
+\item \textbf{HOST\textunderscore DB}: indirizzo ip del DBMS;
+\item \textbf{USERNAME}: nome utente per l'accesso al DBMS;
+\item \textbf{PASSWORD}: password per l'accesso al DBMS;
+\item \textbf{DB\textunderscore NAME}: nome del database a cui si vuole collegarsi.
+\end{itemize}
