@@ -97,8 +97,6 @@ class htmlMaker{
                     </div>
                     <h2 id="recensioneheading">Recensioni</h2>';      
             //se l'utente è loggato aggiungi textbox per inserimento recensione
-            
-            //<input type="radio" id="rateradio0" name="rating" value="0"/><label for="rateradio0">0</label>&nbsp;
             $html.= isset($_SESSION['id']) ? 
                 '
                         <form action="dettagli.php?id=<beerid/>" method="post" id="revinsertform">   

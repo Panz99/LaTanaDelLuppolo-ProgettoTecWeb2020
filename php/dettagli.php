@@ -69,8 +69,6 @@
             $msg="NO";
             $error=$e->getMessage();
         }
-        //redirect to self per resettare parametri post, parametro msg=OK messaggio di successo, NO msg di fallimento
-        //header('Location: '.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']."&msg=".$msg);
     }   
 
     //preleva recensioni della birra

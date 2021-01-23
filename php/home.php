@@ -16,7 +16,6 @@
         $querySelect = "SELECT * FROM birre ORDER BY costo asc LIMIT 3";
         $offerte = DBAccess::query($querySelect);
     } catch (Exception $e) {
-        //Andrebbe lanciata una pagina con gli errori
         echo 'Caught exception: ', $e->getMessage(), "\n";
     }
     $path=[

@@ -1,10 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-/*:root {
-    --primary-color: #1c1c1c;
-
-}*/
-
-/*CSS RELATIVO AI TAG*/
 body{
     min-height: 100vh;
     margin: 0em auto;
@@ -13,7 +7,6 @@ body{
     display: flex;
     flex-direction: column;
 }
-
 nav{
 	flex:100%;
     text-align: center;
@@ -41,7 +34,6 @@ footer{
     width:100%;
     padding: 1em 0em;
     flex-shrink: 0;
-
     background-color: #222;
     color: #fff;
     font-size: 0.7em;
@@ -51,21 +43,17 @@ footer{
     align-items: center;
     justify-content: space-around;
 }
-
 button, input[type=submit] {
     margin-top: 1em;
 }
-
 form{
     margin: 1em;
 }
-
 fieldset{
     border: 0;
     margin: 0;
     padding: 0;
 }
-
 legend{
     font-size:1.1em;
     font-weight: bold;
@@ -80,30 +68,21 @@ header{
     background-color: #222;
     margin-bottom: 1.5em;
 }
-
-/*-------------------------------------------
------------CSS RELATIVO ALLE CLASSI----------
----------------------------------------------*/
-
 .emspan{
     font-style: italic;
 }
-
 .bspan{
     font-weight: bold;
 }
-
 .strongspan{
     font-weight: bolder;
 }
-
 .hiddenscreenreader{
     position: absolute; height: 0;
     overflow: hidden;
     color: white;
     background-color: transparent;
 }
-
 a.hiddenscreenreader{
     color:white;
     background-color: black;
@@ -116,15 +95,12 @@ a.hiddenscreenreader:hover{
     color: black;
     background-color: white;
 }
-
-
 .active{
     cursor: default !important;
     color:#92ff83  !important;
     pointer-events: none;
     text-decoration: none; 
 }
-
 .link{
     color:#fff;
     background-color: #222;
@@ -142,7 +118,6 @@ a.hiddenscreenreader:hover{
     display: inline-block;
     width: 100%;
 }
-
 .prodotto{
     height: 300px;
     width: 250px;
@@ -153,7 +128,6 @@ a.hiddenscreenreader:hover{
     color: #fff;
     background-color: #222;
 }
-
 .nome_prodotto{
     width: 100%;
     text-align: center;
@@ -178,19 +152,16 @@ a.hiddenscreenreader:hover{
     width: 100%;
     text-align: center;
 }
-
 .page-padding{
     padding: 0.5em 1em;
     width: auto;
     height: auto;
 }
-
 .page:hover{
     background-color: #fff;
     color: #222;
     cursor: pointer;
 }
-
 .recensioneitem{
     padding: 0.7em 0;
     display: flex;
@@ -198,7 +169,6 @@ a.hiddenscreenreader:hover{
     justify-content: center;
     align-items: center;
 }
-
 .recensionecontent{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -207,27 +177,20 @@ a.hiddenscreenreader:hover{
     padding: 0.8em;
     width: auto;
 }
-
 .revremoveform{
     margin: 1.8em 0 0 0;
     background-color: transparent;
 }
-
 .newline{
     margin: 0.2em 0 0.2em 0;
 }
-
-
 .material-icons.dark { color: #222; }
-
 .material-icons.darknohover { color: #222; }
-
 .material-icons.darknohover:hover { 
     color: #222;
     cursor: default;
     background-color: transparent;
  }
-
 .icon{
     display: flex;
     flex-direction: column;
@@ -235,31 +198,18 @@ a.hiddenscreenreader:hover{
     text-align: center;
     
  }
-
-
-
-/*-------------------------------------------
-------------CSS RELATIVO AGLI ID-------------
----------------------------------------------*/
-
-/*Header*/
 #container_header{
 	flex:75%;
 }
-
 #container_logo{
     display: inline-flex;
     text-decoration: none;
 	align-items: center;
 }
-
-
 #text_logo{
     font-size: 2.2em;
     color: #fff;
 }
-
-
 #img_logo{
     float: left;
     width: 60px;
@@ -272,7 +222,6 @@ a.hiddenscreenreader:hover{
     width: 100%;
     color: #D8FBD8;
 }
-/*Nav*/
 #list_link{
     width: 100%;
     list-style-type: none;
@@ -281,7 +230,6 @@ a.hiddenscreenreader:hover{
     padding: 0;
     margin: 0.5em 0em;
 }
-/*Breadcrumbs*/
 #breadcrumbs{
     width: 70%;
     height: 0.4em;
@@ -291,11 +239,9 @@ a.hiddenscreenreader:hover{
     font-weight: bold;
     font-size: 1.5em;
     padding: 0.8em 0.8em;
-
     display: flex;
     align-items: center;
     margin: auto;
-
 }
 .bc-item{
     display: inline-block;
@@ -305,11 +251,9 @@ a.hiddenscreenreader:hover{
     margin: 0 5px;
     color:#ccc;
 }
-
 .bc-link{
 	font-weight: 500;
 }
-
 #banner{
     width:50%;
     margin: auto;
@@ -319,18 +263,13 @@ a.hiddenscreenreader:hover{
     border-style: solid;
     border-radius: 0 0 5px 5px;
     font-size: 1.2em;
-
 }
 #banner>p{
     margin:0px 0px;
 }
-
-/*Main*/
 #content{
     margin-bottom: 2em;
 }
-
-/*Content prodotti.html*/
 #container_beers{
     margin-bottom: 2em;
     display: flex;
@@ -338,7 +277,6 @@ a.hiddenscreenreader:hover{
     align-content: flex-start;
     justify-content: center;
 }
-/*Content contatti.html*/
 #cardscontatti{
     display: flex;
     flex-flow: wrap;
@@ -355,7 +293,6 @@ a.hiddenscreenreader:hover{
     height: 240px;
     margin:2em 0;
 }
-
 #imgboiler{
     border: 1px solid #fff;
     border-radius: 5px;
@@ -364,24 +301,19 @@ a.hiddenscreenreader:hover{
     height: 270px;
     margin:2em 0;
 }
-
 #imgdettagli{
     width: 260px;
     height: auto;
 }
-
-/* dettagli.html */
 #detailscontainer{
     display: flex;
     flex-flow: wrap;
     justify-content: center;
 }
-
 #divimgbirra{
     float: left;
     margin: 1em;
 }
-
 #divdettagli{
     float: right;
     margin: 0em 2em;
@@ -391,7 +323,6 @@ a.hiddenscreenreader:hover{
     border-radius: 1em;
     font-size: 1.2em;
 }
-
 #descrizionebirra{
     margin-bottom: 3em;
 }
@@ -423,7 +354,6 @@ a.hiddenscreenreader:hover{
     border: none;
     margin: 0;
 }
-
 #msgsuccess{
     font-size: 2em;
     font-weight: bold;
@@ -432,7 +362,6 @@ a.hiddenscreenreader:hover{
     border-radius: 20px;
     margin: 0.5em auto;
     text-align: center;
-
 }
 #msgfail{
     font-size: 2em;
@@ -444,7 +373,6 @@ a.hiddenscreenreader:hover{
     margin: 0.5em auto;
     text-align: center;
 }
-
 #heading >h1{
     font-size:3em;
     border-bottom: #000 0.1em solid;
@@ -452,16 +380,10 @@ a.hiddenscreenreader:hover{
     margin: 0.5em auto;
     width: auto;
 }
-
-/* notfound.html */
-
 #diverror{
     margin-top: 5em;
     text-align: center;
 }
-
-
-/*Lista pagine prodotti.html*/
 #list_pages{
     padding: 0.5em 0.5em;
     font-weight: bold;
@@ -478,18 +400,16 @@ a.hiddenscreenreader:hover{
     font-weight: bold;
     padding: 0.5em 0.5em;
 }
-/*------------------------------------------------------------------------------------------*/
-/*style del AgeValiditation*/
- #AVp {
+#AVp{
     font-size: 1.5em;
     margin:0 auto;
     padding-bottom: 1em;
 }
-#AVh2 {
+#AVh2{
     font-size: 3em;
     margin-bottom:0;
 }
-.btn {
+.btn{
     border-style:solid;
     background-color: #222;
     border-color: #fff;
@@ -497,13 +417,11 @@ a.hiddenscreenreader:hover{
     font-size: 1.5em;
     padding: 0.5em 1.5em;
 }
-
 .btn:hover, .btn:focus {
     background-color: #fff;
     border-color: #222;
     color: #222;
 }
-
 .inputAge:hover{
     background-color: #DCDCDC;
     color: #333333;
@@ -511,8 +429,7 @@ a.hiddenscreenreader:hover{
 .inputAge{                                  
     min-width: 8em;
     margin: 0 1em;
-    padding: 1em 0.5em;
-    
+    padding: 1em 0.5em;   
 }
 #formAge{
     display: flex;
@@ -557,10 +474,8 @@ a.hiddenscreenreader:hover{
     display: block;
     word-wrap: break-word;
 }
-
-/* ------------------------------------------------------------------------------------------------------*/
 .material-icons {
-    font-size: 2em ;  /* Preferred icon size */
+    font-size: 2em ;
     padding: 0.4em;
     color: #fff;
 }
@@ -589,7 +504,6 @@ a.hiddenscreenreader:hover{
 #btnSearch{
     padding: 0.8em;
 }
-/*---------------------------------------------------------------------------------------------------*/
 #formRegister, #form-modifica-dati, #container_profilo{
     display: flex;
     flex-direction: column;
@@ -602,8 +516,6 @@ a.hiddenscreenreader:hover{
     justify-content: space-between;
     align-content: center;
 }
-/*-----------------------------------------------------------------------------------------------*/
-
 .hidden{
     display: none !important;
 }
@@ -657,7 +569,6 @@ a.hiddenscreenreader:hover{
     margin-top: 0.5em;
     margin-bottom: 1.5em;
 }
-/*------------------------------------------------------*/
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     main{
         display:block;

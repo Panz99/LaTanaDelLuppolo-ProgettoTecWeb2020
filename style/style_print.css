@@ -1,5 +1,4 @@
 
-/* ---- tutte le pagine ---- */
 html{
     font-size: 14pt;
     font-family: "Times New Roman", Times, serif;
@@ -40,8 +39,6 @@ body, a{
 .dataRow{
     padding: 0.2em;
 }
-
-/* dettagli.php */
 .recensioneitem, #formElimina{
     padding-top: 0.7em;
     padding-bottom: 1em;
@@ -53,8 +50,6 @@ body, a{
     border: 1px solid black;
     width: 35%;
 }
-
-/* prodotti.php */
 ul>li>a[class="page-padding active fillParent"]::before{
     content: "Pagina numero: ";
 }
@@ -66,7 +61,6 @@ ul {
     margin: 0;
     padding: 0;
 }
-
 #dettagli>dd{
     margin-top:20px;
     margin-left:120px;
