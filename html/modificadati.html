@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head/>
+    <body onresize="checkWidth()" onload="checkWidth()">
+        <header/>
+        <bc/>
+        <main id="main">
+            <heading/>
+            <p class="infoP">Se non si vuole modificare un certo dato, lasciare vuoto il campo</p>
+            
+            <form action="<root/>php/modificadati.php" onsubmit="return checkModificadati();" method="post">
+                <fieldset id="form-modifica-dati">
+                    <legend>Inserisci i nuovi valori per i dati da modificare</legend>
+                    <div class="dataRow dataRegister">
+                        <label for="txtUsername" class="form-label" xml:lang="en">Username</label>
+                        <input id="txtUsername" class="inputAge" name="new-username" type="text" placeholder="Nuovo Username"/>
+                    </div>
+                    <span id="usernameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtName" class="form-label">Nome</label>
+                        <input id="txtName" class="inputAge" name="new-name" type="text" placeholder="Nuovo Nome"/>
+                    </div>
+                    <span id="nameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtSurname" class="form-label">Cognome</label>
+                        <input id="txtSurname" class="inputAge" name="new-surname" type="text" placeholder="Nuovo Cognome"/>
+                    </div>
+                    <span id="surnameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtEmail" class="form-label" xml:lang="en">E-mail</label>
+                        <input id="txtEmail" class="inputAge" name="new-email" type="email" placeholder="Nuova Email"/>
+                    </div>
+                    <span id="emailError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtPassword"class="form-label" xml:lang="en">Nuova Password</label>
+                        <input id="txtPassword" class="inputAge" name="new-password" type="text" placeholder="Cambia password"/>
+                    </div>
+                    <span id="passwordError"class="msgError msgErrorWrap"></span>
+                    </fieldset>
+                    <h2>Per confermare le modifiche inserire la propria <span xml:lang="en">password</span> attuale</h2>
+                    <div id="divConferma">
+                        <label for="txtConfirmPassword" class="form-label" xml:lang="en">Password</label>
+                        <input id="txtConfirmPassword" type="password" class="inputAge" name="txtConfirmPassword" placeholder="Inserisci password" required="required"/>
+                        <input id="btnInvia" class="btn" type="submit" value="Invia"/>
+                    </div>
+                    <error/>
+            </form>
+            <a class="link ritorna" href="<root/>php/login.php">Torna indietro</a>
+        </main>
+        <tornasu/>
+        <footer/>
+    </body>
+</html>

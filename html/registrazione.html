@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head/>
+    <body onresize="checkWidth()" onload="checkWidth()">
+        <header/>
+        <bc/>
+        <main  id="main">
+            <heading/>
+            <form action="<root/>php/registrazione.php" onsubmit="return checkRegistrazione();" method="post">
+                <fieldset id="formRegister">
+                    <legend>Inserisci i tuoi dati</legend>
+                    <div class="dataRow dataRegister">
+                        <label for="txtName" class="form-label">Nome *</label>
+                        <input class="inputAge" id="txtName" type="text" name="txtName" placeholder="Inserisci nome" required="required"/>
+                    </div>
+                    <span id="nameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtSurname" class="form-label">Cognome *</label>
+                        <input class="inputAge" id="txtSurname" type="text" name="txtSurname" placeholder="Inserisci cognome" required="required"/>
+                    </div>
+                    <span id="surnameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtUsername" xml:lang="en" lang="en" class="form-label" >Username *</label>
+                        <input class="inputAge" id="txtUsername" type="text" name="txtUsername" placeholder="Inserisci username" required="required"/>
+                    </div>
+                    <span id="usernameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtEmail" xml:lang="en" lang="en" class="form-label">E-mail *</label>
+                        <input class="inputAge" id="txtEmail" type="email" name="txtEmail" placeholder="Inserisci e-mail" required="required"/>
+                    </div>
+                    <span id="emailError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataRegister">
+                        <label for="txtPassword" xml:lang="en" lang="en" class="form-label">Password *</label>
+                        <input class="inputAge" id="txtPassword" type="text" name="txtPassword" placeholder="Inserisci password" required="required"/>
+                    </div>
+                    <span id="passwordError" class="msgError msgErrorWrap"></span>
+                    <p>I campi contrassegnati da (*) sono obbligatori</p>
+                    <error/>
+                    <input class="btn" type="submit" name="registrati" value="Registrati"/>
+                </fieldset>
+            </form>
+            <p>Possiedi giá un <span xml:lang="en">account</span>? <a href="login.php" class="link">Accedi</a></p>
+        </main>
+        <tornasu/>
+        <footer/>
+    </body>
+</html>
+

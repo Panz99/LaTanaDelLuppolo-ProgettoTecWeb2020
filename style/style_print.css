@@ -1,0 +1,72 @@
+
+html{
+    font-size: 14pt;
+    font-family: "Times New Roman", Times, serif;
+}
+.hiddenscreenreader, #container_icons, nav, footer, .tornaSu, #recensionecreate, .revremoveform, .material-icons {
+    display: none;
+}
+#container_beers{
+    display: flex;
+    flex-wrap: wrap;
+}
+body, a{
+    color:black;
+}
+#imgboiler, #imgdettagli{
+    height: 250px;
+}
+.img_prodotto{
+    height: 125px;
+}
+#breadcrumbs::before{
+    content: "Ti trovi in: ";
+}
+.bc-item{
+    display: inline-block;
+}
+.bc-item:not(:last-of-type)::after{
+    content:'>';
+    margin: 0 5px;
+}
+#container_logo{
+    display: inline-flex;
+}
+#img_logo {
+    height: 5em;
+    width: 5em;
+}
+.dataRow{
+    padding: 0.2em;
+}
+.recensioneitem, #formElimina{
+    padding-top: 0.7em;
+    padding-bottom: 1em;
+    border-bottom: black 0.1em solid;
+}
+.prodotto{
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid black;
+    width: 35%;
+}
+ul>li>a[class="page-padding active fillParent"]::before{
+    content: "Pagina numero: ";
+}
+#list_pages>li>a:not(.active){
+    display: none;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#dettagli>dd{
+    margin-top:20px;
+    margin-left:120px;
+    border-bottom: black 0.1em solid;
+}
+#dettagli>dt{
+    font-weight: bold;
+}
+

@@ -1,0 +1,143 @@
+@media screen and (max-width: 430px){
+#text_logo{
+    font-size: 1.8em;;
+}
+}
+#text_logo{
+    font-size: 1.8em;
+    margin: auto 0;
+}
+#container_logo{
+    width: 80%;
+}
+header{
+    height: 80px;
+}
+main{
+    width: 90%;
+}
+header nav ul{
+    flex-direction: column;
+}
+.prodotto{
+    width:100%;
+    max-width: 400px;
+}
+#heading > h1{
+    font-size: 2em;
+}
+h2, #AVh2{
+    font-size: 1.5em;
+}
+#AVp, .form-label, legend, .btn, .msgError, #msgsuccess, #msgfail, #divdettagli{
+    font-size: 1em;
+}
+#msgsuccess, #msgfail, #divdettagli{
+    width: 90%;
+}
+#formElimina, #divConferma{
+    gap: 0.5em;
+}
+.msgErrorWrap{
+    width: auto;
+}
+#imgdettagli{
+    width: 130px;
+}
+#container_header{
+    flex-wrap: wrap;
+}
+#breadcrumbs{
+    width: 80%;
+    height: auto;
+    font-size: 1em;
+    padding:0.5em 0.5em;
+}
+form, #divdettagli, .link_prodotto{
+    margin: 0;
+}
+#container_delete{
+    padding-bottom: 1em;
+}
+#txtaccountdelete{
+	margin-top: 1em;
+}
+#dettagli {
+    font-size: 0.7em;
+    margin-left: 0;
+}
+#container_profilo>p{
+    font-size: 1em;
+}
+#dettagli{
+    padding: 0;
+}
+#menu-btn{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    z-index: 2;
+    top:0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#menu-burger{
+    width:50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#menu-burger::after, #menu-burger::before{
+    content:"";
+    position:absolute;
+    width:50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#menu-burger::after{
+    transform: translateY(16px);
+
+} #menu-burger::before{
+   transform: translateY(-16px);
+}
+#menu-btn.open{
+    position:fixed;
+}
+#menu-btn.open #menu-burger{
+    transform: translateX(-50px);
+    background-color: transparent;
+}
+#menu-btn.open #menu-burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+#menu-btn.open #menu-burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+#searchbar, nav{
+    background-color: #222;
+}
+#sidebar{
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    right:0;
+    overflow-x: hidden;
+    background-color: #222;
+}
+
+#imgValidCode, #imgValidCss{
+    margin: 0 1em;
+}
+#content{
+    max-width: 100%;
+}
+#banner{
+    width:65%;
+}

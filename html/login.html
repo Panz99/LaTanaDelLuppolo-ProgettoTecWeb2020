@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+    <head/>
+    <body onresize="checkWidth()" onload="checkWidth()">
+        <header/>
+        <bc/>
+        <main id="main">
+            <heading/>
+            <form action="<root/>php/login.php" method="post">
+                <fieldset id="formLogin">
+                    <legend>Inserisci le tue credenziali</legend>
+                    <div class="dataRow dataLogin">
+                        <p><label for="txtUsername" class="form-label" xml:lang="en" lang="en">Username</label></p>
+                        <input class="inputAge" type="text" id="txtUsername" name="txtUsername" placeholder="Inserisci username" required="required"/> 
+                    </div>    
+                    <span id="usernameError"class="msgError msgErrorWrap"></span>
+                    <div class="dataRow dataLogin">
+                        <p><label for="txtPassword" class="form-label" xml:lang="en" lang="en">Password</label></p>
+                        <input class="inputAge" type="password" id="txtPassword" name="txtPassword" placeholder="Inserisci password" required="required"/>
+                    </div>
+                    <span id="passwordError"class="msgError msgErrorWrap"></span>
+                    <p class='msgError'></p>
+                    <input type="submit" class="btn" value="Accedi"/>
+                </fieldset>
+            </form>
+            <div class="dataColumn">
+                <p>Vuoi creare un nuovo <span xml:lang="en">account</span>? <a href="registrazione.php" class="link">Registrati</a></p>
+            </div>               
+        </main>
+        <tornasu/>
+        <footer/>
+    </body>
+</html>
+
